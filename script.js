@@ -1,16 +1,11 @@
-
-
 const divs = document.querySelectorAll('main > div');
 
 const blocks = [];
-
 const SIZE = 3;
+let blankId = SIZE * SIZE;
 
 const randomNum = (n) => Math.floor(Math.random() * n);
-
 const currentNums = Array.from(Array(SIZE * SIZE).keys());
-
-let blankId = SIZE * SIZE;
 
 divs.forEach((div, index) => {
   const rand = randomNum(currentNums.length);
