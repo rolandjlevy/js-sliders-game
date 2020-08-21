@@ -7,8 +7,8 @@ main {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 150px;
-  height: 150px;
+  width: 156px;
+  height: 156px;
 }
 
 main > div {
@@ -18,13 +18,18 @@ main > div {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ddd;
+  color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  opacity: 0.9;
+}
+
+main > div:hover {
+  opacity: 1;
 }
 
 .blank {
   background: #fff;
-  color: #ddd;
 }
