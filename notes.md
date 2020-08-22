@@ -26,3 +26,6 @@ function shuffle(array, prop) {
 ```js
 Array.from(Array(10).keys())
 ```
+
+### Links
+- [Javascript event handler with parameters](https://stackoverflow.com/questions/10000083/javascript-event-handler-with-parameters)
