@@ -25,7 +25,7 @@ divs.forEach((div, index) => {
   const currentNum = getCurrentNum();
   div.id = index + 1;
   div.textContent = Number(currentNum) + 1;
-  div.addEventListener('click', slide);
+  div.addEventListener('click', swap);
   const obj = {
     x: (index % SIZE) + 1,
     y: Math.floor(index / SIZE) + 1,
@@ -41,7 +41,7 @@ divs.forEach((div, index) => {
   blocks.push(obj);
 });
 
-function slide(e) {
+function swap(e) {
   const id = e.target.id;
   const bl = blocks.find(item => item.blank);
   const cr = blocks.find(item => item.div.id == id);

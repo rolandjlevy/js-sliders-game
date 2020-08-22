@@ -40,7 +40,8 @@ main > div {
 }
 
 main > div:active:not(.blank) {
-  background: linear-gradient(45deg, #808aff 10%, #e63365 90%);
+  /* background: linear-gradient(45deg, #808aff 10%, #e63365 90%); */
+  background: linear-gradient(45deg, #e63365 0%, #808aff 70%);
 }
 
 main > div:hover {
