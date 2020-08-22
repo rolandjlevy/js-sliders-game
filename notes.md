@@ -1,6 +1,6 @@
 ### Improvements
 
-- dynamically generate blocks
+- dynamically generate blocks based on dropdown showing 2x2, 3x3 etc
 - change everything to oop
 - sort out scoring: do a check for success
 - create another grid that shows status or change colour of each block to show status
