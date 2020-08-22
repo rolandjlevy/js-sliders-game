@@ -26,27 +26,27 @@ main.show {
 main > div {
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
-  background: linear-gradient(45deg, #e63365 10%, #808aff 90%);
+  /* background: linear-gradient(45deg, #e63365 10%, #ae00d1 50%, #808aff 90%); */
+  background: linear-gradient(45deg, #676768 10%, #b9b9b9 50%, #f1f1f1 90%);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
   border: calc(var(--border-size) * 1px) solid #000;
-  opacity: 0.9;
+  opacity: 0.8;
   font-size: 1.75rem;
   font-weight: bold;
   color: #fff;
   font-family: 'Open Sans', sans-serif;
 }
 
-main > div:active:not(.blank) {
-  /* background: linear-gradient(45deg, #808aff 10%, #e63365 90%); */
-  background: linear-gradient(45deg, #e63365cc 10%, #808affcc 90%);
+main > div:active:not(.blank):not(.correct) {
+  background: linear-gradient(45deg, #d4d4d4 10%,#b9b9b9 70%, #676768 100%);
 }
 
 main > div:hover {
-  opacity: 1;
+  opacity: 0.9;
 }
 
 .blank {
@@ -54,7 +54,9 @@ main > div:hover {
 }
 
 .correct {
-  background: blue;
+  /* background: linear-gradient(45deg, #ff6490 10%, #df3fff 50%, #939cff 90%); */
+  background: linear-gradient(45deg, #00be9e 10%, #5de701 50%, #e2ff93 90%);
+  opacity: 1;
 }
 
 .display {
