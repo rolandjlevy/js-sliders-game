@@ -1,8 +1,14 @@
-const SIZE = 3;
-const grid = new Grid(SIZE);
-const score = new Score(100);
-let blocks = new Blocks(SIZE, score);
 
-function refresh() {
-  // blocks = new Blocks(5, score);
+let size = 3;
+
+function refresh(elem) {
+  if (elem) {
+    const index = elem.selectedIndex;
+    size = elem.options[index].value;
+  }
+  const grid = new Grid(size);
+  const score = new Score(100);
+  const blocks = new Blocks(size, score);
 }
+
+refresh();

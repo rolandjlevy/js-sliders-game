@@ -4,6 +4,7 @@ class Grid {
     const main = document.querySelector('main');
     const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
     const borderSize = getComputedStyle(body).getPropertyValue('--border-size');
+    main.classList.remove('show');
     main.classList.add('show');
     const wh = size * blockSize + size * borderSize * 2;
     main.style.width = `${wh}px`;

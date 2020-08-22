@@ -4,9 +4,19 @@ class Blocks {
     this.score = score;
     this.blocks = [];
     this.blankId = this.size * this.size;
-    this.divs = document.querySelectorAll('main > div');
     this.currentNums = Array.from(Array(this.size * this.size).keys());
+    this.createDivs();
     this.init();
+  }
+  createDivs() {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+    let counter = 0;
+    while (counter++ < this.size * this.size) {
+      const div = document.createElement('div');
+      main.appendChild(div);
+    }
+    this.divs = document.querySelectorAll('main > div');
   }
   init() {
     this.divs.forEach((div, index) => {

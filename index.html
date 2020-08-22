@@ -8,18 +8,15 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <main>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </main>
+    <select onchange="refresh(this)">
+      <option value="2">2 x 2</option>
+      <option value="3" selected>3 x 3</option>
+      <option value="4">4 x 4</option>
+      <option value="5">5 x 5</option>
+      <option value="6">6 x 6</option>
+    </select>
     <div class="display"></div>
+    <main></main>
     <!-- <button onclick="refresh()">Refresh</button> -->
     <script src="src/Grid.js"></script>
     <script src="src/Score.js"></script>
