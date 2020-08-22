@@ -1,3 +1,11 @@
+### Improvements
+
+- dynamically generate blocks
+- change everything to oop
+- sort out scoring: do a check for success
+- create another grid that shows status or change colour of each block to show status
+- use firebase to store scores
+
 ### nice shuffle function
 
 - https://javascript.info/task/shuffle

@@ -1,15 +1,28 @@
-const divs = document.querySelectorAll('main > div');
-
 const blocks = [];
 const SIZE = 3;
+let moves = 100;
 let blankId = SIZE * SIZE;
 
-const randomNum = (n) => Math.floor(Math.random() * n);
+const body = document.querySelector('body');
+const main = document.querySelector('main');
+const divs = document.querySelectorAll('main > div');
+const display = document.querySelector('.display');
+
+const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
+
+display.textContent = moves;
+main.classList.add('show');
+main.style.width = `${SIZE * blockSize + SIZE * 2}px`;
+main.style.height = `${SIZE * blockSize + SIZE * 2}px`;
+
 const currentNums = Array.from(Array(SIZE * SIZE).keys());
+const getCurrentNum = () => {
+  const rand = Math.floor(Math.random() * currentNums.length);
+  return currentNums.splice(rand, 1);
+}
 
 divs.forEach((div, index) => {
-  const rand = randomNum(currentNums.length);
-  const currentNum = currentNums.splice(rand, 1);
+  const currentNum = getCurrentNum();
   div.id = index + 1;
   div.textContent = Number(currentNum) + 1;
   div.addEventListener('click', slide);
@@ -37,6 +50,8 @@ function slide(e) {
       cr.x - 1 == bl.x && cr.y == bl.y || 
       cr.y + 1 == bl.y && cr.x == bl.x || 
       cr.y - 1 == bl.y && cr.x == bl.x) {
+        
+    display.textContent = --moves;
 
     cr.div.textContent = '';
     cr.div.classList.toggle('blank');
@@ -47,6 +62,11 @@ function slide(e) {
     bl.blank = false;
 
     bl.currentNum = cr.currentNum;
-    
+
+    if (bl.currentNum == bl.div.id) {
+      console.log('correct');
+      // bl.div.classList.add('correct');
+    }
+    // console.log('bl.currentNum', bl.currentNum, 'bl.div.id', bl.div.id)
   }
 }
