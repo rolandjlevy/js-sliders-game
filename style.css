@@ -1,5 +1,6 @@
 :root {
-  --block-size: 50;
+  --block-size: 75;
+  --border-size: 2;
 }
 
 body {
@@ -29,19 +30,19 @@ main > div {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
-  border: 1px solid #000;
+  border: calc(var(--border-size) * 1px) solid #000;
   opacity: 0.9;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #fff;
   font-family: 'Open Sans', sans-serif;
 }
 
 main > div:active:not(.blank) {
   /* background: linear-gradient(45deg, #808aff 10%, #e63365 90%); */
-  background: linear-gradient(45deg, #e63365 0%, #808aff 70%);
+  background: linear-gradient(45deg, #e63365cc 10%, #808affcc 90%);
 }
 
 main > div:hover {
