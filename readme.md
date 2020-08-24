@@ -9,4 +9,10 @@
 
 ### Features
 - mobile friendly
-- 
+
+### Links
+
+- [Live demo](https://js-sliders-game.rjlevy.repl.co/)
+- [Source code](https://repl.it/@rjlevy/js-sliders-game)
+- [Github repo](https://github.com/rolandjlevy/js-sliders-game)
+
