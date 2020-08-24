@@ -23,6 +23,6 @@ class Game {
   }
   getCurrentNum() {
     const rand = Math.floor(Math.random() * this.currentNums.length);
-    return this.currentNums.splice(rand, 1);
+    return this.currentNums.splice(rand, 1).shift();
   }
 }

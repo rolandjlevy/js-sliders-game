@@ -19,7 +19,7 @@ class Block {
       this.div.classList.toggle('correct');
     }
   }
-  addSwapEvent(div, blocks, score) {
+  addSwapEvent(div, blocks, score, winningNums) {
     div.addEventListener('click', (e) => {
       const id = e.target.id;
       const bl = blocks.find(item => item.blank);
@@ -37,6 +37,11 @@ class Block {
           bl.div.classList.add('correct');
         }
         score.update();
+        // const won = blocks.every((item, index) => {
+        //   console.log(item.currentNum, winningNums[index])
+        //   return item.currentNum == winningNums[index];
+        // });
+        // console.log({won})
       }
     }, false);
   }

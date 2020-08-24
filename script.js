@@ -12,13 +12,13 @@ function startGame(size) {
   const blocks = [];
   game.divs.forEach((div, index) => {
     const obj = new Block({index, size, div, currentNum:game.getCurrentNum()});
-    obj.addSwapEvent(div, blocks, score);
+    obj.addSwapEvent(div, blocks, score, game.winningNums);
     blocks.push(obj);
   });
 }
 
 function selectGameSize(elem) {
-  let size = 3;
+  let size = 2;
   if (elem) {
     const index = elem.selectedIndex;
     size = elem.options[index].value;
