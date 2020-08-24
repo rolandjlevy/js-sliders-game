@@ -1,12 +1,27 @@
 :root {
   --block-size: 75;
-  --border-size: 2;
+  --border-size: 3;
+  --board-colour: #000;
 }
 
 body {
   margin: 30px;
   background: #000;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
 main {
@@ -16,6 +31,9 @@ main {
   flex-wrap: wrap;
   opacity: 0;
   transition: opacity 1s ease;
+  background: var(--board-colour);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 main.show {
@@ -24,28 +42,28 @@ main.show {
 }
 
 main > div {
-  width: calc(var(--block-size) * 1px);
-  height: calc(var(--block-size) * 1px);
-  background: linear-gradient(45deg, #666666 10%, #b9b9b9 50%, #f1f1f1 90%);
   display: flex;
   align-items: center;
   justify-content: center;
+  width: calc(var(--block-size) * 1px);
+  height: calc(var(--block-size) * 1px);
+  background: linear-gradient(45deg, #666666 0%, #b9b9b9 50%, #f1f1f1 100%);
+  border: calc(var(--border-size) * 1px) solid var(--board-colour);
   cursor: pointer;
   border-radius: 10px;
-  border: calc(var(--border-size) * 1px) solid #000;
   opacity: 0.8;
   font-size: 1.75rem;
   font-weight: bold;
-  color: #fff;
-  font-family: 'Open Sans', sans-serif;
   user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
+  transition: all 0.2s ease;
 }
 
 main > div:active:not(.blank):not(.correct) {
-  background: linear-gradient(45deg, #d4d4d4 10%,#b9b9b9 50%, #666666 100%);
+  background: linear-gradient(45deg, #d4d4d4 0%,#b9b9b9 50%, #666666 100%);
+  transition: all 0.2s ease;
 }
 
 main > div:hover {
@@ -53,14 +71,26 @@ main > div:hover {
 }
 
 .blank {
-  background: #000;
+  background: var(--board-colour);
 }
 
 .correct {
-  background: linear-gradient(45deg, #019e77 10%, #79e400 50%, #e2ff93 90%);
+  background: linear-gradient(45deg, #019e77 0%, #79e400 50%, #e2ff93 100%);
+  transition: all 0.2s ease;
   opacity: 1;
 }
 
-.display {
+.correct:active {
+  background: linear-gradient(45deg, #e2ff93 0%, #79e400 50%, #019e77 100%);
+  transition: all 0.2s ease;
+}
+
+.score-display {
   color: #fff;
+}
+
+select {
+  background-color: #333;
+  color: #fff;
+  padding: 3px 6px;
 }

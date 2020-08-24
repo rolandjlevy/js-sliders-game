@@ -1,14 +1,29 @@
+const maxScore = 100;
+const main = document.querySelector('main');
+const body = document.querySelector('body');
+const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
+const borderSize = getComputedStyle(body).getPropertyValue('--border-size');
 
-let size = 3;
+function startGame(size) {
+  const score = new Score(maxScore);
+  const game = new Game(size, main);
+  game.createGrid(blockSize, borderSize);
+  game.createDivs();
+  const blocks = [];
+  game.divs.forEach((div, index) => {
+    const obj = new Block({index, size, div, currentNum:game.getCurrentNum()});
+    obj.addSwapEvent(div, blocks, score);
+    blocks.push(obj);
+  });
+}
 
-function refresh(elem) {
+function selectGameSize(elem) {
+  let size = 3;
   if (elem) {
     const index = elem.selectedIndex;
     size = elem.options[index].value;
   }
-  const grid = new Grid(size);
-  const score = new Score(100);
-  const blocks = new Blocks(size, score);
+  startGame(size);
 }
 
-refresh();
+selectGameSize();
