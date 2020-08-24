@@ -38,9 +38,7 @@ class Block {
           bl.div.classList.add('correct');
         }
         cr.currentNum = blankCurrentNum;
-        score.update();
-        const winStatus = blocks.every((item, index) => item.currentNum == item.div.id);
-        score.checkForWin(winStatus);
+        score.update(blocks);
       }
     }, false);
   }

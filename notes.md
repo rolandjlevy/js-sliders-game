@@ -33,3 +33,14 @@ Array.from(Array(10).keys())
 
 ### Links
 - [Javascript event handler with parameters](https://stackoverflow.com/questions/10000083/javascript-event-handler-with-parameters)
+
+### Resources
+
+**Tutorial 1**
+- https://blog.repl.it/firebase
+- Find: Add Firebase to your web app from Project settings cog > General > Add app
+- https://repl.it/@Jp2323/firebase#main.js
+
+**Tutorial 2**
+- https://codepen.io/k3no/post/getting-started-with-firebase
+- https://medium.com/@collardeau/es6-promises-with-firebase-76606f36c80c

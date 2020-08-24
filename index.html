@@ -22,14 +22,29 @@
       </section>
       <section>Score: <span class="score-display"></span></section>
       <main></main>
-      <button class="btn" onclick="selectGameSize()">New game</button>
+      <section><button class="btn" onclick="selectGameSize()">New game</button></section>
       <section class="m-t-20"><span class="win-display m-t-10"></span></section>
-    <article>
+      
+      <section class="m-t-20">
+        <form id="guestbook">
+          <p><span>Name </span><input type="text" id="name"></p>
+          <p><span>Comment</span></p>
+          <p><textarea id="comment"></textarea></p>
+          <p><button id="submit-button" type="submit">Submit</button></p>
+        </form>
+        <h2>Scores Table</h2>
+        <div id="comments"></div>
+      </section>
+    </article>
 
-    <script src="src/Score.js"></script>
     <script src="src/Block.js"></script>
     <script src="src/Game.js"></script>
+    <script src="src/Score.js"></script>
     <script src="script.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
+    <script src="src/scores.js"></script>
 
   </body>
 </html>

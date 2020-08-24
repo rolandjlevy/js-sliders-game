@@ -8,10 +8,9 @@ class Score {
     this.winDisplay = document.querySelector('.win-display');
     this.winDisplay.textContent = '';
   }
-  update() {
+  update(blocks) {
     this.scoreDisplay.textContent = --this.moves;
-  }
-  checkForWin(winStatus) {
+    const winStatus = blocks.every((item, index) => item.currentNum == item.div.id);
     if (winStatus == true) {
       this.winDisplay.textContent = `Well done!, you won in ${this.startingScore - this.moves} moves, with a score of ${this.moves}`;
     }
