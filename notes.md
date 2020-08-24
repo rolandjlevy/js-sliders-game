@@ -1,6 +1,7 @@
 ### Improvements
 
-- sort out scoring: do a check for success
+- create a Game object which is the parent object for Grid and Blocks
+- sort out scoring: do a check for win
 - improve layout and styling
 - use firebase to store scores
 

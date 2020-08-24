@@ -38,6 +38,10 @@ main > div {
   font-weight: bold;
   color: #fff;
   font-family: 'Open Sans', sans-serif;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
 }
 
 main > div:active:not(.blank):not(.correct) {
