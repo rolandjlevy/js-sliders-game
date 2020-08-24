@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Sliders puzzle</title>
+    <title>Sliders game</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     
     <article>
-      <h3 class="m-b-10">Sliders puzzle</h3>
+      <h3 class="m-b-10">Sliders game</h3>
       <section class="m-t-10">Game size: 
         <select class="game-size" onchange="selectGameSize()">
           <option value="2" selected>2 x 2</option>
@@ -22,8 +22,8 @@
       </section>
       <section>Score: <span class="score-display"></span></section>
       <main></main>
-      <section><span class="win-display m-t-10"></span></section>
-      <button class="btn m-t-10" onclick="selectGameSize()">New game</button>
+      <button class="btn" onclick="selectGameSize()">New game</button>
+      <section class="m-t-20"><span class="win-display m-t-10"></span></section>
     <article>
 
     <script src="src/Score.js"></script>

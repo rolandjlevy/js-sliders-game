@@ -1,4 +1,4 @@
-# Sliders puzzle
+# Sliders game
 
 ### Instructions
 - Select the size of your grid

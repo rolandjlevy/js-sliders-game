@@ -5,6 +5,9 @@
   --green-light: #e2ff93;
   --green-mid: #79e400;
   --green-dark: #019e77;
+  --grey-light: #f1f1f1;
+  --grey-mid: #b9b9b9;
+  --grey-dark: #666666;
 }
 
 body {
@@ -19,7 +22,7 @@ body {
 h3 {
   font-size: 3rem;
   letter-spacing: -1px;
-  line-height: 1;
+  line-height: 1.5;
   margin: 0;
   background: linear-gradient(0deg, var(--green-dark), var(--green-mid), var(--green-light));
   background-clip: text;
@@ -60,7 +63,7 @@ main > div {
   justify-content: center;
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
-  background: linear-gradient(45deg, #666666 0%, #b9b9b9 50%, #f1f1f1 100%);
+  background: linear-gradient(45deg, var(--grey-dark) 0%, var(--grey-mid) 50%, var(--grey-light) 100%);
   border: calc(var(--border-size) * 1px) solid var(--board-colour);
   cursor: pointer;
   border-radius: 10px;
@@ -72,10 +75,12 @@ main > div {
   -ms-user-select: none;
   -webkit-user-select: none;
   transition: all 0.2s ease;
+  color: #fff;
+  text-shadow: 0 0 5px #00000066;
 }
 
 main > div:active:not(.blank):not(.correct) {
-  background: linear-gradient(45deg, #d4d4d4 0%,#b9b9b9 50%, #666666 100%);
+  background: linear-gradient(45deg, var(--grey-light) 0%, var(--grey-mid) 50%, var(--grey-dark) 100%);
   transition: all 0.2s ease;
 }
 
@@ -92,6 +97,7 @@ main > div.correct {
   background: linear-gradient(45deg, var(--green-dark) 0%, var(--green-mid) 50%, var(--green-light) 100%);
   transition: all 0.2s ease;
   opacity: 1;
+  color: #fff;
 }
 
 main > div.correct:active {
@@ -101,6 +107,7 @@ main > div.correct:active {
 
 .score-display {
   color: #fff;
+  transition: all 0.2s ease;
 }
 
 select {
@@ -117,6 +124,14 @@ select {
 
 .m-b-10 {
   margin-bottom: 10px;
+}
+
+.m-t-20 {
+  margin-top: 20px;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
 }
 
 .btn {
