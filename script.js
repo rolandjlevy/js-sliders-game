@@ -5,7 +5,7 @@ const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
 const borderSize = getComputedStyle(body).getPropertyValue('--border-size');
 
 function startGame(size) {
-  const score = new Score(maxScore);
+  const score = new Score(size, maxScore);
   const game = new Game(size, main);
   game.createGrid(blockSize, borderSize);
   game.createDivs();
