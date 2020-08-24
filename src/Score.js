@@ -12,6 +12,7 @@ class Score {
     this.scoreDisplay.textContent = --this.moves;
     const winStatus = blocks.every((item, index) => item.currentNum == item.div.id);
     if (winStatus == true) {
+      // show form elements
       this.winDisplay.textContent = `Well done!, you won in ${this.startingScore - this.moves} moves, with a score of ${this.moves}`;
     }
   }

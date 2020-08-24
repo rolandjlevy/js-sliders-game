@@ -8,19 +8,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   nameInput.focus();
 
-  // Web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyAt1J3_akYeAKRLW-YHjQBOhEkH6a2Vnwg",
-    authDomain: "guestbook-85d31.firebaseapp.com",
-    databaseURL: "https://guestbook-85d31.firebaseio.com",
-    projectId: "guestbook-85d31",
-    storageBucket: "guestbook-85d31.appspot.com",
-    messagingSenderId: "296346899780",
-    appId: "1:296346899780:web:44d95d301d2254114b3311"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-
   let guestBook = firebase.database().ref();
 
   guestBook.on('child_added', (guest) => {
