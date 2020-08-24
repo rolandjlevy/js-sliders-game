@@ -11,8 +11,8 @@
     
     <article>
       <h3 class="m-b-10">Sliders puzzle</h3>
-      <section>Game size: 
-        <select onchange="selectGameSize(this)">
+      <section class="m-t-10">Game size: 
+        <select class="game-size" onchange="selectGameSize()">
           <option value="2" selected>2 x 2</option>
           <option value="3">3 x 3</option>
           <option value="4">4 x 4</option>
@@ -23,6 +23,7 @@
       <section>Score: <span class="score-display"></span></section>
       <main></main>
       <section><span class="win-display m-t-10"></span></section>
+      <button class="btn m-t-10" onclick="selectGameSize()">New game</button>
     <article>
 
     <script src="src/Score.js"></script>

@@ -3,7 +3,6 @@ class Game {
     this.main = main;
     this.size = size;
     this.currentNums = Array.from(Array(size * size).keys()).map(num => num + 1);
-    this.winningNums = this.currentNums.map(num => num);
   }
   createDivs() {
     this.main.innerHTML = '';

@@ -19,7 +19,7 @@ class Block {
       this.div.classList.toggle('correct');
     }
   }
-  addSwapEvent(div, blocks, score, winningNums) {
+  addSwapEvent(div, blocks, score) {
     div.addEventListener('click', (e) => {
       const id = e.target.id;
       const bl = blocks.find(item => item.blank);

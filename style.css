@@ -1,6 +1,6 @@
 :root {
   --block-size: 75;
-  --border-size: 3;
+  --border-size: 4;
   --board-colour: #000;
   --green-light: #e2ff93;
   --green-mid: #79e400;
@@ -26,6 +26,7 @@ h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 150%;
+  text-align: center;
 }
 
 article {
@@ -84,11 +85,11 @@ main > div:hover {
 
 main > div.blank {
   background: var(--board-colour);
+  cursor: auto;
 }
 
 main > div.correct {
   background: linear-gradient(45deg, var(--green-dark) 0%, var(--green-mid) 50%, var(--green-light) 100%);
-  
   transition: all 0.2s ease;
   opacity: 1;
 }
@@ -116,4 +117,11 @@ select {
 
 .m-b-10 {
   margin-bottom: 10px;
+}
+
+.btn {
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 4px 8px;
 }
