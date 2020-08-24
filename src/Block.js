@@ -25,6 +25,7 @@ class Block {
       const bl = blocks.find(item => item.blank);
       const cr = blocks.find(item => item.div.id == id);
       if (this.validMove(cr, bl)) {
+        const blankCurrentNum = bl.currentNum;
         cr.div.textContent = '';
         cr.div.classList.add('blank');
         cr.div.classList.remove('correct');
@@ -36,12 +37,10 @@ class Block {
         if (bl.currentNum == bl.div.id) {
           bl.div.classList.add('correct');
         }
+        cr.currentNum = blankCurrentNum;
         score.update();
-        // const won = blocks.every((item, index) => {
-        //   console.log(item.currentNum, winningNums[index])
-        //   return item.currentNum == winningNums[index];
-        // });
-        // console.log({won})
+        const winStatus = blocks.every((item, index) => item.currentNum == item.div.id);
+        score.checkForWin(winStatus);
       }
     }, false);
   }
