@@ -2,6 +2,9 @@
   --block-size: 75;
   --border-size: 3;
   --board-colour: #000;
+  --green-light: #e2ff93;
+  --green-mid: #79e400;
+  --green-dark: #019e77;
 }
 
 body {
@@ -14,7 +17,15 @@ body {
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 3rem;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin: 0;
+  background: linear-gradient(0deg, var(--green-dark), var(--green-mid), var(--green-light));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 150%;
 }
 
 article {
@@ -71,18 +82,19 @@ main > div:hover {
   opacity: 0.9;
 }
 
-.blank {
+main > div.blank {
   background: var(--board-colour);
 }
 
-.correct {
-  background: linear-gradient(45deg, #019e77 0%, #79e400 50%, #e2ff93 100%);
+main > div.correct {
+  background: linear-gradient(45deg, var(--green-dark) 0%, var(--green-mid) 50%, var(--green-light) 100%);
+  
   transition: all 0.2s ease;
   opacity: 1;
 }
 
-.correct:active {
-  background: linear-gradient(45deg, #e2ff93 0%, #79e400 50%, #019e77 100%);
+main > div.correct:active {
+  background: linear-gradient(45deg, var(--green-light) 0%, var(--green-mid) 50%, var(--green-dark) 100%);
   transition: all 0.2s ease;
 }
 
@@ -93,6 +105,15 @@ main > div:hover {
 select {
   background-color: #333;
   color: #fff;
-  padding: 3px 6px;
+  padding: 2px 4px;
   font-size: 1rem;
+  border-radius: 3px
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
 }

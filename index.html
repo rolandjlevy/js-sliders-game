@@ -8,22 +8,25 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    
     <article>
-      <h3>Sliders puzzle</h3>
-      <div>Game size: 
+      <h3 class="m-b-10">Sliders puzzle</h3>
+      <section>Game size: 
         <select onchange="selectGameSize(this)">
-        <option value="3" selected>3 x 3</option>
-        <option value="4">4 x 4</option>
-        <option value="5">5 x 5</option>
-        <option value="6">6 x 6</option>
-      </select>
-      </div>
-      <div>Score: <span class="score-display"></span></div>
+          <option value="3" selected>3 x 3</option>
+          <option value="4">4 x 4</option>
+          <option value="5">5 x 5</option>
+          <option value="6">6 x 6</option>
+        </select>
+      </section>
+      <section>Score: <span class="score-display"></span></section>
       <main></main>
     <article>
+
     <script src="src/Score.js"></script>
     <script src="src/Block.js"></script>
     <script src="src/Game.js"></script>
     <script src="script.js"></script>
+
   </body>
 </html>

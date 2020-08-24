@@ -4,8 +4,8 @@ class Block {
     this.y = Math.floor(index / size) + 1;
     this.div = div;
     this.div.id = index + 1;
-    this.currentNum = Number(currentNum) + 1;
-    this.div.textContent = this.currentNum;
+    this.currentNum = currentNum;
+    this.div.textContent = currentNum;
     this.blank = false;
     this.blankId = size * size;
     this.init();
