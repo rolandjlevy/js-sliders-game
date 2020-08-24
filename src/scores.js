@@ -23,19 +23,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   let guestBook = firebase.database().ref();
 
-  guestBook.on('child_added', function(guest) {
-    const prom = new Promise(function(resolve, reject) {
+  guestBook.on('child_added', (guest) => {
+    const prom = new Promise((resolve, reject) => {
       if (guest.val().name && guest.val().comment) {
         resolve('guest added');
       } else {
         reject('Error: please enter name and comment');
       }
     })
-    return prom.then(function(fromResolve) {
-      setTimeout(function() {
+    return prom.then((fromResolve) => {
+      setTimeout(() => {
         signGuestbook(guest.val().name, guest.val().comment);
       }, 1000);
-    }).catch(function(fromReject) {
+    }).catch((fromReject) => {
       console.log('fromReject:', fromReject);
     })
   });
@@ -56,15 +56,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
   submitButton.addEventListener('click', (event) => {
     event.preventDefault();
     // this triggers guestBook.on > 'child_added' event
-    const prom = new Promise(function(resolve, reject) {
+    const prom = new Promise((resolve, reject) => {
       if (nameInput.value && commentTextarea.value) {
         resolve('success');
       } else {
         reject('Error: please enter name and comment');
       }
     });
-    return prom.then(function(fromResolve) {
-      setTimeout(function() {
+    return prom.then((fromResolve) => {
+      setTimeout(() => {
         guestBook.push({
           id: counter,
           name: nameInput.value,
@@ -73,9 +73,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         nameInput.value = '';
         commentTextarea.value = '';
         nameInput.focus();
-        console.log('success')
+        console.log('success');
       }, 1000);
-    }).catch(function(fromReject) {
+    }).catch((fromReject) => {
       console.log(fromReject);
     });
   });
