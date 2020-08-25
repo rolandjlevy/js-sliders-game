@@ -8,26 +8,26 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   nameInput.focus();
 
-  let guestBook = firebase.database().ref();
+  const scores = firebase.database().ref();
 
-  guestBook.on('child_added', (guest) => {
+  scores.on('child_added', (score) => {
     const prom = new Promise((resolve, reject) => {
-      if (guest.val().name && guest.val().comment) {
-        resolve('guest added');
+      if (score.val().name && score.val().comment) {
+        resolve('score added');
       } else {
         reject('Error: please enter name and comment');
       }
     })
     return prom.then((fromResolve) => {
       setTimeout(() => {
-        signGuestbook(guest.val().name, guest.val().comment);
+        addScore(score.val().name, score.val().comment);
       }, 1000);
     }).catch((fromReject) => {
       console.log('fromReject:', fromReject);
     })
   });
 
-  function signGuestbook(name, comment) {
+  function addScore(name, comment) {
     const commentNode = document.createElement('p');
     commentNode.style.backgroundColor = '#666';
     commentNode.textContent = comment;
@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   submitButton.addEventListener('click', (event) => {
     event.preventDefault();
-    // this triggers guestBook.on > 'child_added' event
+    // this triggers scores.on > 'child_added' event
     const prom = new Promise((resolve, reject) => {
       if (nameInput.value && commentTextarea.value) {
         resolve('success');
@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
     return prom.then((fromResolve) => {
       setTimeout(() => {
-        guestBook.push({
+        scores.push({
           id: counter,
           name: nameInput.value,
           comment: commentTextarea.value,

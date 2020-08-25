@@ -38,9 +38,9 @@ Array.from(Array(10).keys())
 
 **Tutorial 1**
 - https://blog.repl.it/firebase
-- Find: Add Firebase to your web app from Project settings cog > General > Add app
+- Find: Add Firebase to your web app from cog > Project settings > General > Add Web App
 - https://repl.it/@Jp2323/firebase#main.js
 
 **Tutorial 2**
 - https://codepen.io/k3no/post/getting-started-with-firebase
-- https://medium.com/@collardeau/es6-promises-with-firebase-76606f36c80c
+- [from medium.com](https://medium.com/@collardeau/es6-promises-wit= h-firebase-76606f36c80c)
