@@ -13,7 +13,7 @@ class Score {
     const winStatus = blocks.every((item, index) => item.currentNum == item.div.id);
     if (winStatus == true) {
       // show form elements
-      this.winDisplay.textContent = `Well done!, you won in ${this.startingScore - this.moves} moves, with a score of ${this.moves}`;
+      this.winDisplay.textContent = `Well done!, you won in ${this.total} moves, with a score of ${this.moves}`;
     }
   }
 }

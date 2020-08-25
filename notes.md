@@ -43,4 +43,4 @@ Array.from(Array(10).keys())
 
 **Tutorial 2**
 - https://codepen.io/k3no/post/getting-started-with-firebase
-- [from medium.com](https://medium.com/@collardeau/es6-promises-wit= h-firebase-76606f36c80c)
+- [from medium.com](https://medium.com/@collardeau/es6-promises-wit=h-firebase-76606f36c80c)
