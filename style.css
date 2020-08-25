@@ -105,14 +105,11 @@ main > div.correct:active {
   transition: opacity 1s ease;
 }
 
-.score-display {
-  color: #fff;
-  transition: all 0.2s ease;
-}
+/*************/
+/* Game size */
+/*************/
 
-/* form elements */
-
-select {
+select#game-size {
   background-color: #333;
   color: #fff;
   padding: 2px 4px;
@@ -120,18 +117,73 @@ select {
   border-radius: 3px
 }
 
-.btn {
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 4px 8px;
+/*********/
+/* Score */
+/*********/
+
+form#add-score {
+  max-width: 300px;
 }
 
+input#player-name {
+  border: none;
+  padding: 4px 8px;
+  font-size: 1rem;
+}
+
+/*********/
+/* Score */
+/*********/
+
 #leader-board {
+  display: flex;
+  flex-direction: column-reverse;
   overflow-y: scroll;
   max-height: 200px;
-  width: 100%;
+  max-width: 300px;
 }
+
+#leader-board > p {
+  background: #666;
+  padding: 5px;
+  border-bottom: 1px #000 solid;
+  margin: 0;
+}
+
+.score-display {
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+/***********/
+/* Buttons */
+/***********/
+
+.btn {
+  border-radius: 5px;
+  border: none;
+  padding: 4px 8px;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: 0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background-color: #fff;
+  box-shadow: 0 5px 10px -5px #000000;
+  transition: all 0.2s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/********************/
+/* Margin & Padding */
+/********************/
 
 .m-t-10 {
   margin-top: 10px;

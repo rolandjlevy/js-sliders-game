@@ -1,14 +1,13 @@
 ### Improvements
 
-- create a Game object which is the parent object for Grid and Blocks
-- sort out scoring: do a check for win
-- improve layout and styling
-- use firebase to store scores
+- improve sequence of winning - layout and styling
 
 ### Done
 - change everything to oop
 - create another grid that shows status or change colour of each block to show status
 - dynamically generate blocks based on dropdown showing 2x2, 3x3 etc
+- sort out scoring: do a check for win
+- use firebase to store scores
 
 ### nice shuffle function
 

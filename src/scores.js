@@ -1,12 +1,14 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
-  const submitButton = document.querySelector('#submit-button');
+  const leaderBoard = document.querySelector('#leader-board');
+  leaderBoard.innerHTML = '';
   const playerName = document.querySelector('#player-name');
-  const addScore = document.querySelector('#add-score');
+  const addScoreForm = document.querySelector('#add-score-form');
+  const addScoreButton = document.querySelector('#add-score-button');
 
   playerName.focus();
 
-  const leaderBoard = firebase.database().ref();
+  const leadScores = firebase.database().ref();
 
   // let addTeam(team) {
   //   return new Promise((resolve, reject) => {
@@ -30,9 +32,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
   //   console.log(snapshot.key);
   // });
 
-  // load all scores from leaderBoard
-  leaderBoard.orderByChild('score').on('child_added', (snapShot) => {
-    console.log('child_added');
+  // load all scores from leadScores
+  leadScores.orderByChild('score').on('child_added', (snapShot) => {
     const prom = new Promise((resolve, reject) => {
       if (snapShot.val()) {
         resolve(`Snapshot found: ${snapShot.key}`);
@@ -43,6 +44,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     return prom.then((resolveMessage) => {
       console.log({resolveMessage});
       renderScore(snapShot.val().name, snapShot.val().score);
+      leaderBoard.scrollTo(0, 0);
     }).catch((error) => {
       console.log(error);
     })
@@ -51,18 +53,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
   let counter = 1;
 
   function renderScore(name, score) {
-    const scoreNode = document.createElement('p');
-    const nameNode = document.createElement('p');
-    scoreNode.textContent = score;
-    nameNode.textContent = name;
-    document.querySelector('#leader-board').appendChild(nameNode);
-    document.querySelector('#leader-board').appendChild(scoreNode);
+    leaderBoard.innerHTML += `<p>${name}: ${score}</p>`;
     counter++;
   }
 
-  submitButton.addEventListener('click', (event) => {
+  addScoreButton.addEventListener('click', (event) => {
     event.preventDefault();
-    // this triggers leaderBoard.on > 'child_added' event
+    // this triggers leadScores.on > 'child_added' event
     const prom = new Promise((resolve, reject) => {
       if (playerName.value && score.moves) {
         resolve('Score added successfully');
@@ -71,13 +68,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
       }
     });
     return prom.then((resolveMessage) => {
-      leaderBoard.push({
+      leadScores.push({
         id: counter,
         name: playerName.value,
         score: score.moves,
       });
       playerName.value = '';
-      addScore.style.display = 'none';
+      addScoreForm.style.display = 'none';
     }).catch((error) => {
       console.log(error);
     })

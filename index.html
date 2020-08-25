@@ -10,7 +10,9 @@
   <body>
     
     <article>
+
       <h3 class="m-b-10">Sliders game</h3>
+
       <section class="m-t-10">Game size: 
         <select class="game-size" onchange="selectGameSize()">
           <option value="2" selected>2 x 2</option>
@@ -20,18 +22,24 @@
           <option value="6">6 x 6</option>
         </select>
       </section>
+
       <section>Score: <span class="score-display"></span></section>
+
       <main></main>
-      <section><button class="btn" onclick="selectGameSize()">New game</button></section>
+
+      <section>
+        <button class="btn" onclick="selectGameSize()">New game</button>
+      </section>
 
       <section class="m-t-20">
-        <form id="add-score">
+        <form id="add-score-form">
           <span class="win-display m-t-10"></span>
-          <p><input type="text" id="player-name" placeholder="Add your name to high scores..." maxlength="20"> <button id="submit-button">Add</button></p>
+          <p><input id="player-name" type="text" placeholder="Add your name to high scores..." maxlength="20"> <button class="btn" id="add-score-button">Add</button></p>
         </form>
         <h2>Leader Board</h2>
         <div id="leader-board"></div>
       </section>
+
     </article>
 
     <script src="src/Block.js"></script>
