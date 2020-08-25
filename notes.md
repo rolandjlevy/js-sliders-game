@@ -48,6 +48,8 @@ Array.from(Array(10).keys())
 
 # Sharing on repl.it
 
+read: https://repl.it/talk/learn/How-to-get-a-million-upvotes-python/29511/121164
+
 Title: New Sliders Game with leader board
 
 - Choose size of your game: 3x3, 4x4 etc...

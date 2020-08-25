@@ -67,7 +67,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         reject('Error: please enter name and score');
       }
     });
-    return prom.then((resolveMessage) => {
+    prom.then((resolveMessage) => {
       leadScores.push({
         id: counter,
         name: playerName.value,
