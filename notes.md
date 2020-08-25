@@ -1,13 +1,15 @@
 ### Improvements
 
 - improve sequence of winning - layout and styling
+- sort out position and width of leaderboard when score is added
 
 ### Done
 - change everything to oop
-- create another grid that shows status or change colour of each block to show status
+- change colour of each block to show status
 - dynamically generate blocks based on dropdown showing 2x2, 3x3 etc
 - sort out scoring: do a check for win
 - use firebase to store scores
+- fix bug when game size increases and heading dissapears
 
 ### nice shuffle function
 
@@ -33,7 +35,7 @@ Array.from(Array(10).keys())
 ### Links
 - [Javascript event handler with parameters](https://stackoverflow.com/questions/10000083/javascript-event-handler-with-parameters)
 
-### Resources
+### Firebase Resources
 
 **Tutorial 1**
 - https://blog.repl.it/firebase
