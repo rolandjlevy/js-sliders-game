@@ -1,9 +1,10 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
   const submitButton = document.querySelector('#submit-button');
-  const nameInput = document.querySelector('#name');
+  const playerName = document.querySelector('#player-name');
+  const addScore = document.querySelector('#add-score');
 
-  nameInput.focus();
+  playerName.focus();
 
   const leaderBoard = firebase.database().ref();
 
@@ -51,14 +52,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   function renderScore(name, score) {
     const scoreNode = document.createElement('p');
-    scoreNode.style.backgroundColor = '#666';
-    scoreNode.textContent = score;
     const nameNode = document.createElement('p');
-    const bold = document.createElement('b');
-    bold.textContent = name;
-    nameNode.appendChild(bold);
-    document.getElementById('comments').appendChild(nameNode);
-    document.getElementById('comments').appendChild(scoreNode);
+    scoreNode.textContent = score;
+    nameNode.textContent = name;
+    document.querySelector('#leader-board').appendChild(nameNode);
+    document.querySelector('#leader-board').appendChild(scoreNode);
     counter++;
   }
 
@@ -66,24 +64,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
     event.preventDefault();
     // this triggers leaderBoard.on > 'child_added' event
     const prom = new Promise((resolve, reject) => {
-      if (nameInput.value && score.moves) {
+      if (playerName.value && score.moves) {
         resolve('Score added successfully');
       } else {
         reject('Error: please enter name and score');
       }
     });
     return prom.then((resolveMessage) => {
-      console.log({resolveMessage});
       leaderBoard.push({
         id: counter,
-        name: nameInput.value,
+        name: playerName.value,
         score: score.moves,
       });
-
-      console.logs({items})
-      nameInput.value = '';
-      nameInput.focus();
-      console.log('success');
+      playerName.value = '';
+      addScore.style.display = 'none';
     }).catch((error) => {
       console.log(error);
     })

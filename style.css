@@ -52,11 +52,6 @@ main {
   border-radius: 10px;
 }
 
-main.show {
-  opacity: 1;
-  transition: opacity 1s ease;
-}
-
 main > div {
   display: flex;
   align-items: center;
@@ -105,6 +100,11 @@ main > div.correct:active {
   transition: all 0.2s ease;
 }
 
+.show {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
 .score-display {
   color: #fff;
   transition: all 0.2s ease;
@@ -127,9 +127,9 @@ select {
   padding: 4px 8px;
 }
 
-#comments {
+#leader-board {
   overflow-y: scroll;
-  max-height: 150px;
+  max-height: 200px;
   width: 100%;
 }
 

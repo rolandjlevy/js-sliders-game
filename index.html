@@ -23,14 +23,14 @@
       <section>Score: <span class="score-display"></span></section>
       <main></main>
       <section><button class="btn" onclick="selectGameSize()">New game</button></section>
-      <section class="m-t-20"><span class="win-display m-t-10"></span></section>
-      
+
       <section class="m-t-20">
-        <form id="guestbook">
-          <p><input type="text" id="name" placeholder="Add your name to high scores"  maxlength="20"> <button id="submit-button" type="submit">Submit</button></p>
+        <form id="add-score">
+          <span class="win-display m-t-10"></span>
+          <p><input type="text" id="player-name" placeholder="Add your name to high scores..." maxlength="20"> <button id="submit-button">Add</button></p>
         </form>
-        <h2>High Scores</h2>
-        <div id="comments"></div>
+        <h2>Leader Board</h2>
+        <div id="leader-board"></div>
       </section>
     </article>
 
