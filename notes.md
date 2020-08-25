@@ -2,6 +2,7 @@
 
 - improve sequence of winning - layout and styling
 - sort out position and width of leaderboard when score is added
+- create new game in addScoreButton click, line 69
 
 ### Done
 - change everything to oop

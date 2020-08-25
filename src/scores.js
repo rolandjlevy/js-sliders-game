@@ -72,6 +72,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       });
     }).catch(error => {
       console.log(error);
+      // render validation message
       return;
     });
   });
