@@ -45,3 +45,20 @@ Array.from(Array(10).keys())
 **Tutorial 2**
 - https://codepen.io/k3no/post/getting-started-with-firebase
 - [from medium.com](https://medium.com/@collardeau/es6-promises-wit=h-firebase-76606f36c80c)
+
+# Sharing on repl.it
+
+Title: New Sliders Game with leader board
+
+- Choose size of your game: 3x3, 4x4 etc...
+- Slide pieces into the empty space, puttin them in the correct order in the fewest moves possible
+- Pieces change to green when in the correct position
+- Add your winning score to the Leader Board
+
+### Features
+
+- Using Firebase on the back-end to store leader board scores
+- Mobile friendly
+
+### Credit
+Many thanks to @Jp2323 for this Firebase tutorial
