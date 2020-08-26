@@ -5,6 +5,7 @@ class Score {
     this.startingScore = this.moves;
     this.scoreDisplay = document.querySelector('.score-display');
     this.scoreDisplay.textContent = this.moves;
+    this.playerName = document.querySelector('#player-name');
     this.addScoreForm = document.querySelector('#add-score-form');
     this.addScoreForm.style.display = 'none';
     this.winDisplay = document.querySelector('.win-display');
@@ -16,6 +17,7 @@ class Score {
     if (winStatus == true) {
       const total = this.startingScore - this.moves;
       this.addScoreForm.style.display = 'initial';
+      this.playerName.focus();
       this.winDisplay.innerHTML = `<span>Well done! you won in <strong>${total}</strong> moves, with a score of <strong>${this.moves}</strong>. Please add your name or Repl username to the leader board:</span>`;
     }
   }
