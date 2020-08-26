@@ -1,9 +1,9 @@
 ### Improvements
 
-- fix sorting when score is added to leader board
 - create an .env file so firebase.config isn't accessible
 
 ### Done
+- fix sorting when score is added to leader board
 - change everything to oop
 - change colour of each block to show status
 - dynamically generate blocks based on dropdown showing 2x2, 3x3 etc
