@@ -2,7 +2,7 @@ const maxScore = 100;
 let score;
 const main = document.querySelector('main');
 const body = document.querySelector('body');
-const gameSize = document.querySelector('.game-size');
+const gameSize = document.querySelector('#game-size');
 const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
 const borderSize = getComputedStyle(body).getPropertyValue('--border-size');
 

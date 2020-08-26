@@ -1,7 +1,7 @@
 :root {
   --block-size: 75;
   --border-size: 4;
-  --board-colour: #000;
+  --board-colour: #333;
   --green-light: #e2ff93;
   --green-mid: #79e400;
   --green-dark: #019e77;
@@ -11,7 +11,7 @@
 }
 
 body {
-  margin: 30px;
+  margin: 50px;
   background: #000;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
@@ -19,7 +19,7 @@ body {
   font-size: 1rem;
 }
 
-h3 {
+h2 {
   font-size: 3rem;
   letter-spacing: -1px;
   line-height: 1.5;
@@ -29,6 +29,14 @@ h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 150%;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2rem;
+  letter-spacing: -1px;
+  line-height: 1.5;
+  margin: 0;
   text-align: center;
 }
 
@@ -49,6 +57,7 @@ main {
   transition: opacity 1s ease;
   background: var(--board-colour);
   padding: 20px;
+  margin: 20px;
   border-radius: 10px;
 }
 
@@ -110,11 +119,13 @@ main > div.correct:active {
 /*************/
 
 select#game-size {
-  background-color: #333;
-  color: #fff;
+  background-color: #ddd;
+  color: #000;
   padding: 2px 4px;
   font-size: 1rem;
-  border-radius: 3px
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /*********/
@@ -122,37 +133,53 @@ select#game-size {
 /*********/
 
 form#add-score {
-  max-width: 300px;
+  max-width: 250px;
 }
 
 input#player-name {
   border: none;
   padding: 4px 8px;
   font-size: 1rem;
+  border-radius: 5px;
 }
 
-/*********/
-/* Score */
-/*********/
+input#player-name:invalid {
+  border: 2px solid red;
+}
+
+input#player-name:valid {
+  border: 2px solid var(--green-mid);
+}
+
+input#player-name:invalid:required {
+  /* background-image: linear-gradient(to right, pink, lightgreen); */
+}
+
+.score-display {
+  color: var(--green-mid);
+  font-size: 2rem;
+  transition: all 0.2s ease;
+  font-weight: 700;
+}
+
+/****************/
+/* Leader Board */
+/****************/
 
 #leader-board {
   display: flex;
   flex-direction: column-reverse;
   overflow-y: scroll;
-  max-height: 200px;
-  max-width: 300px;
+  max-height: 250px;
+  min-width: 250px;
+  max-width: 250px;
 }
 
 #leader-board > p {
-  background: #666;
-  padding: 5px;
-  border-bottom: 1px #000 solid;
+  background: #333;
+  padding: 10px 0;
+  border-bottom: 4px #000 solid;
   margin: 0;
-}
-
-.score-display {
-  color: #fff;
-  transition: all 0.2s ease;
 }
 
 /***********/
@@ -181,9 +208,47 @@ input#player-name {
   transform: translateY(1px);
 }
 
+/**************/
+/* Layout *****/
+/**************/
+
+.h-block, .v-block {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.h-block {
+  flex-direction: row;
+}
+
+.v-block {
+  flex-direction: column;
+}
+
+.max-w-250 {
+  max-width: 250px;
+}
+
+.text-center {
+  text-align: center;
+}
+
 /********************/
 /* Margin & Padding */
 /********************/
+
+.m-t-5 {
+  margin-top: 5px;
+}
+
+.m-b-5 {
+  margin-bottom: 5px;
+}
+
+.m-t-9 {
+  margin-top: 9px;
+}
 
 .m-t-10 {
   margin-top: 10px;
@@ -193,6 +258,14 @@ input#player-name {
   margin-bottom: 10px;
 }
 
+.m-l-10 {
+  margin-left: 10px;
+}
+
+.m-r-10 {
+  margin-right: 10px;
+}
+
 .m-t-20 {
   margin-top: 20px;
 }
@@ -200,3 +273,9 @@ input#player-name {
 .m-b-20 {
   margin-bottom: 20px;
 }
+
+.m-t-30 {
+  margin-top: 30px;
+}
+
+

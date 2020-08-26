@@ -17,7 +17,7 @@ class Score {
       // show form elements by dynamically rendering elements
       const total = this.startingScore - this.moves;
       this.addScoreForm.style.display = 'initial';
-      this.winDisplay.textContent = `Well done!, you won in ${total} moves, with a score of ${this.moves}`;
+      this.winDisplay.textContent = `Well done!, you won in ${total} moves, with a score of ${this.moves}. Please add your name to the leader board:`;
     }
   }
 }

@@ -11,35 +11,41 @@
     
     <article>
 
-      <h3 class="m-b-10">Sliders game</h3>
+      <h2 class="m-b-10">Sliders game</h2>
 
-      <section class="m-t-10">Game size: 
-        <select class="game-size" onchange="selectGameSize()">
-          <option value="2" selected>2 x 2</option>
-          <option value="3">3 x 3</option>
-          <option value="4">4 x 4</option>
-          <option value="5">5 x 5</option>
-          <option value="6">6 x 6</option>
-        </select>
+      <section class="h-block m-t-10">
+        <p class="v-block m-r-10">
+          <span>Game size</span> 
+          <span class="m-t-10">
+            <select id="game-size" onchange="selectGameSize()">
+              <option value="2" selected>2 x 2</option>
+              <option value="3">3 x 3</option>
+              <option value="4">4 x 4</option>
+              <option value="5">5 x 5</option>
+              <option value="6">6 x 6</option>
+            </select>
+          </span>
+        </p>
+        <p class="v-block m-l-10">
+          <span class="m-t-9">Score</span>
+          <span class="score-display"></span>
+        </p>
       </section>
-
-      <section>Score: <span class="score-display"></span></section>
 
       <main></main>
 
-      <section>
+      <section class="m-t-10">
         <button class="btn" onclick="selectGameSize()">New game</button>
       </section>
 
-      <section class="m-t-20">
+      <section class="text-center max-w-250 m-t-20">
         <form id="add-score-form">
           <span class="win-display m-t-10"></span>
           <p>
-            <input id="player-name" type="text" required="" placeholder="Add your name to high scores..." maxlength="20"> 
-            <button class="btn" type="submit" id="add-score-button">Add</button>
+            <input id="player-name" type="text" required="" placeholder="Your name..." maxlength="20"><button class="btn m-l-10" type="submit" id="add-score-button">Add</button>
           </p>
         </form>
-        <h2>Leader Board</h2>
+        <h3 class="m-t-30 m-b-10">Leader Board</h3>
         <div id="leader-board"></div>
       </section>
 

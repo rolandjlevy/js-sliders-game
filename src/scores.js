@@ -66,13 +66,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
       return pushIt().then(pushMessage => {
         playerName.value = '';
         addScoreForm.style.display = 'none';
-        // creae new game here?
+        selectGameSize();
       }).catch(error => {
         console.log(error);
       });
     }).catch(error => {
       console.log(error);
-      // render validation message
+      // render validation message here?
       return;
     });
   });
