@@ -135,9 +135,9 @@ select#game-size {
   cursor: pointer;
 }
 
-
 select#game-size:hover {
   background-color: #fff;
+  font-size: 1.25rem;
 }
 
 /*********/
