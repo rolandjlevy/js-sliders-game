@@ -1,8 +1,6 @@
 ### Improvements
 
-- improve sequence of winning - layout and styling
-- sort out position and width of leaderboard when score is added
-- create new game in addScoreButton click, line 69
+- fix sorting when score is added to leader board
 
 ### Done
 - change everything to oop
@@ -11,6 +9,9 @@
 - sort out scoring: do a check for win
 - use firebase to store scores
 - fix bug when game size increases and heading dissapears
+- improve sequence of winning - layout and styling
+- sort out position and width of leaderboard when score is added
+- create new game in addScoreButton click, line 69
 
 ### nice shuffle function
 
@@ -51,7 +52,11 @@ Array.from(Array(10).keys())
 
 read: https://repl.it/talk/learn/How-to-get-a-million-upvotes-python/29511/121164
 
-Title: New Sliders Game with leader board
+Post on Sunday morning. Post it on share and ask DevZ to check it out. Put it on Discord too
+
+also use this: https://repl-talk-stats.mat1.repl.co/ to see your cycle graph and post on tuesdays at 12pm cst
+
+Title: 1️⃣ New Sliders Game with Leader Board!
 
 - Choose size of your game: 3x3, 4x4 etc...
 - Slide pieces into the empty space, puttin them in the correct order in the fewest moves possible
