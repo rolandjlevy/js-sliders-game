@@ -6,6 +6,8 @@ class Score {
     this.scoreDisplay = document.querySelector('.score-display');
     this.scoreDisplay.textContent = this.moves;
     this.playerName = document.querySelector('#player-name');
+    this.playerNameError = document.querySelector('.error-message');
+    this.playerNameError.classList.remove('show');
     this.addScoreForm = document.querySelector('#add-score-form');
     this.addScoreForm.style.display = 'none';
     this.winDisplay = document.querySelector('.win-display');

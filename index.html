@@ -18,7 +18,7 @@
           <span>Game size</span> 
           <span class="m-t-10">
             <select id="game-size" onchange="selectGameSize()">
-              <option value="2">2 x 2</option>
+              <!-- <option value="2">2 x 2</option> -->
               <option value="3" selected>3 x 3</option>
               <option value="4">4 x 4</option>
               <option value="5">5 x 5</option>
@@ -42,7 +42,7 @@
         <form id="add-score-form">
           <span class="win-display m-t-10"></span>
           <p>
-            <input id="player-name" type="text" class="m-b-10" required="" placeholder="Your name..." maxlength="20"><button class="btn m-l-10" type="submit" id="add-score-button">Add</button>
+            <input id="player-name" type="text" class="m-b-10" required placeholder="Your name..." maxlength="20"><label for="player-name" class="error-message">Required</label><button class="btn m-l-10" type="submit" id="add-score-button">Add</button>
           </p>
         </form>
         <h3 class="m-t-30 m-b-10">Leader Board</h3>

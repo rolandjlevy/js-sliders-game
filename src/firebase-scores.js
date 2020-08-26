@@ -3,22 +3,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const leaderBoard = document.querySelector('#leader-board');
   leaderBoard.innerHTML = '';
   const playerName = document.querySelector('#player-name');
+  const playerNameError = document.querySelector('.error-message');
   const addScoreForm = document.querySelector('#add-score-form');
   const addScoreButton = document.querySelector('#add-score-button');
 
   const users = [];
   let counter = 0;
-  let lastEntry;
+  let totalChildren;
   const leadScores = firebase.database().ref();
 
   leadScores.once('value').then(snap => {
-    lastEntry = snap.numChildren();
-    console.log({counter, lastEntry});
+    totalChildren = snap.numChildren();
   });
 
-  // load all scores from leadScores
   leadScores.orderByChild('score').on('child_added', (snapShot) => {
-
     const prom = new Promise((resolve, reject) => {
       if (snapShot.val()) {
         resolve(`Snapshot found: ${snapShot.key}`);
@@ -26,24 +24,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
         reject('Error: name and score no found');
       }
     });
-
     prom.then(resolveMessage => {
-      console.log({resolveMessage});
-      users.push(snapShot.val());
-      users.sort((a, b) => b.score - a.score);
-      renderScore(snapShot.val().name, snapShot.val().score);
+      renderAllScores(snapShot.val());
       leaderBoard.scrollTo(0, 0);
-      console.log({counter, lastEntry});
-      console.log(users);
-      // if (counter == lastEntry - 1) {
-        // console.log(users);
-        // leaderBoard.scrollTo(0, 0);
-      // }
     }).catch((error) => {
       console.log(error);
     })
   });
 
+  function renderAllScores(score) {
+    let str = '';
+    users.push(score);
+    users
+    .sort((a, b) => b.score - a.score)
+    .forEach(item => str += `<p>${item.name}: ${item.score}</p>`);
+    leaderBoard.innerHTML = str; 
+    counter++;
+  }
+
+  // renderScore(snapShot.val().name, snapShot.val().score);
   function renderScore(name, score) {
     leaderBoard.innerHTML += `<p>${name}: ${score}</p>`;
     counter++;
@@ -86,7 +85,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       });
     }).catch(error => {
       console.log(error);
-      // render validation message here?
+      playerNameError.classList.add('show');
       return;
     });
   });

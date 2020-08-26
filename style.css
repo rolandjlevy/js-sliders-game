@@ -163,6 +163,20 @@ input#player-name:valid {
   border: 2px solid var(--green-mid);
 }
 
+input#player-name + label.error-message {
+  position: absolute;
+  color: red;
+  transform: translate(-100%, calc(100% + 25px));
+  font-size: 0.875rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+input#player-name:invalid + label.error-message.show {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
 .score-display {
   color: var(--green-mid);
   font-size: 2.25rem;
@@ -177,7 +191,7 @@ input#player-name:valid {
 
 #leader-board {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column; /* column-reverse; */
   overflow-y: scroll;
   max-height: 300px;
   min-width: 300px;
