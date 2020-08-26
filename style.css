@@ -25,13 +25,13 @@ h2 {
   letter-spacing: -1px;
   line-height: 1.5;
   margin: 0;
-  background: linear-gradient(0deg, var(--green-dark), var(--green-mid), var(--green-light));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 150%;
   text-align: center;
   letter-spacing: 1px;
+  /* background: linear-gradient(0deg, var(--green-dark), var(--green-mid), var(--green-light));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  background-size: 150%; */
 }
 
 h3 {
