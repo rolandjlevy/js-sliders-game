@@ -1,6 +1,7 @@
 ### Improvements
 
 - fix sorting when score is added to leader board
+- create an .env file so firebase.config isn't accessible
 
 ### Done
 - change everything to oop
