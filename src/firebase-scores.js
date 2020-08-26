@@ -1,7 +1,6 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
   const leaderBoard = document.querySelector('#leader-board');
-  leaderBoard.innerHTML = '';
   const playerName = document.querySelector('#player-name');
   const playerNameError = document.querySelector('.error-message');
   const addScoreForm = document.querySelector('#add-score-form');
@@ -91,15 +90,3 @@ window.addEventListener('DOMContentLoaded', (event) => {
   });
 
 });
-
-  // let result = leadScores.orderByChild("score").on("child_added", snapShot => { 
-  //   console.log(snapShot.val().name + ", " + snapShot.val().score); 
-  // });
-  // result.reverse();
-
-  // console.log(snapShot, leadScores);
-
-  // snapShot.data.ref.parent.once("value", (snap) => {
-  //   const count = snap.numChildren();
-  //   console.log(event.data.ref.update({ count }));
-  // });
