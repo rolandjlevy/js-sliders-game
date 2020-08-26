@@ -1,7 +1,7 @@
 :root {
-  --block-size: 75;
+  --block-size: 65;
   --border-size: 4;
-  --board-colour: #292929;
+  --board-colour: #333;
   --green-light: #e2ff93;
   --green-mid: #79e400;
   --green-dark: #019e77;
@@ -145,13 +145,13 @@ select#game-size:hover {
 /*********/
 
 form#add-score {
-  max-width: 275px;
+  max-width: 300px;
 }
 
-input#player-name {
+input#player-name  {
   border: none;
   padding: 4px 8px;
-  font-size: 1rem;
+  font-size: 1.25rem;
   border-radius: 5px;
 }
 
@@ -179,9 +179,9 @@ input#player-name:valid {
   display: flex;
   flex-direction: column-reverse;
   overflow-y: scroll;
-  max-height: 275px;
-  min-width: 275px;
-  max-width: 275px;
+  max-height: 300px;
+  min-width: 300px;
+  max-width: 300px;
 }
 
 #leader-board > p {
@@ -250,8 +250,8 @@ input#player-name:valid {
   flex-direction: column;
 }
 
-.max-w-275 {
-  max-width: 275px;
+.max-w-300 {
+  max-width: 300px;
 }
 
 .text-center {
