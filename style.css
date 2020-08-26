@@ -154,10 +154,6 @@ input#player-name:valid {
   border: 2px solid var(--green-mid);
 }
 
-input#player-name:invalid:required {
-  /* background-image: linear-gradient(to right, pink, lightgreen); */
-}
-
 .score-display {
   color: var(--green-mid);
   font-size: 2rem;
@@ -179,10 +175,25 @@ input#player-name:invalid:required {
 }
 
 #leader-board > p {
-  background: #333;
+  background-color: var(--board-colour);
   padding: 10px 0;
   border-bottom: 4px #000 solid;
   margin: 0;
+}
+
+#leader-board::-webkit-scrollbar {
+  width: 12px;
+}
+
+#leader-board::-webkit-scrollbar-track {
+  background: #191919;
+}
+
+#leader-board::-webkit-scrollbar-thumb {
+  background-color: var(--green-mid);
+  border-radius: 3px;
+  border: 2px solid var(--green-mid);
+  cursor: pointer;
 }
 
 /***********/
