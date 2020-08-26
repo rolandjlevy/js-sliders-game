@@ -62,8 +62,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   addScoreButton.addEventListener('click', (event) => {
     event.preventDefault();
-    validate().then(validationMessage => {
-      return pushIt().then(pushMessage => {
+    validate().then(validationResolve => {
+      return pushIt().then(pushResolve => {
         playerName.value = '';
         addScoreForm.style.display = 'none';
         selectGameSize();
