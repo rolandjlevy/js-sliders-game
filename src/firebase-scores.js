@@ -25,7 +25,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
     prom.then(resolveMessage => {
       renderAllScores(snapShot.val());
-      leaderBoard.scrollTo(0, 0);
     }).catch((error) => {
       console.log(error);
     })
@@ -40,12 +39,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
     leaderBoard.innerHTML = str; 
     counter++;
   }
-
-  // renderScore(snapShot.val().name, snapShot.val().score);
-  function renderScore(name, score) {
-    leaderBoard.innerHTML += `<p>${name}: ${score}</p>`;
-    counter++;
-  }
+  
+  addScoreButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    validate().then(validationResolve => {
+      return pushIt().then(pushResolve => {
+        playerName.value = '';
+        addScoreForm.style.display = 'none';
+        selectGameSize();
+      }).catch(error => {
+        console.log(error);
+      });
+    }).catch(error => {
+      console.log(error);
+      playerNameError.classList.add('show');
+      return;
+    });
+  });
 
   function validate() {
     return new Promise((resolve, reject) => {
@@ -71,22 +81,5 @@ window.addEventListener('DOMContentLoaded', (event) => {
       }
     });
   }
-
-  addScoreButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    validate().then(validationResolve => {
-      return pushIt().then(pushResolve => {
-        playerName.value = '';
-        addScoreForm.style.display = 'none';
-        selectGameSize();
-      }).catch(error => {
-        console.log(error);
-      });
-    }).catch(error => {
-      console.log(error);
-      playerNameError.classList.add('show');
-      return;
-    });
-  });
 
 });
