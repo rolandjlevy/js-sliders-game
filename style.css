@@ -10,6 +10,14 @@
   --grey-dark: #666666;
 }
 
+* {
+  /* box-sizing: border-box; */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 50px;
   background: #000;

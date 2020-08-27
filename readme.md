@@ -2,14 +2,14 @@
 
 ### Instructions
 - Choose your game size: 3x3, 4x4 etc...
-- Slide pieces into the empty space from above, below or from the side
+- Slide pieces into the empty space from above, below or the side
 - Position numbers in the correct order in the fewest possible moves  
-- Pieces turn green in the correct position
+- Pieces turn green in the correct order
 - Add your winning score to the Leader Board
 
 ### Features
-- using Firebase on the back-end to store leader board scores
-- mobile friendly
+- Using Firebase on the back-end to store leader board scores
+- Mobile friendly
 
 ### Links
 - [Live demo](https://js-sliders-game.rjlevy.repl.co/)

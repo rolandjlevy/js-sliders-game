@@ -1,17 +1,22 @@
 class Score {
   constructor(size, max) {
-    this.size = size;
-    this.moves = max * this.size;
-    this.startingScore = this.moves;
+    this.moves = max * size;
+    this.setUpHTMLElems();
+    this.init();
+  }
+  setUpHTMLElems() {
     this.scoreDisplay = document.querySelector('.score-display');
-    this.scoreDisplay.textContent = this.moves;
     this.playerName = document.querySelector('#player-name');
     this.playerNameError = document.querySelector('.error-message');
-    this.playerNameError.classList.remove('show');
     this.addScoreForm = document.querySelector('#add-score-form');
-    this.addScoreForm.style.display = 'none';
     this.winDisplay = document.querySelector('.win-display');
-    this.winDisplay.innerHTML = '';
+  }
+  init() {
+    this.startingScore = this.moves;
+    this.scoreDisplay.textContent = this.moves;
+    this.addScoreForm.style.display = 'none';
+    this.playerNameError.classList.remove('show');
+
   }
   update(blocks) {
     this.scoreDisplay.textContent = --this.moves;

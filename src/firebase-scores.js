@@ -25,6 +25,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
     prom.then(resolveMessage => {
       renderAllScores(snapShot.val());
+      counter++;
     }).catch((error) => {
       console.log(error);
     })
@@ -35,9 +36,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
     users.push(score);
     users
     .sort((a, b) => b.score - a.score)
-    .forEach(item => str += `<p>${item.name}: ${item.score}</p>`);
-    leaderBoard.innerHTML = str; 
-    counter++;
+    .forEach(item => {
+      str += `<p>${item.name}: ${item.score}</p>`
+    });
+    leaderBoard.innerHTML = str;
   }
   
   addScoreButton.addEventListener('click', (event) => {
@@ -46,7 +48,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       return pushIt().then(pushResolve => {
         playerName.value = '';
         addScoreForm.style.display = 'none';
-        selectGameSize();
+        startGame();
       }).catch(error => {
         console.log(error);
       });
@@ -70,9 +72,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
   function pushIt() {
     return new Promise((resolve, reject) => {
       const result = leadScores.push({
-        id: counter,
-        name: playerName.value,
-        score: score.moves,
+        id:counter,
+        name:playerName.value,
+        score:score.moves,
       });
       if (result) {
         resolve('Score added successfully');
