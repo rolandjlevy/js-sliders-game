@@ -36,20 +36,21 @@
       <main></main>
 
       <section class="m-t-10">
-        <button class="btn" onclick="startGame()">New game <i class="fas fa-redo-alt"></i></button>
-        <button class="btn m-l-5" onclick="showHelp()">Help <i class="fas fa-question-circle"></i></button>
+        <button class="btn m-r-5 m-b-10" onclick="startGame()">New game <i class="fas fa-redo-alt"></i></button>
+        <button class="btn" onclick="showHelp()">Help <i class="fas fa-question-circle"></i></button>
         
       </section>
 
-      <section class="text-center max-w-300 m-t-20">
+      <section class="text-center max-w-350 m-t-20">
         <div class="help">
-          <strong>Help</strong><br>
-          - Choose your game size: 3x3, 4x4 etc...<br>
-          - Slide pieces into the empty space from above, below or the side<br>
-          - Position numbers in the correct order in the fewest possible moves  <br>
-          - Pieces turn green in the correct order<br>
-          - Add your winning score to the Leader Board<br>
-          <button onclick="closeHelp()">Close</button>
+          <h4 class="m-t-0 m-b-10">Game Instructions</h4><button class="close-btn" onclick="closeHelp()">&times;</button><br>
+          <ul>
+            <li>Choose your game size: 3x3, 4x4 etc...</li>
+            <li>Slide pieces into the empty space from above, below or the side</li>
+            <li>Position numbers in the correct order in the fewest possible moves</li>
+            <li>Pieces turn green in the correct order</li>
+            <li>Add your score to the Leader Board</li>
+          </ul>
         </div>
         <form id="add-score-form">
           <span class="win-display m-t-10"></span>
@@ -57,7 +58,7 @@
             <input id="player-name" type="text" class="m-b-10" required placeholder="Your name..." maxlength="20"><label for="player-name" class="error-message">Required</label><button class="btn m-l-10" type="submit" id="add-score-button">Add</button>
           </p>
         </form>
-        <h3 class="m-t-30 m-b-10">Leader Board</h3>
+        <h3 class="m-t-20 m-b-10">Leader Board</h3>
         <div id="leader-board"></div>
       </section>
 
