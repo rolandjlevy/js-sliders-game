@@ -140,11 +140,13 @@ select#game-size {
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 select#game-size:hover {
   background-color: #fff;
   font-size: 1.25rem;
+  transition: all 0.2s ease;
 }
 
 /*********/
@@ -298,10 +300,11 @@ footer > a:hover {
   letter-spacing: 0;
   margin-top: 0;
   margin-bottom: 0;
+  line-height: 1.5;
 }
 
 .help.show {
-  height: 195px;
+  height: 210px;
   opacity: 1;
   transition: all 0.5s ease;
   margin-top: 20px;
