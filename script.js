@@ -21,12 +21,8 @@ function startGame() {
   });
 }
 
-function showHelp() {
-  helpDisplay.classList.add('show');
-}
-
-function closeHelp() {
-  helpDisplay.classList.remove('show');
+function toggleHelp(state) {
+  helpDisplay.classList[state]('show');
 }
 
 startGame();

@@ -37,13 +37,13 @@
 
       <section class="m-t-10">
         <button class="btn m-r-5 m-b-10" onclick="startGame()">New game <i class="fas fa-redo-alt"></i></button>
-        <button class="btn" onclick="showHelp()">Help <i class="fas fa-question-circle"></i></button>
+        <button class="btn" onclick="toggleHelp('add')">Help <i class="fas fa-question-circle"></i></button>
         
       </section>
 
       <section class="text-center max-w-350">
         <div class="help">
-          <h4 class="m-t-0 m-b-10">Game Instructions</h4><button class="close-btn" onclick="closeHelp()">&times;</button><br>
+          <h4 class="m-t-0 m-b-10">Game Instructions</h4><button class="close-btn" onclick="toggleHelp('remove')">&times;</button><br>
           <ul>
             <li>Choose the game size: 3x3, 4x4 etc...</li>
             <li>Slide pieces into the empty space from above, below or the side</li>

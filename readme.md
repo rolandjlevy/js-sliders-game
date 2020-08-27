@@ -8,7 +8,7 @@
 - When you've completed the game, add your score to the Leader Board
 
 ### Features
-- This game took me 5 days to create in my spare time
+- This game took me 6 days to create in my spare time
 - I challenged myself to only use Vanilla JS and CSS rather than use React or Vue
 - Leader board scores are saved on the back-end with Firebase
 - Includes Help section
