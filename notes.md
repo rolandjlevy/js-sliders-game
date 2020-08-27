@@ -1,6 +1,6 @@
 ### Improvements
 
-- create an .env file so firebase.config isn't accessible
+- create an .env file so firebase api key isn't exposed
 
 ### Done
 - fix sorting when score is added to leader board
