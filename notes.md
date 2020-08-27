@@ -57,7 +57,7 @@ Post on Sunday morning. Post it on share and ask DevZ to check it out. Put it on
 
 also use this: https://repl-talk-stats.mat1.repl.co/ to see your cycle graph and post on tuesdays at 12pm cst
 
-Title: 1️⃣ New Sliders Game with Leader Board!
+Title: 1️⃣  New Sliders Game with Leader Board!
 
 - Choose size of your game: 3x3, 4x4 etc...
 - Slide pieces into the empty space, puttin them in the correct order in the fewest moves possible

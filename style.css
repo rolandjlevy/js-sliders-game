@@ -254,6 +254,23 @@ input#player-name:invalid + label.error-message.show {
   transform: translateY(1px);
 }
 
+.help {
+  font-size: 0.875rem;
+  text-align: left;
+  background-color: var(--board-colour);
+  padding: 15px;
+  border-radius: 5px;
+  height: 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.help.show {
+  height: 100%;
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
 /**************/
 /* Layout *****/
 /**************/
@@ -288,8 +305,16 @@ input#player-name:invalid + label.error-message.show {
   margin-top: 5px;
 }
 
+.m-r-5 {
+  margin-right: 5px;
+}
+
 .m-b-5 {
   margin-bottom: 5px;
+}
+
+.m-l-5 {
+  margin-left: 5px;
 }
 
 .m-t-8 {

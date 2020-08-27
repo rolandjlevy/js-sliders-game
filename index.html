@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sliders</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -35,10 +36,21 @@
       <main></main>
 
       <section class="m-t-10">
-        <button class="btn" onclick="selectGameSize()">New game</button>
+        <button class="btn" onclick="startGame()">New game <i class="fas fa-redo-alt"></i></button>
+        <button class="btn m-l-5" onclick="showHelp()">Help <i class="fas fa-question-circle"></i></button>
+        
       </section>
 
       <section class="text-center max-w-300 m-t-20">
+        <div class="help">
+          <strong>Help</strong><br>
+          - Choose your game size: 3x3, 4x4 etc...<br>
+          - Slide pieces into the empty space from above, below or the side<br>
+          - Position numbers in the correct order in the fewest possible moves  <br>
+          - Pieces turn green in the correct order<br>
+          - Add your winning score to the Leader Board<br>
+          <button onclick="closeHelp()">Close</button>
+        </div>
         <form id="add-score-form">
           <span class="win-display m-t-10"></span>
           <p>
