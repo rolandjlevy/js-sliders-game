@@ -49,6 +49,8 @@ Array.from(Array(10).keys())
 - https://codepen.io/k3no/post/getting-started-with-firebase
 - [from medium.com](https://medium.com/@collardeau/es6-promises-wit=h-firebase-76606f36c80c)
 
+- - -
+
 # Sharing on repl.it
 
 read: https://repl.it/talk/learn/How-to-get-a-million-upvotes-python/29511/121164
@@ -59,15 +61,24 @@ also use this: https://repl-talk-stats.mat1.repl.co/ to see your cycle graph and
 
 Title: 1️⃣  New Sliders Game with Leader Board!
 
-- Choose size of your game: 3x3, 4x4 etc...
-- Slide pieces into the empty space, puttin them in the correct order in the fewest moves possible
-- Pieces change to green when in the correct position
-- Add your winning score to the Leader Board
+# Slider Game
 
 ### Features
-
-- Using Firebase on the back-end to store leader board scores
+- This game took me 5 days to create in my spare time
+- I challenged myself to only use Vanilla JS and CSS rather than use React or Vue
+- Leader board scores are saved on the back-end with Firebase
+- Includes Help section
 - Mobile friendly
+- Many thanks to @Jp2323 for [this Firebase tutorial](https://repl.it/@Jp2323/firebase)
 
-### Credit
-Many thanks to @Jp2323 for this Firebase tutorial
+### Instructions
+- Choose the game size: 3x3, 4x4 etc...
+- Slide pieces into the empty space from above, below or the side
+- Position numbers in the correct order in the fewest possible moves
+- Pieces turn green in the correct position
+- When you've completed the game, add your score to the Leader Board
+
+### Links
+- [Live demo](https://js-sliders-game.rjlevy.repl.co/)
+- [Source code](https://repl.it/@rjlevy/js-sliders-game)
+- [Github repo](https://github.com/rolandjlevy/js-sliders-game)

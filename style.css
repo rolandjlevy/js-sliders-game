@@ -268,12 +268,12 @@ footer {
 }
 
 footer > a {
-  color: var(--green-mid);
+  color: #fff;
   transition: all 0.2s ease;
 }
 
 footer > a:hover {
-  color: var(--green-light);
+  color: var(--green-mid);
   transition: all 0.2s ease;
 }
 
@@ -321,13 +321,14 @@ footer > a:hover {
   font-size: 1.25rem;
   background: var(--grey-dark);
   border: none;
+  border-radius: 2px;
   cursor: pointer;
   color: #fff;
   transition: all 0.2s ease;
 }
 
 .help > .close-btn:hover {
-  background: var(--grey-mid);
+  background: var(--grey-light);
   transition: all 0.2s ease;
   color: #000;
 }
