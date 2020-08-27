@@ -35,7 +35,7 @@ h2 {
   margin: 0;
   text-align: center;
   letter-spacing: 1px;
-  background: linear-gradient(0deg, var(--grey-mid), var(--grey-light), #fff);
+  background: linear-gradient(0deg, var(--grey-dark), var(--grey-mid), var(--grey-light), #fff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
