@@ -271,12 +271,16 @@ i.fas {
   opacity: 0;
   transition: all 0.5s ease;
   letter-spacing: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .help.show {
   height: 195px;
   opacity: 1;
   transition: all 0.5s ease;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .help > h4 {
@@ -303,6 +307,7 @@ i.fas {
 .help > ul {
   margin: 0;
   padding-left: 20px;
+  pointer-events: none;
 }
 
 /**************/
