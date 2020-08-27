@@ -200,7 +200,7 @@ input#player-name:invalid + label.error-message.show {
 
 #leader-board {
   display: flex;
-  flex-direction: column; /* column-reverse; */
+  flex-direction: column;
   overflow-y: scroll;
   max-height: 350px;
   min-width: 350px;
@@ -208,7 +208,8 @@ input#player-name:invalid + label.error-message.show {
 }
 
 #leader-board > p {
-  background-color: var(--board-colour);
+  /* background-color: var(--board-colour); */
+  background: linear-gradient(0deg, #33333399, #333333ff);
   padding: 10px 0;
   border-bottom: 4px #000 solid;
   margin: 0;
@@ -324,7 +325,9 @@ footer > a:hover {
   border-radius: 2px;
   cursor: pointer;
   color: #fff;
+  padding: 1px 6px 0px 6px;
   transition: all 0.2s ease;
+  box-shadow: 0 0 3px 3px #00000011;
 }
 
 .help > .close-btn:hover {
@@ -424,5 +427,3 @@ footer > a:hover {
 .m-t-30 {
   margin-top: 30px;
 }
-
-
