@@ -3,11 +3,11 @@
   --border-size: 4;
   --board-colour: #333;
   --green-light: #e2ff93;
-  --green-mid: #6bdb02;
-  --green-dark: #02a36d;
-  --grey-light: #f1f1f1;
-  --grey-mid: #aaa;
-  --grey-dark: #555;
+  --green-mid: #66d101;
+  --green-dark: #00814b;
+  --grey-light: #e9e9e9;
+  --grey-mid: #999;
+  --grey-dark: #444;
 }
 
 * {
