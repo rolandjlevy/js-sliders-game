@@ -257,6 +257,31 @@ i.fas {
   color: var(--grey-dark);
 }
 
+/**********/
+/* Footer */
+/**********/
+
+footer {
+  font-size: 1rem;
+}
+
+footer > a {
+  color: var(--green-mid);
+  transition: all 0.2s ease;
+}
+
+footer > a:hover {
+  color: var(--green-light);
+  transition: all 0.2s ease;
+}
+
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f35d";
+  margin-left: 5px;
+}
+
 /********/
 /* Help */
 /********/
