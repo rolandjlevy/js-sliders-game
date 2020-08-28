@@ -16,7 +16,6 @@ class Score {
     this.scoreDisplay.textContent = this.moves;
     this.addScoreForm.style.display = 'none';
     this.playerNameError.classList.remove('show');
-
   }
   update(blocks) {
     this.scoreDisplay.textContent = --this.moves;
@@ -25,7 +24,7 @@ class Score {
       const total = this.startingScore - this.moves;
       this.addScoreForm.style.display = 'initial';
       this.playerName.focus();
-      this.winDisplay.innerHTML = `<span>Well done! you won in <strong>${total}</strong> moves, with a score of <strong>${this.moves}</strong>. Please add your name or Repl username to the leader board:</span>`;
+      this.winDisplay.innerHTML = `<span>Well done! you won in <strong>${total}</strong> moves, with a score of <strong>${this.moves}</strong>. Please add your name or Repl username to the Leader Board:</span>`;
     }
   }
 }
