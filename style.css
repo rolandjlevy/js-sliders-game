@@ -20,12 +20,12 @@ html {
 
 body {
   margin: 50px;
-  background: #000;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   color: #fff;
   font-size: 1.25rem;
   letter-spacing: 1px;
+  background: #000;
 }
 
 h2 {
