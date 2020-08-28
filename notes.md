@@ -37,6 +37,7 @@ Array.from(Array(10).keys())
 
 ### Links
 - [Javascript event handler with parameters](https://stackoverflow.com/questions/10000083/javascript-event-handler-with-parameters)
+- [Javascript string](From https://stackoverflow.com/questions/18279141/javascript-string-encryption-and-decryption)
 
 ### Firebase Resources
 
