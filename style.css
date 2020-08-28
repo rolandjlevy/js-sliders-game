@@ -175,7 +175,7 @@ input#player-name:valid {
 input#player-name + label.error-message {
   position: absolute;
   color: red;
-  transform: translate(-100%, calc(100% + 25px));
+  transform: translate(-100%, calc(100% + 20px));
   font-size: 0.875rem;
   opacity: 0;
   transition: opacity 0.25s ease;
@@ -192,6 +192,11 @@ input#player-name:invalid + label.error-message.show {
   line-height: 1.25;
   transition: all 0.2s ease;
   font-weight: 700;
+}
+
+.moves {
+  font-weight: 700;
+  color: var(--green-mid);
 }
 
 /****************/

@@ -24,7 +24,7 @@ class Score {
       const total = this.startingScore - this.moves;
       this.addScoreForm.style.display = 'initial';
       this.playerName.focus();
-      this.winDisplay.innerHTML = `<span>Well done! you won in <strong>${total}</strong> moves, with a score of <strong>${this.moves}</strong>. Please add your name or Repl username to the Leader Board:</span>`;
+      this.winDisplay.innerHTML = `<span>Well done! you won in <strong>${total}</strong> moves, with a score of <span class="moves">${this.moves}</span>. Please add your name or Repl username to the Leader Board:</span>`;
     }
   }
 }
