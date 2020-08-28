@@ -24,6 +24,7 @@ class Block {
       const id = e.target.id;
       const bl = blocks.find(item => item.blank);
       const cr = blocks.find(item => item.div.id == id);
+      // if (cr.div.classList.contains('correct')) return;
       if (this.validMove(cr, bl)) {
         const blankCurrentNum = bl.currentNum;
         cr.div.textContent = '';

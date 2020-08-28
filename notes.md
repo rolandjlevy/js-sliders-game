@@ -1,6 +1,6 @@
 ### Improvements
 
-- create an .env file so firebase api key isn't exposed
+- create an auto-solve button which randomly picks a div and clicks it
 
 ### Done
 - fix sorting when score is added to leader board
@@ -13,6 +13,8 @@
 - improve sequence of winning - layout and styling
 - sort out position and width of leaderboard when score is added
 - create new game in addScoreButton click, line 69
+- create an .env file so firebase api key isn't exposed
+
 
 ### nice shuffle function
 

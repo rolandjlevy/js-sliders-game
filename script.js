@@ -1,4 +1,5 @@
 let score;
+let blocks;
 const scoreFactor = 150;
 const main = document.querySelector('main');
 const body = document.querySelector('body');
@@ -13,13 +14,19 @@ function startGame() {
   const game = new Game(size, main);
   game.createGrid(blockSize, borderSize);
   game.createDivs();
-  const blocks = [];
+  blocks = [];
   game.divs.forEach((div, index) => {
     const block = new Block({index, size, div, currentNum:game.getCurrentNum()});
     block.addSwapEvent(div, blocks, score);
     blocks.push(block);
   });
 }
+
+// setInterval(() => {
+//   const rand = Math.round(Math.random() * (blocks.length - 1));
+//   console.log(rand, blocks[rand]);
+//   blocks[rand].div.click();
+// }, 100);
 
 function toggleHelp(state) {
   helpDisplay.classList[state]('show');
