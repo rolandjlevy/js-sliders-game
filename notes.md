@@ -62,14 +62,16 @@ Post on Sunday morning. Post it on share and ask DevZ to check it out. Put it on
 
 also use this: https://repl-talk-stats.mat1.repl.co/ to see your cycle graph and post on tuesdays at 12pm cst
 
-Title: 1️⃣  New Sliders Game with Leader Board!
+Title: 
 
-# Slider Game
+1️⃣2️⃣3️⃣ Play my Sliders [Game] with Leader Board! 4️⃣5️⃣6️⃣
+
+# Sliders Game
+
+Hey everyone! This game took about 6 days to create in my spare time. It's really fun to play - I challenge you to beat the highest score in the Leader Board.
 
 ### Features
-- This game took me 6 days to create in my spare time
-- I challenged myself to only use Vanilla JS and CSS rather than use React or Vue
-- Leader board scores are saved on the back-end with Firebase
+- Leader board scores saved on the back-end with Firebase
 - Includes Help section
 - Mobile friendly
 - Many thanks to @Jp2323 for [this Firebase tutorial](https://repl.it/@Jp2323/firebase)
