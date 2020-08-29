@@ -1,5 +1,6 @@
 let score;
 let blocks;
+let autoCompleted = 1;
 const scoreFactor = 150;
 const main = document.querySelector('main');
 const body = document.querySelector('body');
@@ -24,7 +25,6 @@ function startGame() {
 
 // setInterval(() => {
 //   const rand = Math.round(Math.random() * (blocks.length - 1));
-//   console.log(rand, blocks[rand]);
 //   blocks[rand].div.click();
 // }, 100);
 
