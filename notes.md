@@ -64,16 +64,17 @@ also use this: https://repl-talk-stats.mat1.repl.co/ to see your cycle graph and
 
 Title: 
 
-1️⃣2️⃣3️⃣ Play my Sliders [Game] with Leader Board! 4️⃣5️⃣6️⃣
+1️⃣2️⃣3️⃣ [GAME] Play this Sliders game with Leader Board! 4️⃣5️⃣6️⃣
 
 # Sliders Game
 
-Hey everyone! This game took about 6 days to create in my spare time. It's really fun to play - I challenge you to beat the highest score in the Leader Board.
+Hey everyone! This brain-teaser game took about 6 days to create in my spare time. It's really fun to play - I challenge you to beat the highest score in the Leader Board.
 
 ### Features
 - Leader board scores saved on the back-end with Firebase
 - Includes Help section
 - Mobile friendly
+- Made purely with JavaScript and CSS - no React, Vue etc...
 - Many thanks to @Jp2323 for [this Firebase tutorial](https://repl.it/@Jp2323/firebase)
 
 ### Instructions
