@@ -66,25 +66,25 @@ Title:
 
 1️⃣2️⃣3️⃣ [GAME] Play Sliders! 4️⃣5️⃣6️⃣
 
-# Sliders Game
+# 👉 Sliders Game 👈
 
-Hey everyone! This brain-teaser game took me about 6 days to code from scratch. It's really fun to play - I challenge you to beat the highest score in the Leader Board.
+Hey everyone! This brain-teaser game took me about 6 days to code from scratch. It's really fun to play - I challenge you to beat the highest score in the Leader Board 😄
 
-### Features
+### Features 💡
 - Leader board scores saved on the back-end with Firebase
 - Includes Help section
 - Mobile friendly
 - Made purely with JavaScript and CSS - no React, Vue etc...
 - Many thanks to @Jp2323 for [this Firebase tutorial](https://repl.it/@Jp2323/firebase)
 
-### Instructions
+### Instructions 🛠
 - Choose the game size: 3x3, 4x4 etc...
 - Slide pieces into the empty space from above, below or the side
 - Position numbers in the correct order in the fewest possible moves
 - Pieces turn green in the correct position
 - When you've completed the game, add your score to the Leader Board
 
-### Links
+### Links 🔗
 - [Live demo](https://js-sliders-game.rjlevy.repl.co/)
 - [Source code](https://repl.it/@rjlevy/js-sliders-game)
 - [Github repo](https://github.com/rolandjlevy/js-sliders-game)
