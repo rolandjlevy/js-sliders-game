@@ -66,9 +66,9 @@ Title:
 
 🔥 [GAME] Play this Awesome Sliders Game!! 🔥
 
-# 👉 Sliders Game 👈
+# 👉 Sliders 👈
 
-Hey everyone! This Sliders brain-teaser game took me about 6 days to code from scratch. It's really simple and fun to play - I challenge you to beat the highest score in the Leader Board 😄
+Hey everyone! This Sliders brain-teaser game took me a week to code from scratch. It's really simple and fun to play - I challenge you to beat the highest score from the Leader Board 😄
 
 ### Features 💡
 - Leader board scores saved on the back-end with Firebase
