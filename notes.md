@@ -21,22 +21,18 @@ Array.from(Array(10).keys())
 
 ### Links
 - [Javascript event handler with parameters](https://stackoverflow.com/questions/10000083/javascript-event-handler-with-parameters)
-- [Javascript string](From https://stackoverflow.com/questions/18279141/javascript-string-encryption-and-decryption)
+- [Javascript string](https://stackoverflow.com/questions/18279141/javascript-string-encryption-and-decryption)
 
 ### Firebase Resources
 
 **Tutorial 1**
-- https://blog.repl.it/firebase
-- Find: Add Firebase to your web app from cog > Project settings > General > Add Web App
-- https://repl.it/@Jp2323/firebase#main.js
+- [tutorial by @yevbar, Yev Barkalov](https://blog.repl.it/firebase)
+- [tutorial by @Jp2323, Jorge P](https://repl.it/@Jp2323/firebase)
+- Add Firebase to your web app from cog > Project settings > General > Add Web App
 
 **Tutorial 2**
 - https://codepen.io/k3no/post/getting-started-with-firebase
 - [from medium.com](https://medium.com/@collardeau/es6-promises-wit=h-firebase-76606f36c80c)
-
-### Improvements
-
-- create auto-solve button which randomly picks a div and triggers click event
 
 ### Ideas and fixes - done
 - fix sorting when score is added to leader board
@@ -50,3 +46,7 @@ Array.from(Array(10).keys())
 - sort out position and width of leaderboard when score is added
 - create new game in addScoreButton click, line 69
 - create an .env file so firebase api key isn't exposed
+
+### Improvements
+
+- create auto-solve button which randomly picks a div and triggers click event

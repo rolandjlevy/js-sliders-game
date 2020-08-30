@@ -4,8 +4,8 @@
 - Leader board scores saved on the back-end with Firebase
 - Includes Help section
 - Mobile friendly
-- Made purely with JavaScript and CSS - no React, Vue etc...
-- Many thanks to @Jp2323 for [this Firebase tutorial](https://repl.it/@Jp2323/firebase)
+- Made purely with Vanilla JavaScript and CSS; no front-end frameworks or libraries like React, Vue etc...
+- Many thanks to @yevbar (Yev Barkalov) [for this Firebase tutorial](https://blog.repl.it/firebase) and to @Jp2323 (Jorge P) for [this Firebase repl](https://repl.it/@Jp2323/firebase)
 
 ### Instructions 🛠
 - Choose the game size: 3x3, 4x4 etc...
