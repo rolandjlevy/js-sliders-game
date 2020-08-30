@@ -48,6 +48,7 @@ Array.from(Array(10).keys())
 - create new game in addScoreButton click, line 69
 - create an .env file so firebase api key isn't exposed
 
-### Improvements
+### Improvements and fixes TBD
 
+- look into ordering issue where last 2 numbers are switched which makes winning impossible
 - create auto-solve button which randomly picks a div and triggers click event
