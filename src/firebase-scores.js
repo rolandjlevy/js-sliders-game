@@ -66,7 +66,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     return new Promise((resolve, reject) => {
       const allowed = /^[a-zA-Z0-9 @ ]*$/gm;
       const validPlayerName = playerName.value.match(allowed) || false;
-      console.log({validPlayerName});
       if (playerName.value && score.moves && validPlayerName) {
         resolve('Valid input');
       } else {
