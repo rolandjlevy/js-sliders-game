@@ -179,6 +179,7 @@ input#player-name + label.error-message {
   font-size: 0.875rem;
   opacity: 0;
   transition: opacity 0.25s ease;
+  width: fit-content;
 }
 
 input#player-name:invalid + label.error-message.show {

@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   });
 
   function renderAllScores(score) {
-    leaderBoard.innerHTML = '';
+    leaderBoard.innerText = '';
     users.push(score);
     users
     .sort((a, b) => b.score - a.score)
@@ -43,7 +43,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
       leaderBoard.appendChild(p);
     });
   }
-
 
   addScoreButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -58,6 +57,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }).catch(error => {
       console.log(error);
       playerNameError.classList.add('show');
+      playerNameError.textContent = 'A valid name is required';
       return;
     });
   });
@@ -66,6 +66,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     return new Promise((resolve, reject) => {
       const allowed = /^[a-zA-Z0-9 @ ]*$/gm;
       const validPlayerName = playerName.value.match(allowed) || false;
+      console.log({validPlayerName});
       if (playerName.value && score.moves && validPlayerName) {
         resolve('Valid input');
       } else {
