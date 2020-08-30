@@ -31,6 +31,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     })
   });
 
+  const clean = (str) => str.replace(/</g, "&lt;").replace(/>/g, "gt;");
+
   function renderAllScores(score) {
     leaderBoard.innerText = '';
     users.push(score);
@@ -38,7 +40,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     .sort((a, b) => b.score - a.score)
     .forEach(item => {
       const p = document.createElement('p');
-      const textContent = document.createTextNode(`${item.name}: ${item.score}`); 
+      const textContent = document.createTextNode(`${item.name}: ${item.score}`);
       p.appendChild(textContent);
       leaderBoard.appendChild(p);
     });
