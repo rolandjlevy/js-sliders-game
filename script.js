@@ -1,6 +1,5 @@
 let score;
 let blocks;
-let autoCompleted = 1;
 const scoreFactor = 150;
 const main = document.querySelector('main');
 const body = document.querySelector('body');
@@ -22,11 +21,6 @@ function startGame() {
     blocks.push(block);
   });
 }
-
-// setInterval(() => {
-//   const rand = Math.round(Math.random() * (blocks.length - 1));
-//   blocks[rand].div.click();
-// }, 100);
 
 function toggleHelp(state) {
   helpDisplay.classList[state]('show');

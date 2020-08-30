@@ -7,7 +7,6 @@ class Block {
     this.currentNum = currentNum;
     this.div.textContent = currentNum;
     this.blank = false;
-    this.locked = false;
     this.blankId = size * size;
     this.init();
   }
@@ -25,12 +24,6 @@ class Block {
       const id = e.target.id;
       const bl = blocks.find(item => item.blank);
       const cr = blocks.find(item => item.div.id == id);
-      // if (cr.locked) return;
-      // if (autoCompleted == id && id == cr.currentNum) {
-      //   autoCompleted++;
-      //   cr.locked = true;
-      //   return;
-      // }
       if (this.validMove(cr, bl)) {
         const blankCurrentNum = bl.currentNum;
         cr.div.textContent = '';

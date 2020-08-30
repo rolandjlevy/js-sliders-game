@@ -1,24 +1,6 @@
-### Improvements
-
-- create auto-solve button which randomly picks a div and triggers click event
-
-### Done
-- fix sorting when score is added to leader board
-- change everything to oop
-- change colour of each block to show status
-- dynamically generate blocks based on dropdown showing 2x2, 3x3 etc
-- sort out scoring: do a check for win
-- use firebase to store scores
-- fix bug when game size increases and heading dissapears
-- improve sequence of winning - layout and styling
-- sort out position and width of leaderboard when score is added
-- create new game in addScoreButton click, line 69
-- create an .env file so firebase api key isn't exposed
-
-
 ### nice shuffle function
 
-- https://javascript.info/task/shuffle
+- From: https://javascript.info/task/shuffle
 
 ```js
 function shuffle(array, prop) {
@@ -31,7 +13,7 @@ function shuffle(array, prop) {
 
 ### create an array containing 1-n
 
-- from https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
+- From https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
 
 ```js
 Array.from(Array(10).keys())
@@ -52,39 +34,19 @@ Array.from(Array(10).keys())
 - https://codepen.io/k3no/post/getting-started-with-firebase
 - [from medium.com](https://medium.com/@collardeau/es6-promises-wit=h-firebase-76606f36c80c)
 
-- - -
+### Improvements
 
-# Sharing on repl.it
+- create auto-solve button which randomly picks a div and triggers click event
 
-read: https://repl.it/talk/learn/How-to-get-a-million-upvotes-python/29511/121164
-
-Post on Sunday morning. Post it on share and ask DevZ to check it out. Put it on Discord too
-
-also use this: https://repl-talk-stats.mat1.repl.co/ to see your cycle graph and post on tuesdays at 12pm cst
-
-Title: 
-
-🔥 [GAME] Play this Awesome Sliders Game!! 🔥
-
-# 👉 Sliders 👈
-
-Hey everyone! This Sliders brain-teaser game took me a week to code from scratch. It's really simple and fun to play - just read the instructions below. I challenge you to beat the highest score from the Leader Board! 😄
-
-### Features 💡
-- Leader board scores saved on the back-end with Firebase
-- Includes Help section
-- Mobile friendly
-- Made purely with JavaScript and CSS - no React, Vue etc...
-- Many thanks to @Jp2323 for [this Firebase tutorial](https://repl.it/@Jp2323/firebase)
-
-### Instructions 🛠
-- Choose the game size: 3x3, 4x4 etc...
-- Slide pieces into the empty space from above, below or the side
-- Position numbers in the correct order in the fewest possible moves
-- Pieces turn green in the correct position
-- When you've completed the game, add your score to the Leader Board
-
-### Links 🔗
-- [Live demo](https://js-sliders-game.rjlevy.repl.co/)
-- [Source code](https://repl.it/@rjlevy/js-sliders-game)
-- [Github repo](https://github.com/rolandjlevy/js-sliders-game)
+### Ideas and fixes - done
+- fix sorting when score is added to leader board
+- change everything to oop
+- change colour of each block to show status
+- dynamically generate blocks based on dropdown showing 2x2, 3x3 etc
+- sort out scoring: do a check for win
+- use firebase to store scores
+- fix bug when game size increases and heading dissapears
+- improve sequence of winning - layout and styling
+- sort out position and width of leaderboard when score is added
+- create new game in addScoreButton click, line 69
+- create an .env file so firebase api key isn't exposed
