@@ -40,7 +40,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     .sort((a, b) => b.score - a.score)
     .forEach(item => {
       const p = document.createElement('p');
-      const textContent = document.createTextNode(`${item.name}: ${item.score}`);
+      const name = item.name.replace(/</g, "&lt;").replace(/>/g, "gt;");
+      const textContent = document.createTextNode(`${name}: ${item.score}`);
       p.appendChild(textContent);
       leaderBoard.appendChild(p);
     });
