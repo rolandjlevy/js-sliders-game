@@ -22,6 +22,7 @@ Array.from(Array(10).keys())
 ### Links
 - [Javascript event handler with parameters](https://stackoverflow.com/questions/10000083/javascript-event-handler-with-parameters)
 - [Javascript string](https://stackoverflow.com/questions/18279141/javascript-string-encryption-and-decryption)
+- [regextester for validation](https://www.regextester.com/104025)
 
 ### Firebase Resources
 
