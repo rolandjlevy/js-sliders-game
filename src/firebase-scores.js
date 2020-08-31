@@ -1,10 +1,9 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
   const leaderBoard = document.querySelector('#leader-board');
-  const playerName = document.querySelector('#player-name');
-  const playerNameError = document.querySelector('.error-message');
   const addScoreForm = document.querySelector('#add-score-form');
   const addScoreButton = document.querySelector('#add-score-button');
+  let playerName;
 
   const users = [];
   let counter = 0;
@@ -41,7 +40,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     .forEach(item => {
       const p = document.createElement('p');
       const name = item.name.replace(/</g, "&lt;").replace(/>/g, "gt;");
-      const textContent = document.createTextNode(`${name}: ${item.score}`);
+      const score = String(item.score).replace(/</g, "&lt;").replace(/>/g, "gt;");
+      const textContent = document.createTextNode(`${name}: ${score}`);
       p.appendChild(textContent);
       leaderBoard.appendChild(p);
     });
@@ -49,9 +49,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   addScoreButton.addEventListener('click', (event) => {
     event.preventDefault();
+    playerName = document.querySelector('#player-name');
     validate().then(validationResolve => {
       return pushIt().then(pushResolve => {
-        playerName.value = '';
         addScoreForm.style.display = 'none';
         startGame();
       }).catch(error => {
@@ -59,6 +59,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       });
     }).catch(error => {
       console.log(error);
+      const playerNameError = document.querySelector('.error-message');
       playerNameError.classList.add('show');
       playerNameError.textContent = 'A valid name is required';
       return;
@@ -67,9 +68,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   function validate() {
     return new Promise((resolve, reject) => {
-      const allowed = /^[a-zA-Z0-9 @ ]*$/gm;
-      const validPlayerName = playerName.value.match(allowed) || false;
-      if (playerName.value && score.moves && validPlayerName) {
+      const allowedLetters = /^[a-zA-Z0-9 @ ]*$/gm;
+      const allowedNumbers = /^[0-9]*$/gm;
+      const validPlayerName = playerName.value.match(allowedLetters) || false;
+      const validScore = String(score.moves).match(allowedNumbers) || false;
+      if (playerName.value && score.moves && validScore && validPlayerName && playerName.value.length <= 20) {
         resolve('Valid input');
       } else {
         reject('Error: please enter a valid name and score');
