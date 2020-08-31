@@ -1,8 +1,14 @@
 class Score {
   constructor(size, max) {
-    this.moves = max * size;
+    this.updateScore = max * size;
     this.setUpHTMLElems();
     this.init();
+  }
+  set updateScore(n) {
+    this.moves = n;
+  }
+  get currentMoves() {
+    return this.moves;
   }
   setUpHTMLElems() {
     this.scoreDisplay = document.querySelector('.score-display');
@@ -16,11 +22,9 @@ class Score {
     this.addScoreForm.style.display = 'none';
     this.playerNameWrapper.innerHTML = '';
   }
-  get currentMoves() {
-    return this.moves;
-  }
   update(blocks) {
-    this.scoreDisplay.textContent = --this.moves;
+    this.updateScore = this.currentMoves - 1;
+    this.scoreDisplay.textContent = this.currentMoves;
     const winStatus = blocks.every((item, index) => item.currentNum == item.div.id);
     if (winStatus == true) {
       const total = this.startingScore - this.currentMoves;
