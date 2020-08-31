@@ -1,1 +1,104 @@
-const _0x182f=['rxjYB3i6ihbSzwfZzsbLBNrLCIbHihzHBgLKig5HBwuGyw5KihnJB3jL','u2nVCMuGywrKzwqGC3vJy2vZC2z1BgX5','rxjYB3i6ihnUyxbZAg90ig5VDcbHzgrLza==','re9nq29UDgvUDeXVywrLza==','i2XLywrLCI1IB2fYza==','CxvLCNLtzwXLy3rVCG==','i2fKzc1Zy29Yzs1MB3jT','i2fKzc1Zy29Yzs1IDxr0B24=','B25Jzq==','DMfSDwu=','DgHLBG==','B3jKzxjcEunOAwXK','u25HChnOB3qGzM91BMq6ia==','A2v5','rxjYB3i6ig5HBwuGyw5KihnJB3jLig5VigzVDw5K','y2f0y2G=','Bg9N','Aw5UzxjuzxH0','ChvZAa==','C2nVCMu=','zM9YrwfJAa==','y3jLyxrLrwXLBwvUDa==','BMfTzq==','CMvWBgfJzq==','jMX0oW==','z3q7','Bwf0y2G=','yxbWzw5Kq2HPBgq=','ywrKrxzLBNrmAxn0zw5LCG==','y2XPy2S=','ChjLDMvUDerLzMf1Bhq=','i3bSyxLLCI1Uyw1L','zgLZCgXHEq==','BM9Uzq==','y2XHC3nmAxn0','ywrK','Dgv4DenVBNrLBNq=','qsb2ywXPzcbUyw1LigLZihjLCxvPCMvK','y3vYCMvUDe1VDMvZ'];(function(_0x45b459,_0x182fd2){const _0x12bbba=function(_0x51ab2f){while(--_0x51ab2f){_0x45b459['push'](_0x45b459['shift']());}};_0x12bbba(++_0x182fd2);}(_0x182f,0x189));const _0x12bb=function(_0x45b459,_0x182fd2){_0x45b459=_0x45b459-0x0;let _0x12bbba=_0x182f[_0x45b459];if(_0x12bb['fzitLH']===undefined){var _0x51ab2f=function(_0x1a7619){const _0x415f06='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=',_0x133c79=String(_0x1a7619)['replace'](/=+$/,'');let _0x5eb0ea='';for(let _0x5483cf=0x0,_0x180dbb,_0x5d7b37,_0x80b17f=0x0;_0x5d7b37=_0x133c79['charAt'](_0x80b17f++);~_0x5d7b37&&(_0x180dbb=_0x5483cf%0x4?_0x180dbb*0x40+_0x5d7b37:_0x5d7b37,_0x5483cf++%0x4)?_0x5eb0ea+=String['fromCharCode'](0xff&_0x180dbb>>(-0x2*_0x5483cf&0x6)):0x0){_0x5d7b37=_0x415f06['indexOf'](_0x5d7b37);}return _0x5eb0ea;};_0x12bb['qjthhl']=function(_0x181dfc){const _0x2b1663=_0x51ab2f(_0x181dfc);let _0x38cd7a=[];for(let _0x1e3bc4=0x0,_0x5a5025=_0x2b1663['length'];_0x1e3bc4<_0x5a5025;_0x1e3bc4++){_0x38cd7a+='%'+('00'+_0x2b1663['charCodeAt'](_0x1e3bc4)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x38cd7a);},_0x12bb['tVPvCy']={},_0x12bb['fzitLH']=!![];}const _0x91bf0c=_0x12bb['tVPvCy'][_0x45b459];return _0x91bf0c===undefined?(_0x12bbba=_0x12bb['qjthhl'](_0x12bbba),_0x12bb['tVPvCy'][_0x45b459]=_0x12bbba):_0x12bbba=_0x91bf0c,_0x12bbba;};window['addEventListener'](_0x12bb('0x0'),_0x49e6bc=>{const _0x565eb3=document['querySelector'](_0x12bb('0x1')),_0x1c9da8=document[_0x12bb('0x2')](_0x12bb('0x3')),_0xaf5543=document[_0x12bb('0x2')](_0x12bb('0x4'));let _0xc734c0;const _0x4cc8e7=[];let _0x2d3b8c=0x0,_0x1644fd;const _0x470437=firebase['database']()['ref']();_0x470437[_0x12bb('0x5')](_0x12bb('0x6'))[_0x12bb('0x7')](_0x2d8463=>{_0x1644fd=_0x2d8463['numChildren']();}),_0x470437[_0x12bb('0x8')]('score')['on']('child_added',_0x5a8a9a=>{const _0x332034=new Promise((_0x4e00aa,_0xd5a06)=>{_0x5a8a9a['val']()?_0x4e00aa(_0x12bb('0x9')+_0x5a8a9a[_0x12bb('0xa')]):_0xd5a06(_0x12bb('0xb'));});_0x332034[_0x12bb('0x7')](_0x476b33=>{_0x1b70ec(_0x5a8a9a['val']()),_0x2d3b8c++;})[_0x12bb('0xc')](_0x4a110f=>{console[_0x12bb('0xd')](_0x4a110f);});});function _0x1b70ec(_0x3fa781){_0x565eb3[_0x12bb('0xe')]='',_0x4cc8e7[_0x12bb('0xf')](_0x3fa781),_0x4cc8e7['sort']((_0x2b5b18,_0x5460ab)=>_0x5460ab[_0x12bb('0x10')]-_0x2b5b18[_0x12bb('0x10')])[_0x12bb('0x11')](_0x231b7a=>{const _0x16e66c=document[_0x12bb('0x12')]('p'),_0x2ea0b4=_0x231b7a[_0x12bb('0x13')][_0x12bb('0x14')](/</g,_0x12bb('0x15'))[_0x12bb('0x14')](/>/g,'gt;'),_0x1595ff=String(_0x231b7a[_0x12bb('0x10')])[_0x12bb('0x14')](/</g,_0x12bb('0x15'))[_0x12bb('0x14')](/>/g,_0x12bb('0x16')),_0x556503=/^[a-zA-Z0-9 @ ]*$/gm,_0x30006c=(_0x2ea0b4[_0x12bb('0x17')](_0x556503)||![])&&(_0x1595ff[_0x12bb('0x17')](_0x556503)||![]);if(_0x30006c&&_0x231b7a[_0x12bb('0x10')]<0x384){const _0x2da29d=document['createTextNode'](unescape(_0x2ea0b4)+':\x20'+unescape(_0x1595ff));_0x16e66c['appendChild'](_0x2da29d),_0x565eb3[_0x12bb('0x18')](_0x16e66c);}});}_0xaf5543[_0x12bb('0x19')](_0x12bb('0x1a'),_0x3b9878=>{_0x3b9878[_0x12bb('0x1b')](),_0xc734c0=document[_0x12bb('0x2')](_0x12bb('0x1c')),_0x48db15()[_0x12bb('0x7')](_0x20d2b8=>{return _0x40ffc1()['then'](_0xe479aa=>{_0x1c9da8['style'][_0x12bb('0x1d')]=_0x12bb('0x1e'),startGame();})[_0x12bb('0xc')](_0xdf00ea=>{console[_0x12bb('0xd')](_0xdf00ea);});})[_0x12bb('0xc')](_0x49a32e=>{console[_0x12bb('0xd')](_0x49a32e);const _0x432208=document[_0x12bb('0x2')]('.error-message');_0x432208[_0x12bb('0x1f')][_0x12bb('0x20')]('show'),_0x432208[_0x12bb('0x21')]=_0x12bb('0x22');return;});});function _0x48db15(){return new Promise((_0x4d9dc1,_0x2d4800)=>{const _0x3e4278=/^[a-zA-Z0-9 @ ]*$/gm,_0x5bc438=/^[0-9]*$/gm,_0x348454=_0xc734c0[_0x12bb('0x6')][_0x12bb('0x17')](_0x3e4278)||![],_0x3dce5a=String(score[_0x12bb('0x23')])[_0x12bb('0x17')](_0x5bc438)||![];_0xc734c0['value']&&score[_0x12bb('0x23')]&&_0x3dce5a&&_0x348454&&_0xc734c0[_0x12bb('0x6')]['length']<=0x14?_0x4d9dc1('Valid\x20input'):_0x2d4800(_0x12bb('0x24'));});}function _0x40ffc1(){return new Promise((_0x93d449,_0x713c14)=>{const _0x3a6755=_0x470437['push']({'id':_0x2d3b8c,'name':escape(_0xc734c0[_0x12bb('0x6')]),'score':escape(score[_0x12bb('0x23')])});_0x3a6755?_0x93d449(_0x12bb('0x25')):_0x713c14(_0x12bb('0x26'));});}});
+window.addEventListener('DOMContentLoaded', (event) => {
+
+  const leaderBoard = document.querySelector('#leader-board');
+  const addScoreForm = document.querySelector('#add-score-form');
+  const addScoreButton = document.querySelector('#add-score-button');
+  let playerName;
+
+  const users = [];
+  let counter = 0;
+  let totalChildren;
+  const leadScores = firebase.database().ref();
+
+  leadScores.once('value').then(snap => {
+    totalChildren = snap.numChildren();
+  });
+
+  leadScores.orderByChild('score').on('child_added', (snapShot) => {
+    const prom = new Promise((resolve, reject) => {
+      if (snapShot.val()) {
+        resolve(`Snapshot found: ${snapShot.key}`);
+      } else {
+        reject('Error: name and score no found');
+      }
+    });
+    prom.then(resolveMessage => {
+      renderAllScores(snapShot.val());
+      counter++;
+    }).catch((error) => {
+      console.log(error);
+    })
+  });
+
+  function renderAllScores(score) {
+    leaderBoard.innerText = '';
+    users.push(score);
+    users
+    .sort((a, b) => b.score - a.score)
+    .forEach(item => {
+      const p = document.createElement('p');
+      const nameStr = item.name.replace(/</g, "&lt;").replace(/>/g, "gt;");
+      const scoreStr = String(item.score).replace(/</g, "&lt;").replace(/>/g, "gt;");
+      const validPattern = /^[a-zA-Z0-9 @ ]*$/gm;
+      const validInput = (nameStr.match(validPattern) || false) && (scoreStr.match(validPattern) || false);
+      if (validInput && item.score < 900) {
+        const textContent = document.createTextNode(`${unescape(nameStr)}: ${unescape(scoreStr)}`);
+        p.appendChild(textContent);
+        leaderBoard.appendChild(p);
+      }
+    });
+  }
+
+  addScoreButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    const playerNameError = document.querySelector('.error-message');
+    playerName = document.querySelector('#player-name');
+    validate().then((validationResolve, validationReject) => {
+      return pushIt().then(pushResolve => {
+        addScoreForm.style.display = 'none';
+        startGame();
+      }).catch(error => {
+        console.log(error);
+      });
+    }).catch(error => {
+      console.log(error);
+      const errorMessage = error === 'empty' ? 'Your name is required' : 'Your name is not valid';
+      playerName.classList.add('invalid');
+      playerNameError.classList.add('show');
+      playerNameError.textContent = errorMessage;
+      return;
+    });
+  });
+
+  function validate() {
+    return new Promise((resolve, reject) => {
+      const allowedLetters = /^[a-zA-Z0-9 @ ]*$/gm;
+      const allowedNumbers = /^[0-9]*$/gm;
+      const validPlayerName = playerName.value.match(allowedLetters) || false;
+      const validScore = String(score.currentMoves).match(allowedNumbers) || false;
+      if (!playerName.value || !score.currentMoves) {
+        reject('empty');
+      } else if (!validScore || !validPlayerName || playerName.value.length > 20) {
+        reject('invalid');
+      } else {
+        resolve('success');
+      }
+    });
+  }
+
+  function pushIt() {
+    return new Promise((resolve, reject) => {
+      const result = leadScores.push({
+        id:counter,
+        name:escape(playerName.value),
+        score:escape(score.currentMoves),
+      });
+      if (result) {
+        resolve('Score added successfully');
+      } else {
+        reject('Error: snapshot not added');
+      }
+    });
+  }
+
+});

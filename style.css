@@ -164,12 +164,16 @@ input#player-name  {
   border-radius: 5px;
 }
 
-input#player-name:invalid {
+/* input#player-name:invalid {
   border: 2px solid red;
 }
 
 input#player-name:valid {
   border: 2px solid var(--green-mid);
+} */
+
+input#player-name.invalid {
+  border: 2px solid red;
 }
 
 input#player-name + label.error-message {
@@ -183,7 +187,7 @@ input#player-name + label.error-message {
   padding-bottom: 20px;
 }
 
-input#player-name:invalid + label.error-message.show {
+input#player-name + label.error-message.show {
   opacity: 1;
   transition: opacity 0.25s ease;
 }
@@ -209,6 +213,7 @@ input#player-name:invalid + label.error-message.show {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  min-height: 350px;
   max-height: 350px;
   min-width: 350px;
   max-width: 350px;
