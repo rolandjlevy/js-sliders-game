@@ -175,12 +175,12 @@ input#player-name:valid {
 input#player-name + label.error-message {
   position: absolute;
   color: red;
-  transform: translate(-100%, calc(100% + 20px));
+  transform: translate(-100%, calc(100% + 0px));
   font-size: 0.875rem;
   opacity: 0;
   transition: opacity 0.25s ease;
   width: fit-content;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 input#player-name:invalid + label.error-message.show {

@@ -1,5 +1,5 @@
-let score;
 let blocks;
+let score;
 const scoreFactor = 150;
 const main = document.querySelector('main');
 const body = document.querySelector('body');
