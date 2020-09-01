@@ -23,12 +23,12 @@ function startGame() {
     blocks.push(block);
   });
   const shuffleLength = (scoreFactor/5) * Math.pow(size, 3);
-  shuffleDisplay.classList.remove('hide');
-  gameSize.disabled = true;
   shuffle(blocks, game, shuffleLength);
 }
 
 function shuffle(blocks, game, shuffleLength) {
+  shuffleDisplay.classList.remove('hide');
+  gameSize.disabled = true;
   const shuffleID = setInterval(() => {
     const rand = Math.round(Math.random() * (blocks.length - 1));
     blocks[rand].div.click();
@@ -40,7 +40,7 @@ function shuffle(blocks, game, shuffleLength) {
       clearInterval(shuffleID);
     }
     game.shuffleCount++;
-  }, 1);
+  }, 0.1);
 }
 
 function toggleHelp(state) {
