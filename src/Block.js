@@ -27,6 +27,7 @@ class Block {
       const cr = blocks.find(item => item.div.id == id);
       if (this.validMove(cr, bl)) {
         const blankCurrentNum = bl.currentNum;
+        this.validRange(id);
         cr.div.textContent = '';
         cr.div.classList.add('blank');
         cr.div.classList.remove('correct');
@@ -45,8 +46,18 @@ class Block {
       }
     }, false);
   }
-  validRange(blankCurrentNum) {
+  validRange(num) {
     // return range of available and valid blocks in relation to blankCurrentNum
+    const n = Number(num);
+    const size = Number(this.size);
+    const obj = {
+      top: n - size, 
+      right: n + 1,
+      bottom: n + size,
+      left: n - 1
+    };
+    // console.log({obj});
+    return obj;
   }
   validMove(a, b) {
     return (a.x + 1 == b.x && a.y == b.y || 
