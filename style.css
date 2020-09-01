@@ -321,7 +321,7 @@ footer > a:hover {
 }
 
 .help.show {
-  height: 210px;
+  height: 255px;
   opacity: 1;
   transition: all 0.5s ease;
   margin-top: 20px;
