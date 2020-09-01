@@ -26,8 +26,8 @@ class Game {
     return this.currentNums.splice(rand, 1).shift();
   }
   shuffle(blocks, gameSize, shuffleDisplay, shuffleLength) {
-    shuffleDisplay.classList.remove('hide');
     gameSize.disabled = true;
+    shuffleDisplay.classList.remove('hide');
     const shuffleID = setInterval(() => {
       const rand = Math.round(Math.random() * (blocks.length - 1));
       blocks[rand].div.click();
