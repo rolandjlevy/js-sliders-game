@@ -143,7 +143,11 @@ select#game-size {
   transition: all 0.2s ease;
 }
 
-select#game-size:hover {
+select#game-size:disabled {
+  cursor: not-allowed;
+}
+
+select#game-size:not(:disabled):hover {
   background-color: #fff;
   font-size: 1.25rem;
   transition: all 0.2s ease;
@@ -254,7 +258,7 @@ input#player-name + label.error-message.show {
   cursor: pointer;
   transition: all 0.2s ease;
   outline: 0;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.25rem;
 }
 
@@ -366,9 +370,9 @@ footer > a:hover {
   padding: 4px 8px;
   border-radius: 5px;
   font-size: 1rem;
-  font-weight: ;
+  font-weight: 700;
   opacity: 1;
-  margin: 20px 0 10px 0;
+  margin: 10px 0 0 0;
   transition: all 0.5s ease;
   letter-spacing: 0.5px;
   white-space: nowrap;
