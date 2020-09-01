@@ -45,6 +45,9 @@ class Block {
       }
     }, false);
   }
+  validRange(blankCurrentNum) {
+    // return range of available and valid blocks in relation to blankCurrentNum
+  }
   validMove(a, b) {
     return (a.x + 1 == b.x && a.y == b.y || 
             a.x - 1 == b.x && a.y == b.y || 
