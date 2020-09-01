@@ -8,6 +8,7 @@ class Block {
     this.div.textContent = currentNum;
     this.blank = false;
     this.blankId = size * size;
+    this.size = size;
     this.init();
   }
   init() {
@@ -19,7 +20,7 @@ class Block {
       this.div.classList.toggle('correct');
     }
   }
-  addSwapEvent(div, blocks, score) {
+  addSwapEvent(div, blocks, score, game) {
     div.addEventListener('click', (e) => {
       const id = e.target.id;
       const bl = blocks.find(item => item.blank);
@@ -38,7 +39,9 @@ class Block {
           bl.div.classList.add('correct');
         }
         cr.currentNum = blankCurrentNum;
-        score.update(blocks);
+        if (game.shuffleCount > (score.scoreFactor/5) * Math.pow(this.size, 3)) {
+          score.update(blocks);
+        }
       }
     }, false);
   }

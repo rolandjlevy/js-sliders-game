@@ -3,6 +3,7 @@ class Game {
     this.main = main;
     this.size = size;
     this.currentNums = Array.from(Array(size * size).keys()).map(num => num + 1);
+    this.shuffleCount = 0;
   }
   createDivs() {
     this.main.innerHTML = '';

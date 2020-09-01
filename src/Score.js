@@ -1,6 +1,7 @@
 class Score {
-  constructor(size, max) {
-    this.updateScore = max * size;
+  constructor(size, scoreFactor) {
+    this.updateScore = scoreFactor * size;
+    this.scoreFactor = scoreFactor;
     this.setUpHTMLElems();
     this.init();
   }
