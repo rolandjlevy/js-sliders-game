@@ -1,6 +1,5 @@
 let blocks;
 let score;
-let active = false;
 const scoreFactor = 150;
 const main = document.querySelector('main');
 const body = document.querySelector('body');
@@ -26,11 +25,15 @@ function startGame() {
   const shuffleLength = (scoreFactor/5) * Math.pow(size, 3);
   shuffleDisplay.classList.remove('hide');
   gameSize.disabled = true;
+  shuffle(blocks, game, shuffleLength);
+}
+
+function shuffle(blocks, game, shuffleLength) {
   const shuffleID = setInterval(() => {
     const rand = Math.round(Math.random() * (blocks.length - 1));
     blocks[rand].div.click();
     const remaining = Number(shuffleLength - game.shuffleCount).toLocaleString();
-    shuffleDisplay.textContent = `Initializing moves remaining: ${remaining}`;
+    shuffleDisplay.textContent = `Initializer countdown: ${remaining}`;
     if (game.shuffleCount >= shuffleLength) {
       shuffleDisplay.classList.add('hide');
       gameSize.disabled = false;
@@ -39,10 +42,6 @@ function startGame() {
     game.shuffleCount++;
   }, 1);
 }
-
-document.addEventListener('keypress', (e) => {
-  active = e.key === 'x';
-});
 
 function toggleHelp(state) {
   helpDisplay.classList[state]('show');

@@ -366,10 +366,12 @@ footer > a:hover {
   padding: 4px 8px;
   border-radius: 5px;
   font-size: 1rem;
+  font-weight: ;
   opacity: 1;
   margin: 20px 0 10px 0;
   transition: all 0.5s ease;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .shuffle-display.hide {
