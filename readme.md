@@ -4,8 +4,8 @@
 - Mobile friendly
 - Includes Help section
 - Initializing sequence to randomize game
-- Leader board scores saved on the back-end with Firebase
 - Made purely with Vanilla JavaScript and CSS; no front-end frameworks or libraries like React, Vue etc...
+- Leader board scores saved on the back-end with Google Firebase
 - Many thanks to @yevbar (Yev Barkalov) [for this Firebase tutorial](https://blog.repl.it/firebase) and to @Jp2323 (Jorge P) for [this Firebase repl](https://repl.it/@Jp2323/firebase)
 
 ### Instructions 🛠
