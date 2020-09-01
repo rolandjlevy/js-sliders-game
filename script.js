@@ -23,24 +23,7 @@ function startGame() {
     blocks.push(block);
   });
   const shuffleLength = (scoreFactor/5) * Math.pow(size, 3);
-  shuffle(blocks, game, shuffleLength);
-}
-
-function shuffle(blocks, game, shuffleLength) {
-  shuffleDisplay.classList.remove('hide');
-  gameSize.disabled = true;
-  const shuffleID = setInterval(() => {
-    const rand = Math.round(Math.random() * (blocks.length - 1));
-    blocks[rand].div.click();
-    const remaining = Number(shuffleLength - game.shuffleCount).toLocaleString();
-    shuffleDisplay.textContent = `Initializer countdown: ${remaining}`;
-    if (game.shuffleCount >= shuffleLength) {
-      shuffleDisplay.classList.add('hide');
-      gameSize.disabled = false;
-      clearInterval(shuffleID);
-    }
-    game.shuffleCount++;
-  }, 0.1);
+  game.shuffle(blocks, gameSize, shuffleDisplay, shuffleLength)
 }
 
 function toggleHelp(state) {

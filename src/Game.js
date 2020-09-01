@@ -25,4 +25,20 @@ class Game {
     const rand = Math.floor(Math.random() * this.currentNums.length);
     return this.currentNums.splice(rand, 1).shift();
   }
+  shuffle(blocks, gameSize, shuffleDisplay, shuffleLength) {
+    shuffleDisplay.classList.remove('hide');
+    gameSize.disabled = true;
+    const shuffleID = setInterval(() => {
+      const rand = Math.round(Math.random() * (blocks.length - 1));
+      blocks[rand].div.click();
+      const remaining = Number(shuffleLength - this.shuffleCount).toLocaleString();
+      shuffleDisplay.textContent = `Initializer countdown: ${remaining}`;
+      if (this.shuffleCount >= shuffleLength) {
+        shuffleDisplay.classList.add('hide');
+        gameSize.disabled = false;
+        clearInterval(shuffleID);
+      }
+      this.shuffleCount++;
+    }, 0.1);
+  }
 }
