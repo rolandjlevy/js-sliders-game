@@ -47,8 +47,9 @@ Array.from(Array(10).keys())
 - sort out position and width of leaderboard when score is added
 - create new game in addScoreButton click, line 69
 - create an .env file so firebase api key isn't exposed
+- look into ordering issue where last 2 numbers are switched which makes winning impossible
 
 ### Improvements and fixes TBD
 
-- look into ordering issue where last 2 numbers are switched which makes winning impossible
+- select a more precise random number when inititalizing. The numbers randomized should be the adjacent blocks which are valid moves
 - create auto-solve button which randomly picks a div and triggers click event
