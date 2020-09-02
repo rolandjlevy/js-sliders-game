@@ -10,10 +10,6 @@
   --grey-dark: #444;
 }
 
-* {
-  /* box-sizing: border-box; */
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -170,14 +166,6 @@ input#player-name  {
   width: calc(100% - 100px);
 }
 
-/* input#player-name:invalid {
-  border: 2px solid red;
-}
-
-input#player-name:valid {
-  border: 2px solid var(--green-mid);
-} */
-
 input#player-name.invalid {
   border: 2px solid red;
 }
@@ -226,7 +214,6 @@ input#player-name + label.error-message.show {
 }
 
 #leader-board > p {
-  /* background-color: var(--board-colour); */
   background: linear-gradient(0deg, #33333399, #333333ff);
   padding: 10px 0;
   border-bottom: 4px #000 solid;
@@ -376,16 +363,17 @@ footer > a:hover {
   font-weight: 700;
   opacity: 1;
   margin: 10px 0 0 0;
-  transition: all 0.5s ease;
   letter-spacing: 0.5px;
   white-space: nowrap;
+  line-height: 1.5;
+  transition: all 0.5s ease;
 }
 
 .shuffle-display.hide {
   opacity: 0;
-  height: 0;
   margin: 0;
   font-size: 0;
+  line-height: 0;
   transition: all 0.5s ease;
 }
 
