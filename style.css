@@ -166,6 +166,8 @@ input#player-name  {
   padding: 4px 8px;
   font-size: 1.25rem;
   border-radius: 5px;
+  display: inline-block;
+  width: calc(100% - 100px);
 }
 
 /* input#player-name:invalid {
@@ -260,6 +262,7 @@ input#player-name + label.error-message.show {
   outline: 0;
   font-weight: 700;
   font-size: 1.25rem;
+  display: inline-block;
 }
 
 .btn:hover {
