@@ -1,6 +1,6 @@
 :root {
   --block-size: 65;
-  --border-size: 4;
+  --border-size: 5;
   --board-colour: #333;
   --green-light: #e2ff93;
   --green-mid: #66d101;
@@ -74,7 +74,8 @@ main > div {
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
   background: linear-gradient(45deg, var(--grey-dark) 0%, var(--grey-mid) 50%, var(--grey-light) 100%);
-  border: calc(var(--border-size) * 1px) solid var(--board-colour);
+  /* border: calc(var(--border-size) * 1px) solid var(--board-colour); */
+  margin: calc(var(--border-size) * 1px);
   cursor: pointer;
   border-radius: 10px;
   opacity: 1;
@@ -84,6 +85,7 @@ main > div {
   transition: all 0.2s ease;
   color: #fff;
   text-shadow: 0 0 5px #00000066;
+  box-shadow: 0 5px 10px -5px #000;
 }
 
 main > div:active {
@@ -99,12 +101,13 @@ main > div:active:not(.blank):not(.correct) {
 }
 
 main > div:hover, main > div.correct:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 main > div.blank {
   background: var(--board-colour);
   cursor: auto;
+  box-shadow: none;
 }
 
 main > div.correct {
