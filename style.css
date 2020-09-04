@@ -73,7 +73,6 @@ main > div {
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
   background: linear-gradient(45deg, var(--grey-dark) 0%, var(--grey-mid) 50%, var(--grey-light) 100%);
-  /* border: calc(var(--border-size) * 1px) solid var(--board-colour); */
   margin: calc(var(--border-size) * 1px);
   cursor: pointer;
   border-radius: 10px;
