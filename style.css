@@ -83,8 +83,8 @@ main > div {
   user-select: none;
   transition: all 0.2s ease;
   color: #fff;
-  text-shadow: 0 0 5px #00000066;
-  box-shadow: 0 5px 10px -5px #000;
+  text-shadow: 0 0 10px #00000066;
+  box-shadow: 0 5px 5px -5px #000000aa
 }
 
 main > div:active {
