@@ -50,9 +50,7 @@ class Block {
   }
   validTest(a, b, id) {
     // return range of available and valid blocks in relation to blankCurrentNum
-
     // console.log(this.validRange(a, b));
-
     // const n = Number(num);
     // const size = Number(this.size);
     // const obj = {
