@@ -1,5 +1,6 @@
 let blocks;
 let score;
+const scoreFactor = 150;
 const main = document.querySelector('main');
 const body = document.querySelector('body');
 const gameSize = document.querySelector('#game-size');
@@ -9,7 +10,6 @@ const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
 const borderSize = getComputedStyle(body).getPropertyValue('--border-size');
 
 function startGame() {
-  const scoreFactor = 150;
   if (!shuffleDisplay.classList.contains('hide')) return;
   const size = gameSize.value;
   score = new Score(size, scoreFactor);

@@ -48,7 +48,6 @@ Array.from(Array(10).keys())
 - create new game in addScoreButton click, line 69
 - create an .env file so firebase api key isn't exposed
 - look into ordering issue where last 2 numbers are switched which makes winning impossible
-- add small drop-shadow under each peice: box-shadow: 0 5px 5px -5px #000; it means removing the border, adding a margin. Width and height need to be another 2px x size bigger
 
 ### Improvements and fixes TBD
 
