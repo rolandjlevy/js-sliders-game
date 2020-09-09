@@ -15,6 +15,7 @@
 }
 
 html {
+  touch-action: manipulation;
   scroll-behavior: smooth;
 }
 
@@ -341,7 +342,7 @@ footer > a:hover {
   border-radius: 2px;
   cursor: pointer;
   color: #fff;
-  padding: 1px 6px 0px 6px;
+  padding: 3px 7px 0px 7px;
   transition: all 0.2s ease;
   box-shadow: 0 0 3px 3px #00000011;
 }
