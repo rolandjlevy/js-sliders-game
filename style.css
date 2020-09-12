@@ -19,11 +19,6 @@ html {
   scroll-behavior: smooth;
 }
 
-html {
-  touch-action: manipulation;
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 50px;
   box-sizing: border-box;
