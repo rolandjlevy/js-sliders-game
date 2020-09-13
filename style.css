@@ -169,14 +169,6 @@ input#player-name  {
   border-radius: 5px;
 }
 
-/* input#player-name:invalid {
-  border: 2px solid red;
-}
-
-input#player-name:valid {
-  border: 2px solid var(--green-mid);
-} */
-
 input#player-name.invalid {
   border: 2px solid red;
 }
