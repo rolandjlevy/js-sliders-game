@@ -14,8 +14,12 @@
 - Position numbers in the correct order in the fewest possible moves
 - Pieces turn green in the correct position
 - When you've completed the game, add your score to the Leader Board
+- See demo below
 
 ### Links 🔗
 - [Live demo](https://js-sliders-game.rjlevy.repl.co/)
 - [Source code](https://repl.it/@rjlevy/js-sliders-game)
 - [Github repo](https://github.com/rolandjlevy/js-sliders-game)
+
+### Demo 🏁
+![Sliders demo](https://js-sliders-game.rjlevy.repl.co/images/sliders-demo.gif)
