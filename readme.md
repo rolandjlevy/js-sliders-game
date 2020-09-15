@@ -22,4 +22,4 @@
 - [Github repo](https://github.com/rolandjlevy/js-sliders-game)
 
 ### Demo 🏁
-![Sliders demo](https://js-sliders-game.rjlevy.repl.co/images/sliders-demo.gif)
+![Sliders demo](https://js-sliders-game.rjlevy.repl.co/images/sliders-demo.gif "Sliders demo")
