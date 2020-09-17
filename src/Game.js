@@ -1,4 +1,4 @@
-class Game {
+export class Game {
   constructor(size) {
     this.main = document.querySelector('main');
     this.size = size;

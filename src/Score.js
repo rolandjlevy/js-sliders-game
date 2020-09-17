@@ -1,4 +1,4 @@
-class Score {
+export class Score {
   constructor(size, scoreFactor) {
     this.updateScore = scoreFactor * size;
     this.scoreFactor = scoreFactor;

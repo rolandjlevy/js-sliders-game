@@ -1,4 +1,7 @@
-let score;
+import { Block } from './src/Block.js';
+import { Game } from './src/Game.js';
+import { Score } from './src/Score.js';
+
 const body = document.querySelector('body');
 const gameSize = document.querySelector('#game-size');
 const helpDisplay = document.querySelector('.help');
@@ -6,11 +9,11 @@ const shuffleDisplay = document.querySelector('.shuffle-display');
 const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
 const borderSize = getComputedStyle(body).getPropertyValue('--border-size');
 
-function startGame() {
+window.startGame = function() {
   if (!shuffleDisplay.classList.contains('hide')) return;
   const size = gameSize.value;
   const scoreFactor = 150;
-  score = new Score(size, scoreFactor);
+  window.score = new Score(size, scoreFactor);
   const game = new Game(size);
   game.createGrid(blockSize, borderSize);
   game.createDivs();
@@ -24,7 +27,7 @@ function startGame() {
   game.shuffle(blocks, gameSize, shuffleDisplay, shuffleLength)
 }
 
-function toggleHelp(state) {
+window.toggleHelp = function(state) {
   helpDisplay.classList[state]('show');
 }
 

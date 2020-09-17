@@ -1,4 +1,4 @@
-class Block {
+export class Block {
   constructor({index, size, div, currentNum}) {
     this.x = (index % size) + 1;
     this.y = Math.floor(index / size) + 1;
@@ -21,29 +21,31 @@ class Block {
     }
   }
   addSwapEvent(div, blocks, score, game) {
-    div.addEventListener('click', (e) => {
-      const id = e.target.id;
-      const bl = blocks.find(item => item.blank);
-      const cr = blocks.find(item => item.div.id == id);
-      if (this.validMove(cr, bl)) {
-        const blankCurrentNum = bl.currentNum;
-        cr.div.textContent = '';
-        cr.div.classList.add('blank');
-        cr.div.classList.remove('correct');
-        cr.blank = true;
-        bl.div.textContent = cr.currentNum;
-        bl.div.classList.remove('blank');
-        bl.blank = false;
-        bl.currentNum = cr.currentNum;
-        if (bl.currentNum == bl.div.id) {
-          bl.div.classList.add('correct');
+    ['click', 'mousedown'].forEach(event => {
+      div.addEventListener(event, (e) => {
+        const id = e.target.id;
+        const bl = blocks.find(item => item.blank);
+        const cr = blocks.find(item => item.div.id == id);
+        if (this.validMove(cr, bl)) {
+          const blankCurrentNum = bl.currentNum;
+          cr.div.textContent = '';
+          cr.div.classList.add('blank');
+          cr.div.classList.remove('correct');
+          cr.blank = true;
+          bl.div.textContent = cr.currentNum;
+          bl.div.classList.remove('blank');
+          bl.blank = false;
+          bl.currentNum = cr.currentNum;
+          if (bl.currentNum == bl.div.id) {
+            bl.div.classList.add('correct');
+          }
+          cr.currentNum = blankCurrentNum;
+          if (game.shuffleCount > (score.scoreFactor/5) * Math.pow(this.size, 3)) {
+            score.update(blocks);
+          }
         }
-        cr.currentNum = blankCurrentNum;
-        if (game.shuffleCount > (score.scoreFactor/5) * Math.pow(this.size, 3)) {
-          score.update(blocks);
-        }
-      }
-    }, false);
+      }, false);
+    });
   }
   validRange(blankCurrentNum) {
     // return range of available and valid blocks in relation to blankCurrentNum
