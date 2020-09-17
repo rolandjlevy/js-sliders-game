@@ -2,8 +2,8 @@
 
 ### Links 🔗
 - [Play the game](https://js-sliders-game.rjlevy.repl.co/)
-- [Source code](https://repl.it/@rjlevy/js-sliders-game)
-- [Github repo](https://github.com/rolandjlevy/js-sliders-game)
+- [View the source code](https://repl.it/@rjlevy/js-sliders-game)
+- [Explore the Github repo](https://github.com/rolandjlevy/js-sliders-game)
 
 ### Features 💡
 - Mobile friendly
@@ -19,7 +19,7 @@
 - Position numbers in the correct order in the fewest possible moves
 - Pieces turn green in the correct position
 - When you've completed the game, add your score to the Leader Board
-- See demo below
+- See demo below ↓
 
 ### Demo 🏁
 ![Sliders demo](https://github.com/rolandjlevy/js-sliders-game/blob/master/images/sliders-demo.gif?raw=true "Sliders demo")
