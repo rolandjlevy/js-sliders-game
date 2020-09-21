@@ -1,9 +1,10 @@
 export class Game {
-  constructor(size) {
+  constructor(size, s) {
     this.main = document.querySelector('main');
     this.size = size;
     this.currentNums = Array.from(Array(size * size).keys()).map(num => num + 1);
     this.shuffleCount = 0;
+    this.s = s;
   }
   createGrid(blockSize, borderSize) {
     this.main.classList.remove('show');

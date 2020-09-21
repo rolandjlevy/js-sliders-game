@@ -13,8 +13,8 @@ window.startGame = function() {
   if (!shuffleDisplay.classList.contains('hide')) return;
   const size = gameSize.value;
   const scoreFactor = 150;
-  window.score = new Score(size, scoreFactor);
-  const game = new Game(size);
+  const score = new Score(size, scoreFactor);
+  const game = new Game(size, score);
   game.createGrid(blockSize, borderSize);
   game.createDivs();
   const blocks = [];
