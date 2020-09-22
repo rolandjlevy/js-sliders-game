@@ -51,5 +51,6 @@ Array.from(Array(10).keys())
 
 ### Improvements and fixes TBD
 
+- Added user-scalable=no to meta tag
 - select a more precise random number when inititalizing. The numbers randomized should be the adjacent blocks which are valid moves
 - create auto-solve button which randomly picks a div and triggers click event

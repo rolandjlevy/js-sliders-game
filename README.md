@@ -14,7 +14,7 @@
 - Position numbers in the correct order in the fewest possible moves
 - Pieces turn green in the correct position
 - When you've completed the game, add your score to the Leader Board
-- See demo below ↓
+- See demo above ⬆
 
 ### Features 💡
 - Mobile friendly
