@@ -32,3 +32,5 @@ window.toggleHelp = function(state) {
 }
 
 startGame();
+
+document.querySelector('#year').textContent = new Date().getFullYear();
