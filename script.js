@@ -14,7 +14,8 @@ window.startGame = function() {
   const size = gameSize.value;
   const scoreFactor = 150;
   const score = new Score(size, scoreFactor);
-  const game = new Game(size, score);
+  window.game = new Game(size, score);
+  window.num = 13;
   game.createGrid(blockSize, borderSize);
   game.createDivs();
   const blocks = [];
