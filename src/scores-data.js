@@ -21,7 +21,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const json = await response.json();
     json.forEach(score => {
       users.push(score);
-      counter++;
     });
     renderAllScores(users);
   }
@@ -90,6 +89,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   function pushIt(score) {
     return new Promise((resolve, reject) => {
+    counter = Math.max(...users.map(user => user.id), 0) + 1;
+    console.log(counter)
       const formData = {
         secret: `${name}${window.num}!`,
         id: counter,
