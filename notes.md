@@ -54,3 +54,7 @@ Array.from(Array(10).keys())
 - Added user-scalable=no to meta tag
 - select a more precise random number when inititalizing. The numbers randomized should be the adjacent blocks which are valid moves
 - create auto-solve button which randomly picks a div and triggers click event
+
+### Previous notes
+
+- Many thanks to @yevbar (Yev Barkalov) [for this Firebase tutorial](https://blog.repl.it/firebase) and to @Jp2323 (Jorge P) for [this Firebase repl](https://repl.it/@Jp2323/firebase)
