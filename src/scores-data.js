@@ -89,8 +89,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   function pushIt(score) {
     return new Promise((resolve, reject) => {
-    counter = Math.max(...users.map(user => user.id), 0) + 1;
-    console.log(counter)
+      counter = Math.max(...users.map(user => user.id), 0) + 1;
+      console.log(counter)
       const formData = {
         secret: `${name}${window.num}!`,
         id: counter,
@@ -107,7 +107,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         getScores();
         resolve('Score added successfully');
       }).catch(err => {
-        reject('Error: snapshot not added');
+        reject('Error: score not added');
       });
     });
   }
