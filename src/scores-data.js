@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   let users;
   let counter = 0;
   let totalChildren;
+  const leaderBoardLimit = 200;
   const name = 'Kadampa';
 
   const baseUrl = 'https://express-portfolio-api.rolandjlevy.repl.co';
@@ -31,7 +32,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     leaderBoard.innerText = '';
     const topUsers = users
     .sort((a, b) => b.score - a.score)
-    .filter((item, index) => index < 100);
+    .filter((item, index) => index < leaderBoardLimit);
     topUsers.forEach((item, index) => {
       const p = document.createElement('p');
       const nameStr = unescape(item.user_name).replace(/</g, "&lt;").replace(/>/g, "gt;");
