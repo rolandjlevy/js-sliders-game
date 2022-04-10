@@ -17,8 +17,7 @@
 - See demo above ⬆
 
 ### Features 💡
-- Mobile friendly
-- Includes Help section
-- Initializing sequence to randomize game
-- Leader board scores saved to database using MongoDB Atlas
-- Made purely with Vanilla JavaScript and CSS; no front-end frameworks or libraries like React, Vue etc...
+- Mobile friendly and fully responsive
+- Includes Help section and initializing sequence to randomize game
+- Leader board scores saved to database using MongoDB Atlas - [view the API on Github](https://github.com/rolandjlevy/express-portfolio-api)
+- Made purely with Vanilla JavaScript and CSS (no front-end frameworks or libraries)
