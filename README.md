@@ -1,8 +1,8 @@
 # Sliders
 
 ### Links 🔗
-- [Play the game](https://js-sliders-game.rjlevy.repl.co/)
-- [View the source code](https://repl.it/@rjlevy/js-sliders-game)
+- [Play the game](https://js-sliders-game.rolandjlevy.repl.co/)
+- [View the source code](https://replit.com/@RolandJLevy/js-sliders-game)
 - [Explore the Github repo](https://github.com/rolandjlevy/js-sliders-game)
 
 ### Demo 🏁
