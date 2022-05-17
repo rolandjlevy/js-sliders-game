@@ -1,3 +1,7 @@
+# Notes
+
+### This is being featured / listed on [Clonewars](https://github.com/GorvGoyl/Clone-Wars)
+
 ### nice shuffle function
 
 - From: https://javascript.info/task/shuffle
