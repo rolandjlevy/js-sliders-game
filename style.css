@@ -1,7 +1,8 @@
 :root {
   --block-size: 65;
   --border-size: 4;
-  --board-colour: #333;
+  --board-colour: #222;
+  --background-colour: #000;
   --green-light: #e2ff93;
   --green-mid: #66d101;
   --green-dark: #00814b;
@@ -26,7 +27,7 @@ body {
   color: #fff;
   font-size: 1.25rem;
   letter-spacing: 1px;
-  background: #000;
+  background: var(--background-colour);
 }
 
 h2 {
@@ -44,7 +45,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.875rem;
   letter-spacing: -1px;
   line-height: 1.5;
   margin: 0;
@@ -53,7 +54,7 @@ h3 {
 }
 
 h3 > sup {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -169,8 +170,8 @@ form#add-score {
 
 input#player-name  {
   border: none;
-  padding: 4px 8px;
-  font-size: 1.25rem;
+  padding: 6px 8px;
+  font-size: 1.125rem;
   border-radius: 5px;
   width: calc(100% - 100px);
 }

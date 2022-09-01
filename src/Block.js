@@ -40,7 +40,8 @@ export class Block {
             bl.div.classList.add('correct');
           }
           cr.currentNum = blankCurrentNum;
-          if (game.shuffleCount > (score.scoreFactor/5) * Math.pow(this.size, 3)) {
+          const shuffleLength = game.shuffleLengths[`size_${this.size}`];
+          if (game.shuffleCount > shuffleLength) {
             score.update(blocks);
           }
         }
