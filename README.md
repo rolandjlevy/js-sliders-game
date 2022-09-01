@@ -1,4 +1,4 @@
-# Sliders
+# Sliders Game
 
 ### Links 🔗
 - [Play the game](https://js-sliders-game.rolandjlevy.repl.co/)
