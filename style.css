@@ -2,6 +2,7 @@
   --block-size: 65;
   --border-size: 4;
   --board-colour: #222;
+  --scroll-track: #191919;
   --background-colour: #000;
   --green-light: #e2ff93;
   --green-mid: #66d101;
@@ -28,6 +29,8 @@ body {
   font-size: 1.25rem;
   letter-spacing: 1px;
   background: var(--background-colour);
+  scrollbar-color: var(--green-mid) var(--scroll-track);
+  scrollbar-width: thin;
 }
 
 h2 {
@@ -224,7 +227,6 @@ input#player-name + label.error-message.show {
 }
 
 #leader-board > p {
-  /* background-color: var(--board-colour); */
   background: linear-gradient(0deg, #33333399, #333333ff);
   padding: 10px 0;
   border-bottom: 4px #000 solid;
@@ -236,7 +238,7 @@ input#player-name + label.error-message.show {
 }
 
 #leader-board::-webkit-scrollbar-track {
-  background: #191919;
+  background: var(--scroll-track);
 }
 
 #leader-board::-webkit-scrollbar-thumb {
