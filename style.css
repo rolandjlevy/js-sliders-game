@@ -369,14 +369,14 @@ footer > a:hover {
   flex-direction: column;
   width: fit-content;
   height: fit-content;
-  background-color: #fff;
-  color: var(--grey-dark);
+  background-color: var(--grey-dark);
+  color: #fff;
   padding: 4px 8px;
   border-radius: 5px;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.875rem;
+  font-weight: 600;
   opacity: 1;
-  margin: 10px 0 0 0;
+  margin: 1rem 0 0 0;
   transition: all 0.5s ease;
   letter-spacing: 0.5px;
   white-space: nowrap;
@@ -384,9 +384,9 @@ footer > a:hover {
 
 .shuffle-display.hide {
   opacity: 0;
-  height: 0;
   margin: 0;
-  font-size: 0;
+  font-size: 0rem;
+  color: var(--grey-dark);
   transition: all 0.5s ease;
 }
 
