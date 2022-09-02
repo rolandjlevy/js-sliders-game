@@ -4,7 +4,8 @@
 - [Play the game](https://js-sliders-game.rolandjlevy.repl.co/)
 - [View the source code](https://replit.com/@RolandJLevy/js-sliders-game)
 - [Explore the Github repo](https://github.com/rolandjlevy/js-sliders-game)
-
+- [Featured on Clone Wars](https://github.com/GorvGoyl/Clone-Wars#clones-and-alternatives)
+  
 ### Demo 🏁
 ![Sliders demo](https://github.com/rolandjlevy/js-sliders-game/blob/master/images/sliders-demo.gif?raw=true "Sliders demo")
 
