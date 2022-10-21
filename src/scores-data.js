@@ -23,12 +23,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
     users = await response.json();
     renderAllScores();
   }
-  
+
   getScores();
+
+  const getUnique = (data) => data.reduce((acc, itemA) => {
+    const found = acc.find((itemB) => {
+      const a = `${itemA.user_name}${itemA.score}`;
+      const b = `${itemB.user_name}${itemB.score}`;
+      return a === b;
+    });
+    if (!found) acc.push(itemA);
+    return acc;
+  }, []);
 
   function renderAllScores() {
     $('#leader-board').innerText = '';
-    const topUsers = users.sort((a, b) => b.score - a.score).filter((item, index) => index < leaderBoardLimit);
+    const topUsers = getUnique(users)
+      .sort((a, b) => b.score - a.score)
+      .filter((item, index) => index < leaderBoardLimit);
     topUsers.forEach((item, index) => {
       const p = document.createElement('p');
       const nameStr = unescape(item.user_name).replace(/</g, "&lt;").replace(/>/g, "gt;");
