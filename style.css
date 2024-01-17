@@ -13,7 +13,7 @@
 }
 
 * {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 html {
@@ -24,7 +24,7 @@ html {
 body {
   margin: 50px;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #fff;
   font-size: 1.25rem;
   letter-spacing: 1px;
@@ -40,10 +40,16 @@ h2 {
   margin: 0;
   text-align: center;
   letter-spacing: 1px;
-  background: linear-gradient(0deg, var(--grey-dark), var(--grey-mid), var(--grey-light), #fff);
+  background: linear-gradient(
+    0deg,
+    var(--grey-dark),
+    var(--grey-mid),
+    var(--grey-light),
+    #fff
+  );
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   background-size: 150%;
 }
 
@@ -87,7 +93,12 @@ main > div {
   justify-content: center;
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
-  background: linear-gradient(45deg, var(--grey-dark) 0%, var(--grey-mid) 50%, var(--grey-light) 100%);
+  background: linear-gradient(
+    45deg,
+    var(--grey-dark) 0%,
+    var(--grey-mid) 50%,
+    var(--grey-light) 100%
+  );
   border: calc(var(--border-size) * 1px) solid var(--board-colour);
   cursor: pointer;
   border-radius: 10px;
@@ -108,11 +119,17 @@ main > div:active {
 }
 
 main > div:active:not(.blank):not(.correct) {
-  background: linear-gradient(45deg, var(--grey-light) 0%, var(--grey-mid) 50%, var(--grey-dark) 100%);
+  background: linear-gradient(
+    45deg,
+    var(--grey-light) 0%,
+    var(--grey-mid) 50%,
+    var(--grey-dark) 100%
+  );
   transition: all 0.2s ease;
 }
 
-main > div:hover, main > div.correct:hover {
+main > div:hover,
+main > div.correct:hover {
   opacity: 0.9;
 }
 
@@ -122,14 +139,24 @@ main > div.blank {
 }
 
 main > div.correct {
-  background: linear-gradient(45deg, var(--green-dark) 0%, var(--green-mid) 50%, var(--green-light) 100%);
+  background: linear-gradient(
+    45deg,
+    var(--green-dark) 0%,
+    var(--green-mid) 50%,
+    var(--green-light) 100%
+  );
   transition: all 0.2s ease;
   opacity: 1;
   color: #fff;
 }
 
 main > div.correct:active {
-  background: linear-gradient(45deg, var(--green-light) 0%, var(--green-mid) 50%, var(--green-dark) 100%);
+  background: linear-gradient(
+    45deg,
+    var(--green-light) 0%,
+    var(--green-mid) 50%,
+    var(--green-dark) 100%
+  );
   transition: all 0.2s ease;
 }
 
@@ -171,7 +198,7 @@ form#add-score {
   max-width: 350px;
 }
 
-input#player-name  {
+input#player-name {
   border: none;
   padding: 6px 8px;
   font-size: 1.125rem;
@@ -301,8 +328,8 @@ footer > a:hover {
 }
 
 .new-tab-icon::after {
-  font-family: "Font Awesome 5 Free"; 
-  font-weight: 900; 
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   content: "\f35d";
   margin-left: 5px;
 }
@@ -396,7 +423,8 @@ footer > a:hover {
 /* Layout *****/
 /**************/
 
-.h-block, .v-block {
+.h-block,
+.v-block {
   display: flex;
   align-items: center;
   margin: 0;
