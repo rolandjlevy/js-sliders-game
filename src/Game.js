@@ -9,11 +9,11 @@ export class Game {
     );
     this.shuffleCount = 0;
     this.shuffleLengths = {
-      size_2: 50,
-      size_3: 200,
-      size_4: 700,
-      size_5: 1350,
-      size_6: 2500
+      size_2: 300,
+      size_3: 600,
+      size_4: 900,
+      size_5: 1600,
+      size_6: 2400
     };
   }
   createGrid(blockSize, borderSize) {
