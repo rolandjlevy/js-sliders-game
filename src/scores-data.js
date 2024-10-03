@@ -15,8 +15,7 @@ const create = (tagName, props = {}) => {
 };
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  const getScores = async () => {
-    $('#leader-board').innerText = 'Loading scores...';
+  async function getScores() {
     try {
       const response = await fetch(getScoresUrl);
       if (!response.ok) {
@@ -25,9 +24,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
       users = await response.json();
       renderAllScores();
     } catch (error) {
-      console.error('Error fetching scores:', error);
+      console.error('Error fetching scores:', error.message);
     }
-  };
+  }
 
   (async () => await getScores())();
 
