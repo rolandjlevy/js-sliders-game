@@ -131,28 +131,40 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   function pushIt(score) {
     return new Promise((resolve, reject) => {
-      counter = Math.max(...users.data.map((user) => user.id), 0) + 1;
-      const formData = {
-        user_name: DOMPurify.sanitize($('#player-name').value),
-        score: Number(DOMPurify.sanitize(score.currentMoves) ?? 0)
-      };
-      console.log({ formData });
-      fetch(addScoreUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-        .then((result) => {
-          getScores();
-          console.log('success');
-          resolve({ message: 'Score added successfully', result });
+      try {
+        const counter = Math.max(...users.data.map((user) => user.id), 0) + 1;
+        const formData = {
+          user_name: DOMPurify.sanitize($('#player-name').value),
+          score: Number(DOMPurify.sanitize(score.currentMoves) ?? 0)
+        };
+
+        console.log({ formData });
+
+        fetch(addScoreUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
         })
-        .catch((err) => {
-          console.log('Error', err);
-          reject({ message: 'Error: score not added' });
-        });
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Failed to add score: ${response.statusText}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log('Success', data);
+            resolve({ message: 'Score added successfully', data });
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+            reject({ message: 'Error: score not added' });
+          });
+      } catch (error) {
+        console.error('Exception:', error);
+        reject({ message: 'Error: something went wrong' });
+      }
     });
   }
 });
