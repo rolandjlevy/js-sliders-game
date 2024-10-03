@@ -14,15 +14,38 @@ const create = (tagName, props = {}) => {
   return Object.assign(el, props);
 };
 
+async function getScores() {
+  try {
+    const response = await fetch(
+      'https://node-api-serverless.vercel.app/api/sliders?page=1&orderBy=score&sortBy=desc&limit=100'
+    );
+    if (!response.ok) {
+      throw new Error('Failed to fetch scores');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching scores:', error);
+    // Handle the error accordingly (e.g., show a message to the user)
+  }
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
   const getScores = async () => {
     $('#leader-board').innerText = 'Loading scores...';
-    const response = await fetch(getScoresUrl);
-    users = await response.json();
-    renderAllScores();
+    try {
+      const response = await fetch(getScoresUrl);
+      if (!response.ok) {
+        throw new Error('Failed to fetch scores');
+      }
+      users = await response.json();
+      renderAllScores();
+    } catch (error) {
+      console.error('Error fetching scores:', error);
+    }
   };
 
-  getScores();
+  (async () => await getScores())();
 
   const getUnique = (data) =>
     data.reduce((acc, itemA) => {
