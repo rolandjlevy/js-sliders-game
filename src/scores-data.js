@@ -130,14 +130,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
   }
 
   function pushIt(score) {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       counter = Math.max(...users.data.map((user) => user.id), 0) + 1;
       const formData = {
         user_name: DOMPurify.sanitize($('#player-name').value),
         score: Number(DOMPurify.sanitize(score.currentMoves) ?? 0)
       };
       console.log({ formData });
-      await fetch(addScoreUrl, {
+      fetch(addScoreUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
