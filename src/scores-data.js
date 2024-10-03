@@ -159,7 +159,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
           })
           .catch((error) => {
             console.error('Error:', error);
-            reject({ message: 'Error: score not added' });
+            reject({ message: 'Error: score not added', error });
           });
       } catch (error) {
         console.error('Exception:', error);
