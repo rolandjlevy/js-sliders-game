@@ -12,14 +12,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const name = "Kadampa";
   const MAX_SCORE = 900;
 
-  const baseUrl = "https://express-portfolio-api.rolandjlevy.repl.co";
-  const getScoresUrl = `${baseUrl}/api/routes/sliders?origin=${window.origin}`;
-  const addScoreUrl = `${baseUrl}/api/routes/add-slider-score?origin=${window.origin}`;
+  const baseUrl = process.env.API_BASE_URL;
+  const getScoresUrl = `${baseUrl}/api/sliders?page=1`;
+  const addScoreUrl = `${baseUrl}/api/sliders`;
 
   const getScores = async () => {
     $("#leader-board").innerText = "Loading scores...";
     const response = await fetch(getScoresUrl);
     users = await response.json();
+    console.log('### getScores:', users)
     renderAllScores();
   };
 
