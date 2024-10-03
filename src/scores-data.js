@@ -14,22 +14,6 @@ const create = (tagName, props = {}) => {
   return Object.assign(el, props);
 };
 
-async function getScores() {
-  try {
-    const response = await fetch(
-      'https://node-api-serverless.vercel.app/api/sliders?page=1&orderBy=score&sortBy=desc&limit=100'
-    );
-    if (!response.ok) {
-      throw new Error('Failed to fetch scores');
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching scores:', error);
-    // Handle the error accordingly (e.g., show a message to the user)
-  }
-}
-
 window.addEventListener('DOMContentLoaded', (event) => {
   const getScores = async () => {
     $('#leader-board').innerText = 'Loading scores...';
@@ -62,14 +46,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $('#leader-board').innerText = '';
     users.data.forEach((item, index) => {
       const p = document.createElement('p');
-      const userName = DOMPurify.sanitize(item.user_name);
-      const score = DOMPurify.sanitize(item.score);
+      // const userName = DOMPurify.sanitize(item.user_name);
+      // const score = DOMPurify.sanitize(item.score);
+      const userName = item.user_name;
+      const score = item.score;
       if (userName && Number(score) < MAX_SCORE) {
         const num = create('span', {
           textContent: `${index + 1}. `,
           style: 'color: #aaa; font-size: 1rem'
         });
-        const scoreContent = `${userName}: ${DOMPurify.sanitize(item.score)}`;
+        const scoreContent = `${userName}: ${score}`;
         const score = create('span', { textContent: scoreContent });
         p.appendChild(num);
         p.appendChild(score);
@@ -156,8 +142,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
     return new Promise((resolve, reject) => {
       try {
         const formData = {
-          user_name: DOMPurify.sanitize($('#player-name').value),
-          score: Number(DOMPurify.sanitize(score.currentMoves) ?? 0)
+          // user_name: DOMPurify.sanitize($('#player-name').value),
+          // score: Number(DOMPurify.sanitize(score.currentMoves) ?? 0)
+          user_name: $('#player-name').value,
+          score: score.currentMoves
         };
 
         console.log({ formData, addScoreUrl });
