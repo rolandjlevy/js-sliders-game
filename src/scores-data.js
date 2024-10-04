@@ -36,30 +36,6 @@ const getUnique = (data) =>
     if (!found) acc.push(itemA);
     return acc;
   }, []);
-
-const renderAllScores = (data) => {
-  console.log('### renderAllScores > data:', data);
-  $('#leader-board').innerText = '';
-  data.forEach((item, index) => {
-    const p = document.createElement('p');
-    // const userName = DOMPurify.sanitize(item.user_name);
-    // const score = DOMPurify.sanitize(item.score);
-    const userName = item.user_name;
-    const score = item.score;
-    if (userName && Number(score) < MAX_SCORE) {
-      const num = create('span', {
-        textContent: `${index + 1}. `,
-        style: 'color: #aaa; font-size: 1rem'
-      });
-      const scoreContent = `${userName}: ${score}`;
-      const score = create('span', { textContent: scoreContent });
-      p.appendChild(num);
-      p.appendChild(score);
-      $('#leader-board').appendChild(p);
-    }
-  });
-};
-
 function validate(score) {
   return new Promise((resolve, reject) => {
     const allowedLetters = /^[a-zA-Z0-9@ ]*$/gm;
@@ -127,6 +103,29 @@ async function pushIt(score) {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
+  const renderAllScores = (data) => {
+    console.log('### renderAllScores > data:', data);
+    $('#leader-board').innerText = '';
+    data.forEach((item, index) => {
+      const p = document.createElement('p');
+      // const userName = DOMPurify.sanitize(item.user_name);
+      // const score = DOMPurify.sanitize(item.score);
+      const userName = item.user_name;
+      const score = item.score;
+      if (userName && Number(score) < MAX_SCORE) {
+        const num = create('span', {
+          textContent: `${index + 1}. `,
+          style: 'color: #aaa; font-size: 1rem'
+        });
+        const scoreContent = `${userName}: ${score}`;
+        const score = create('span', { textContent: scoreContent });
+        p.appendChild(num);
+        p.appendChild(score);
+        $('#leader-board').appendChild(p);
+      }
+    });
+  };
+
   (async () => {
     const scores = await getScores();
     renderAllScores(scores.data);
