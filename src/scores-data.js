@@ -70,13 +70,15 @@ const validate = (score) => {
       resolve('success');
     }
   });
-}
+};
 
 async function pushIt(score) {
   return new Promise((resolve, reject) => {
     try {
-       const userNameSanitized = DOMPurify.sanitize($('#player-name').value),
-       const scoreSanitized = Number(DOMPurify.sanitize(score.currentMoves) ?? 0)
+      const userNameSanitized = DOMPurify.sanitize($('#player-name').value);
+      const scoreSanitized = Number(
+        DOMPurify.sanitize(score.currentMoves) ?? 0
+      );
       const formData = {
         user_name: $('#player-name').value,
         score: score.currentMoves
