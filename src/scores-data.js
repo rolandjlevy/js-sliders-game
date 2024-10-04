@@ -118,9 +118,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
           style: 'color: #aaa; font-size: 1rem'
         });
         const scoreContent = `${userName}: ${score}`;
-        const score = create('span', { textContent: scoreContent });
+        const scoreElement = create('span', { textContent: scoreContent });
         p.appendChild(num);
-        p.appendChild(score);
+        p.appendChild(scoreElement);
         $('#leader-board').appendChild(p);
       }
     });
