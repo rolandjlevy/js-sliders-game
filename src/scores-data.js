@@ -80,9 +80,6 @@ const addScore = async (score) => {
     const currentScore = sanitizeInput(score.currentMoves);
     const formData = { user_name: userName, score: currentScore };
 
-    console.log({ formData });
-    return;
-
     const response = await fetch(addScoreUrl, {
       method: 'POST',
       headers: {
@@ -94,7 +91,9 @@ const addScore = async (score) => {
       throw new Error(`Failed to add score: ${response.statusText}`);
     }
     const data = await response.json();
-    return { message: 'Score added successfully', data };
+    const result = { message: 'Score added successfully', data };
+    console.log(result);
+    return result;
   } catch (error) {
     console.error('Error:', error);
     return { message: 'Error: score not added', error };
