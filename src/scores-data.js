@@ -38,6 +38,7 @@ const getUnique = (data) =>
   }, []);
 
 const renderAllScores = (data) => {
+  console.log('### renderAllScores > data:', data);
   $('#leader-board').innerText = '';
   data.forEach((item, index) => {
     const p = document.createElement('p');
