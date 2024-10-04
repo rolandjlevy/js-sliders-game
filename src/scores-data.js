@@ -128,7 +128,7 @@ async function pushIt(score) {
 window.addEventListener('DOMContentLoaded', (event) => {
   (async () => {
     const scores = await getScores();
-    renderAllScores(scores);
+    renderAllScores(scores.data);
   })();
 
   $('#add-score-button').addEventListener('click', async (event) => {
