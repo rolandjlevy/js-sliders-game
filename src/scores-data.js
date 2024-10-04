@@ -72,56 +72,36 @@ const validate = (score) => {
   });
 };
 
-async function pushIt(score) {
-  return new Promise((resolve, reject) => {
-    try {
-      const userNameSanitized = DOMPurify.sanitize($('#player-name').value);
-      const scoreSanitized = Number(
-        DOMPurify.sanitize(score.currentMoves) ?? 0
-      );
-      const formData = {
-        user_name: $('#player-name').value,
-        score: score.currentMoves
-      };
+const sanitizeInput = (value) => DOMPurify.sanitize(value);
 
-      console.log({ formData, addScoreUrl, userNameSanitized, scoreSanitized });
+const pushIt = async (score) => {
+  try {
+    const userName = sanitizeInput($('#player-name').value);
+    const currentScore = sanitizeInput(score.currentMoves);
+    const formData = { user_name: userName, score: currentScore };
 
-      fetch(addScoreUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`Failed to add score: ${response.statusText}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log('Success', data);
-          resolve({ message: 'Score added successfully', data });
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-          reject({ message: 'Error: score not added', error });
-        });
-    } catch (error) {
-      console.error('Exception:', error);
-      reject({ message: 'Error: something went wrong' });
+    const response = await fetch(addScoreUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+    if (!response.ok) {
+      throw new Error(`Failed to add score: ${response.statusText}`);
     }
-  });
-}
+    const data = await response.json();
+    return { message: 'Score added successfully', data };
+  } catch (error) {
+    console.error('Error:', error);
+    return { message: 'Error: score not added', error };
+  }
+};
 
 window.addEventListener('DOMContentLoaded', (event) => {
   const renderAllScores = (data) => {
-    console.log('### renderAllScores > data:', data);
-    $('#leader-board').innerText = '';
+    // $('#leader-board').innerText = '';
     data.forEach((item, index) => {
-      const p = document.createElement('p');
-      // const userName = DOMPurify.sanitize(item.user_name);
-      // const score = DOMPurify.sanitize(item.score);
       const userName = item.user_name;
       const score = item.score;
       if (userName && Number(score) < MAX_SCORE) {
@@ -131,8 +111,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         });
         const scoreContent = `${userName}: ${score}`;
         const scoreElement = create('span', { textContent: scoreContent });
-        p.appendChild(num);
-        p.appendChild(scoreElement);
+        const pTag = document.createElement('p');
+        pTag.appendChild(num);
+        pTag.appendChild(scoreElement);
         $('#leader-board').appendChild(p);
       }
     });
