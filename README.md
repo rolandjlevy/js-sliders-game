@@ -2,7 +2,7 @@
 
 ### Links 🔗
 
-- [Play the game](js-sliders-game.vercel.app)
+- [Play the game](https://js-sliders-game.vercel.app/)
 - [View the Github repo](https://github.com/rolandjlevy/js-sliders-game)
 - [Featured on Clone Wars](https://github.com/GorvGoyl/Clone-Wars#clones-and-alternatives)
 
