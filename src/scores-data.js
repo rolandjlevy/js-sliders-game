@@ -36,7 +36,17 @@ const getUnique = (data) =>
     if (!found) acc.push(itemA);
     return acc;
   }, []);
-function validate(score) {
+
+const getUniqueMap = (data) => {
+  const uniqueMap = {};
+  data.forEach((item) => {
+    const key = `${item.user_name}${item.score}`;
+    uniqueMap[key] = item;
+  });
+  return Object.values(uniqueMap);
+};
+
+const validate = (score) => {
   return new Promise((resolve, reject) => {
     const allowedLetters = /^[a-zA-Z0-9@ ]*$/gm;
     const allowedNumbers = /^[0-9]*$/gm;
@@ -65,14 +75,14 @@ function validate(score) {
 async function pushIt(score) {
   return new Promise((resolve, reject) => {
     try {
+       const userNameSanitized = DOMPurify.sanitize($('#player-name').value),
+       const scoreSanitized = Number(DOMPurify.sanitize(score.currentMoves) ?? 0)
       const formData = {
-        // user_name: DOMPurify.sanitize($('#player-name').value),
-        // score: Number(DOMPurify.sanitize(score.currentMoves) ?? 0)
         user_name: $('#player-name').value,
         score: score.currentMoves
       };
 
-      console.log({ formData, addScoreUrl });
+      console.log({ formData, addScoreUrl, userNameSanitized, scoreSanitized });
 
       fetch(addScoreUrl, {
         method: 'POST',
