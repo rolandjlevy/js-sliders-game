@@ -6,7 +6,7 @@ const leaderBoardLimit = 100;
 const name = 'Kadampa';
 const MAX_SCORE = 900;
 const baseUrl = 'https://node-api-serverless.vercel.app';
-const getScoresUrl = `${baseUrl}/api/sliders?page=1&orderBy=score&sortBy=desc&limit=100`;
+const getScoresUrl = `${baseUrl}/api/sliders/view?page=1&orderBy=score&sortBy=desc&limit=100`;
 const addScoreUrl = `${baseUrl}/api/sliders/add`;
 
 const create = (tagName, props = {}) => {
