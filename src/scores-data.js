@@ -80,6 +80,7 @@ const addScore = async (score) => {
     const currentScore = sanitizeInput(score.currentMoves);
     const formData = { user_name: userName, score: currentScore };
 
+    console.log({ formData });
     const response = await fetch(addScoreUrl, {
       method: 'POST',
       headers: {
