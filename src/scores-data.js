@@ -7,7 +7,7 @@ const name = 'Kadampa';
 const MAX_SCORE = 900;
 const baseUrl = 'https://node-api-serverless.vercel.app';
 const getScoresUrl = `${baseUrl}/api/sliders?page=1&orderBy=score&sortBy=desc&limit=100`;
-const addScoreUrl = `${baseUrl}/api/create-slider`;
+const addScoreUrl = `${baseUrl}/api/sliders/add`;
 
 const create = (tagName, props = {}) => {
   const el = document.createElement(tagName);
@@ -74,11 +74,14 @@ const validate = (score) => {
 
 const sanitizeInput = (value) => DOMPurify.sanitize(value);
 
-const pushIt = async (score) => {
+const addScore = async (score) => {
   try {
     const userName = sanitizeInput($('#player-name').value);
     const currentScore = sanitizeInput(score.currentMoves);
     const formData = { user_name: userName, score: currentScore };
+
+    console.log({ formData });
+    return;
 
     const response = await fetch(addScoreUrl, {
       method: 'POST',
@@ -128,7 +131,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     event.preventDefault();
     try {
       await validate(game.s);
-      await pushIt(game.s);
+      await addScore(game.s);
       $('#add-score-form').style.display = 'none';
       startGame();
     } catch (error) {
@@ -149,7 +152,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // handleGameValidation(game);
     // validate(game.s)
     //   .then((result) => {
-    //     return pushIt(game.s)
+    //     return addScore(game.s)
     //       .then((pushResolve) => {
     //         $('#add-score-form').style.display = 'none';
     //         startGame();
