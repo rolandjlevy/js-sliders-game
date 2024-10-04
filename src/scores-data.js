@@ -14,54 +14,122 @@ const create = (tagName, props = {}) => {
   return Object.assign(el, props);
 };
 
-window.addEventListener('DOMContentLoaded', (event) => {
-  async function getScores() {
-    try {
-      const response = await fetch(getScoresUrl);
-      if (!response.ok) {
-        throw new Error('Failed to fetch scores');
-      }
-      users = await response.json();
-      renderAllScores();
-    } catch (error) {
-      console.error('Error fetching scores:', error.message);
+const getScores = async () => {
+  try {
+    const response = await fetch(getScoresUrl);
+    if (!response.ok) {
+      throw new Error('Failed to fetch scores');
     }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching scores:', error.message);
   }
+};
 
-  (async () => await getScores())();
-
-  const getUnique = (data) =>
-    data.reduce((acc, itemA) => {
-      const found = acc.find((itemB) => {
-        const a = `${itemA.user_name}${itemA.score}`;
-        const b = `${itemB.user_name}${itemB.score}`;
-        return a === b;
-      });
-      if (!found) acc.push(itemA);
-      return acc;
-    }, []);
-
-  function renderAllScores() {
-    $('#leader-board').innerText = '';
-    users.data.forEach((item, index) => {
-      const p = document.createElement('p');
-      // const userName = DOMPurify.sanitize(item.user_name);
-      // const score = DOMPurify.sanitize(item.score);
-      const userName = item.user_name;
-      const score = item.score;
-      if (userName && Number(score) < MAX_SCORE) {
-        const num = create('span', {
-          textContent: `${index + 1}. `,
-          style: 'color: #aaa; font-size: 1rem'
-        });
-        const scoreContent = `${userName}: ${score}`;
-        const score = create('span', { textContent: scoreContent });
-        p.appendChild(num);
-        p.appendChild(score);
-        $('#leader-board').appendChild(p);
-      }
+const getUnique = (data) =>
+  data.reduce((acc, itemA) => {
+    const found = acc.find((itemB) => {
+      const a = `${itemA.user_name}${itemA.score}`;
+      const b = `${itemB.user_name}${itemB.score}`;
+      return a === b;
     });
-  }
+    if (!found) acc.push(itemA);
+    return acc;
+  }, []);
+
+const renderAllScores = (data) => {
+  $('#leader-board').innerText = '';
+  data.forEach((item, index) => {
+    const p = document.createElement('p');
+    // const userName = DOMPurify.sanitize(item.user_name);
+    // const score = DOMPurify.sanitize(item.score);
+    const userName = item.user_name;
+    const score = item.score;
+    if (userName && Number(score) < MAX_SCORE) {
+      const num = create('span', {
+        textContent: `${index + 1}. `,
+        style: 'color: #aaa; font-size: 1rem'
+      });
+      const scoreContent = `${userName}: ${score}`;
+      const score = create('span', { textContent: scoreContent });
+      p.appendChild(num);
+      p.appendChild(score);
+      $('#leader-board').appendChild(p);
+    }
+  });
+};
+
+function validate(score) {
+  return new Promise((resolve, reject) => {
+    const allowedLetters = /^[a-zA-Z0-9@ ]*$/gm;
+    const allowedNumbers = /^[0-9]*$/gm;
+    const validScore =
+      String(score.currentMoves).match(allowedNumbers) || false;
+    const playerNameValue = $('#player-name').value?.trim();
+    const matched = playerNameValue.match(allowedLetters);
+    const validPlayerName = matched ? matched.shift() : false;
+    if (!playerNameValue.length || !score.currentMoves) {
+      $('#player-name').value = '';
+      $('#player-name').focus();
+      reject('empty');
+    } else if (
+      !validScore ||
+      !validPlayerName ||
+      playerNameValue.length > 20 ||
+      playerNameValue.length < 3
+    ) {
+      reject('invalid');
+    } else {
+      resolve('success');
+    }
+  });
+}
+
+async function pushIt(score) {
+  return new Promise((resolve, reject) => {
+    try {
+      const formData = {
+        // user_name: DOMPurify.sanitize($('#player-name').value),
+        // score: Number(DOMPurify.sanitize(score.currentMoves) ?? 0)
+        user_name: $('#player-name').value,
+        score: score.currentMoves
+      };
+
+      console.log({ formData, addScoreUrl });
+
+      fetch(addScoreUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Failed to add score: ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log('Success', data);
+          resolve({ message: 'Score added successfully', data });
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          reject({ message: 'Error: score not added', error });
+        });
+    } catch (error) {
+      console.error('Exception:', error);
+      reject({ message: 'Error: something went wrong' });
+    }
+  });
+}
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  (async () => {
+    const scores = await getScores();
+    renderAllScores(scores);
+  })();
 
   $('#add-score-button').addEventListener('click', async (event) => {
     event.preventDefault();
@@ -110,70 +178,4 @@ window.addEventListener('DOMContentLoaded', (event) => {
     //     return;
     //   });
   });
-
-  function validate(score) {
-    return new Promise((resolve, reject) => {
-      const allowedLetters = /^[a-zA-Z0-9@ ]*$/gm;
-      const allowedNumbers = /^[0-9]*$/gm;
-      const validScore =
-        String(score.currentMoves).match(allowedNumbers) || false;
-      const playerNameValue = $('#player-name').value?.trim();
-      const matched = playerNameValue.match(allowedLetters);
-      const validPlayerName = matched ? matched.shift() : false;
-      if (!playerNameValue.length || !score.currentMoves) {
-        $('#player-name').value = '';
-        $('#player-name').focus();
-        reject('empty');
-      } else if (
-        !validScore ||
-        !validPlayerName ||
-        playerNameValue.length > 20 ||
-        playerNameValue.length < 3
-      ) {
-        reject('invalid');
-      } else {
-        resolve('success');
-      }
-    });
-  }
-
-  async function pushIt(score) {
-    return new Promise((resolve, reject) => {
-      try {
-        const formData = {
-          // user_name: DOMPurify.sanitize($('#player-name').value),
-          // score: Number(DOMPurify.sanitize(score.currentMoves) ?? 0)
-          user_name: $('#player-name').value,
-          score: score.currentMoves
-        };
-
-        console.log({ formData, addScoreUrl });
-
-        fetch(addScoreUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`Failed to add score: ${response.statusText}`);
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log('Success', data);
-            resolve({ message: 'Score added successfully', data });
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-            reject({ message: 'Error: score not added', error });
-          });
-      } catch (error) {
-        console.error('Exception:', error);
-        reject({ message: 'Error: something went wrong' });
-      }
-    });
-  }
 });
