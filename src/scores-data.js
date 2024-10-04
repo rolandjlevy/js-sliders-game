@@ -106,7 +106,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
       const score = item.score;
       if (userName && Number(score) < MAX_SCORE) {
         const num = create('span', {
-          textContent: `${index + 1}. `,
           style: 'color: #aaa; font-size: 1rem'
         });
         const scoreContent = `${userName}: ${score}`;
@@ -114,7 +113,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const pTag = document.createElement('p');
         pTag.appendChild(num);
         pTag.appendChild(scoreElement);
-        $('#leader-board').appendChild(p);
+        $('#leader-board').appendChild(pTag);
       }
     });
   };
