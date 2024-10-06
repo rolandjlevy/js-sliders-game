@@ -21,10 +21,11 @@
 
 ### Features 💡
 
+- Made with Vanilla JavaScript and CSS only
 - Mobile friendly and fully responsive
+- Leader board scores saved to database using MongoDB Atlas - [view the Node API](https://github.com/rolandjlevy/node-api-serverless) which uses Vercel's serverless functions
+- Uses DOMPurify to sanitize input. [DOMPurify](https://www.npmjs.com/package/dompurify) is a DOM-only sanitizer to protect against Cross-Site Scripting (XSS) attacks
 - Includes Help section and initializing sequence to randomize game
-- Leader board scores saved to database using MongoDB Atlas - [view the API on Github](https://github.com/rolandjlevy/express-portfolio-api)
-- Made with Vanilla JavaScript and CSS (no front-end frameworks or libraries)
 
 ### How to run this app in Github CodeSpaces
 
