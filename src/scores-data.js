@@ -145,33 +145,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
       }
       $('#player-name').classList.add('invalid');
       $('.error-message').classList.add('show');
+    } finally {
+      return;
     }
-    return;
-
-    // // Call the async function
-    // handleGameValidation(game);
-    // validate(game.s)
-    //   .then((result) => {
-    //     return addScore(game.s)
-    //       .then((pushResolve) => {
-    //         $('#add-score-form').style.display = 'none';
-    //         startGame();
-    //       })
-    //       .catch((error) => {
-    //         console.log(error);
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     const nameLength = $('#player-name').value.length;
-    //     const errorMessage =
-    //       error === 'empty'
-    //         ? 'Your name is required'
-    //         : `Invalid name (${nameLength} letters)`;
-    //     $('#player-name').classList.add('invalid');
-    //     $('.error-message').classList.add('show');
-    //     $('.error-message').textContent = errorMessage;
-    //     return;
-    //   });
   });
 });
