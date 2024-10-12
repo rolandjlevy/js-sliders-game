@@ -16,11 +16,14 @@ const create = (tagName, props = {}) => {
 
 const getScores = async () => {
   try {
+    console.log({ getScoresUrl });
     const response = await fetch(getScoresUrl);
     if (!response.ok) {
       throw new Error('Failed to fetch scores');
     }
-    return await response.json();
+    const result = await response.json();
+    console.log({ result });
+    return result;
   } catch (error) {
     console.error('Error fetching scores:', error.message);
   }
