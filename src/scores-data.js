@@ -29,14 +29,6 @@ const getScores = async () => {
   }
 };
 
-const response = await fetch(addScoreUrl, {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-    'X-API-Key': process.env.SLIDERS_API_KEY
-  }
-});
-
 const getUnique = (data) =>
   data.reduce((acc, itemA) => {
     const found = acc.find((itemB) => {
@@ -99,6 +91,7 @@ const addScore = async (score) => {
       },
       body: JSON.stringify(formData)
     });
+
     if (!response.ok) {
       throw new Error(`Failed to add score: ${response.statusText}`);
     }
