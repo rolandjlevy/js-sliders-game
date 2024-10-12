@@ -8,7 +8,8 @@
       "extensions": [
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
-        "vsls-contrib.codetour"
+        "vsls-contrib.codetour",
+        "wayou.vscode-todo-highlight"
       ],
       "settings": {
         "editor.tabSize": 2,
