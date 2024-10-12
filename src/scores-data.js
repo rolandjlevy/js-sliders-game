@@ -9,6 +9,9 @@ const basApiUrl = process.env.BASE_API_URL;
 const getScoresUrl = `${basApiUrl}/api/sliders/view?page=1&orderBy=score&sortBy=desc&limit=100`;
 const addScoreUrl = `${basApiUrl}/api/sliders/add`;
 
+console.log('process.env.BASE_API_URL:', process.env.BASE_API_URL);
+console.log('process.env.BASE_API_URL:', process.env.SLIDERS_API_KEY);
+
 const create = (tagName, props = {}) => {
   const el = document.createElement(tagName);
   return Object.assign(el, props);
@@ -25,6 +28,14 @@ const getScores = async () => {
     console.error('Error fetching scores:', error.message);
   }
 };
+
+const response = await fetch(addScoreUrl, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-API-Key': process.env.SLIDERS_API_KEY
+  }
+});
 
 const getUnique = (data) =>
   data.reduce((acc, itemA) => {
