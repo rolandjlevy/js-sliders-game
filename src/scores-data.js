@@ -5,12 +5,9 @@ let counter = 0;
 const leaderBoardLimit = 100;
 const name = 'Kadampa';
 const MAX_SCORE = 900;
-const basApiUrl = process.env.BASE_API_URL;
+const basApiUrl = 'https://node-api-serverless.vercel.app';
 const getScoresUrl = `${basApiUrl}/api/sliders/view?page=1&orderBy=score&sortBy=desc&limit=100`;
 const addScoreUrl = `${basApiUrl}/api/sliders/add`;
-
-console.log('process.env.BASE_API_URL:', process.env.BASE_API_URL);
-console.log('process.env.BASE_API_URL:', process.env.SLIDERS_API_KEY);
 
 const create = (tagName, props = {}) => {
   const el = document.createElement(tagName);
@@ -86,8 +83,7 @@ const addScore = async (score) => {
     const response = await fetch(addScoreUrl, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'X-API-Key': process.env.SLIDERS_API_KEY
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(formData)
     });
