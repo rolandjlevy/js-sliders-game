@@ -16,13 +16,11 @@ const create = (tagName, props = {}) => {
 
 const getScores = async () => {
   try {
-    console.log({ getScoresUrl });
     const response = await fetch(getScoresUrl);
     if (!response.ok) {
       throw new Error('Failed to fetch scores');
     }
     const result = await response.json();
-    console.log({ result });
     return result;
   } catch (error) {
     console.error('Error fetching scores:', error.message);
@@ -96,7 +94,6 @@ const addScore = async (score) => {
     }
     const data = await response.json();
     const result = { message: 'Score added successfully', data };
-    console.log(result);
     return result;
   } catch (error) {
     console.error('Error:', error);
@@ -138,7 +135,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       $('#add-score-form').style.display = 'none';
       startGame();
     } catch (error) {
-      console.log(error);
+      console.error(error);
       if (error === 'empty') {
         $('.error-message').textContent = 'Your name is required';
       } else {
