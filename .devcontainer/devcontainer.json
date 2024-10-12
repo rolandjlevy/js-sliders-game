@@ -5,7 +5,11 @@
   "name": "Front-end Web Project",
   "customizations": {
     "vscode": {
-      "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"],
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "vsls-contrib.codetour"
+      ],
       "settings": {
         "editor.tabSize": 2,
         "terminal.integrated.defaultProfile.linux": "bash",

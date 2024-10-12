@@ -1,15 +1,15 @@
 :root {
   --block-size: 65;
   --border-size: 4;
-  --board-colour: #222;
   --scroll-track: #191919;
   --background-colour: #000;
   --green-light: #e2ff93;
   --green-mid: #66d101;
-  --green-dark: #00814b;
+  --green-dark: #4a9800;
   --grey-light: #e9e9e9;
   --grey-mid: #999;
   --grey-dark: #444;
+  --grey-deep: #222;
 }
 
 * {
@@ -81,9 +81,9 @@ main {
   flex-wrap: wrap;
   opacity: 0;
   transition: opacity 1s ease;
-  background: var(--board-colour);
+  background: var(--grey-deep);
   padding: 20px;
-  margin: 20px;
+  margin: 20px 20px 0 20px;
   border-radius: 10px;
 }
 
@@ -99,7 +99,7 @@ main > div {
     var(--grey-mid) 50%,
     var(--grey-light) 100%
   );
-  border: calc(var(--border-size) * 1px) solid var(--board-colour);
+  border: calc(var(--border-size) * 1px) solid var(--grey-deep);
   cursor: pointer;
   border-radius: 10px;
   opacity: 1;
@@ -134,7 +134,7 @@ main > div.correct:hover {
 }
 
 main > div.blank {
-  background: var(--board-colour);
+  background: var(--grey-deep);
   cursor: auto;
 }
 
@@ -275,6 +275,14 @@ input#player-name + label.error-message.show {
   cursor: pointer;
 }
 
+i.fas.fa-trophy {
+  color: var(--green-dark) !important;
+}
+
+.top-100 {
+  color: var(--grey-mid);
+}
+
 /***********/
 /* Buttons */
 /***********/
@@ -341,7 +349,7 @@ footer > a:hover {
 .help {
   font-size: 1rem;
   text-align: left;
-  background-color: var(--board-colour);
+  background-color: var(--grey-deep);
   padding: 15px;
   border-radius: 5px;
   height: 0;
@@ -398,24 +406,22 @@ footer > a:hover {
   flex-direction: column;
   width: fit-content;
   height: fit-content;
-  background-color: var(--grey-dark);
-  color: #fff;
+  background-color: var(--grey-deep);
+  color: var(--grey-light);
   padding: 4px 8px;
   border-radius: 5px;
   font-size: 0.875rem;
   font-weight: 600;
   opacity: 1;
-  margin: 1rem 0 0 0;
+  margin: 0.5rem 0 0 0;
   transition: all 0.5s ease;
   letter-spacing: 0.5px;
   white-space: nowrap;
 }
 
+
 .shuffle-display.hide {
-  opacity: 0;
-  margin: 0;
-  font-size: 0rem;
-  color: var(--grey-dark);
+  color: transparent;
   transition: all 0.5s ease;
 }
 
