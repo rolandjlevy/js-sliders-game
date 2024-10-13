@@ -29,6 +29,30 @@
 
 ### How to run this app in Github CodeSpaces
 
-- Run http-server: `npm i -g http-server`, then run: `http-server -c-1`
-- Run nodemon with http-server: `npm i -g http-server`, `npm i nodemon -g` then: `nodemon --exec http-server` or `which http-server`
+- Run http-server with nodemon
+
+```bash
+npm i -g http-server
+```
+
+```bash
+npm i nodemon -g
+```
+
+```bash
+nodemon --exec http-server
+```
+
+or
+
+```bash
+which http-server`
+```
+
+- Run http-server without nodemon
+
+```bash
+http-server -c-1
+```
+
 - Click 'Open in Browser' or from the Terminal, click the link Forwarded Address link from PORTS

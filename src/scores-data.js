@@ -101,6 +101,52 @@ const addScore = async (score) => {
   }
 };
 
+const clock = [
+  '&#128347;',
+  '&#128336;',
+  '&#128337;',
+  '&#128338;',
+  '&#128339;',
+  '&#128340;',
+  '&#128341;',
+  '&#128342;',
+  '&#128343;',
+  '&#128344;',
+  '&#128345;',
+  '&#128346;'
+];
+
+const clockEmojis = [
+  '🕛',
+  '🕐',
+  '🕑',
+  '🕒',
+  '🕓',
+  '🕔',
+  '🕕',
+  '🕖',
+  '🕗',
+  '🕘',
+  '🕙',
+  '🕚'
+];
+
+const spinClockAnimation = (elem) => {
+  var counter = 0;
+  setInterval(() => {
+    elem.innerHTML = clock[counter % clock.length];
+    counter++;
+  }, 100);
+};
+
+const animateClock = (elem) => {
+  let index = 0;
+  setInterval(() => {
+    elem.textContent = clockEmojis[index];
+    index = (index + 1) % clockEmojis.length;
+  }, 50);
+};
+
 window.addEventListener('DOMContentLoaded', (event) => {
   const renderAllScores = (data) => {
     $('#leader-board').innerText = '';
@@ -124,6 +170,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   (async () => {
     const scores = await getScores();
+    // animateClock($('.clock-display'));
     renderAllScores(scores.data);
   })();
 

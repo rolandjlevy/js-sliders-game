@@ -419,10 +419,13 @@ footer > a:hover {
   white-space: nowrap;
 }
 
-
 .shuffle-display.hide {
   color: transparent;
   transition: all 0.5s ease;
+}
+
+.hidden {
+  display: none;
 }
 
 /**************/
