@@ -5,16 +5,27 @@ let counter = 0;
 const leaderBoardLimit = 100;
 const name = 'Kadampa';
 const MAX_SCORE = 900;
-const basApiUrl = 'https://node-api-serverless.vercel.app';
-const getScoresUrl = `${basApiUrl}/api/sliders/view?page=1&orderBy=score&sortBy=desc&limit=100`;
-const addScoreUrl = `${basApiUrl}/api/sliders/add`;
+const getScoresUrl =
+  '/api/sliders/view?page=1&orderBy=score&sortBy=desc&limit=100';
+const addScoreUrl = '/api/sliders/add';
 
 const create = (tagName, props = {}) => {
   const el = document.createElement(tagName);
   return Object.assign(el, props);
 };
 
+const spinner = $('#spinner');
+
+const showSpinner = () => {
+  if (spinner) spinner.style.display = 'block';
+};
+
+const hideSpinner = () => {
+  if (spinner) spinner.style.display = 'none';
+};
+
 const getScores = async () => {
+  showSpinner();
   try {
     const response = await fetch(getScoresUrl);
     if (!response.ok) {
@@ -24,6 +35,8 @@ const getScores = async () => {
     return result;
   } catch (error) {
     console.error('Error fetching scores:', error.message);
+  } finally {
+    hideSpinner();
   }
 };
 

@@ -43,16 +43,29 @@ npm i nodemon -g
 nodemon --exec http-server
 ```
 
-or
-
-```bash
-which http-server`
-```
-
-- Run http-server without nodemon
-
-```bash
-http-server -c-1
-```
-
 - Click 'Open in Browser' or from the Terminal, click the link Forwarded Address link from PORTS
+
+### Local dev server with API proxy
+
+The upstream Vercel API (`node-api-serverless.vercel.app`) only accepts requests from `https://js-sliders-game.vercel.app`. Any other origin — such as a Codespace URL — is blocked by the browser's CORS policy.
+
+To work around this, a small Express server (`server.js`) acts as a local proxy:
+
+1. The game's JavaScript always calls relative URLs (e.g. `/api/sliders/view`).
+2. In development, those requests hit the local Express server on port 8080.
+3. The Express server forwards them to the upstream Vercel API, spoofing the `Origin` header as `https://js-sliders-game.vercel.app` so the API accepts them.
+4. The response is returned to the browser — no CORS restriction, because the request never leaves the same origin as far as the browser is concerned.
+
+In production (deployed on Vercel) the same relative URL is handled by a rewrite rule in `vercel.json`, so no proxy is needed.
+
+Start the dev server with:
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+Then open the Forwarded Address shown in the **PORTS** tab (port 8080).

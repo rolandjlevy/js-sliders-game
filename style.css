@@ -24,7 +24,7 @@ html {
 body {
   margin: 50px;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #fff;
   font-size: 1.25rem;
   letter-spacing: 1px;
@@ -163,6 +163,25 @@ main > div.correct:active {
 .show {
   opacity: 1;
   transition: opacity 1s ease;
+}
+
+.spinner {
+  border: 6px solid #d3d3d370;
+  border-top: 6px solid var(--green-mid);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*************/
@@ -336,9 +355,9 @@ footer > a:hover {
 }
 
 .new-tab-icon::after {
-  font-family: "Font Awesome 5 Free";
+  font-family: 'Font Awesome 5 Free';
   font-weight: 900;
-  content: "\f35d";
+  content: '\f35d';
   margin-left: 5px;
 }
 
