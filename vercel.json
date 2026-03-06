@@ -1,8 +1,1 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "https://node-api-serverless.vercel.app/api/:path*"
-    }
-  ]
-}
+{}
