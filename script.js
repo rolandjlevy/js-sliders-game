@@ -10,9 +10,17 @@ const borderSize = getComputedStyle($("body")).getPropertyValue(
   "--border-size"
 );
 
-window.startGame = () => {
+window.startGame = async () => {
   if (!$(".shuffle-display").classList.contains("hide")) return;
   const size = $("#game-size").value;
+  // Fetch a signed token from the server encoding the grid size. Sent with the
+  // score on win so the server can verify the score is within bounds.
+  const { gameToken } = await fetch('/game/start', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ size: parseInt(size, 10) })
+  }).then((r) => r.json());
+  window.currentGameToken = gameToken;
   const scoreFactor = 150;
   const score = new Score(size, scoreFactor, $);
   window.game = new Game(size, score, $, $$);
