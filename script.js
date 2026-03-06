@@ -15,11 +15,17 @@ window.startGame = async () => {
   const size = $('#game-size').value || 3;
   // Fetch a signed token from the server encoding the grid size. Sent with the
   // score on win so the server can verify the score is within bounds.
-  const { gameToken } = await fetch('/api/game/start', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ size: parseInt(size, 10) })
-  }).then((r) => r.json());
+  let gameToken;
+  try {
+    ({ gameToken } = await fetch('/api/game/start', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ size: parseInt(size, 10) })
+    }).then((r) => r.json()));
+  } catch (err) {
+    console.error('Failed to start game:', err.message);
+    return;
+  }
   window.currentGameToken = gameToken;
   const scoreFactor = 150;
   const score = new Score(size, scoreFactor, $);
