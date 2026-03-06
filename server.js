@@ -34,7 +34,7 @@ const ALLOWED_ORIGINS = new Set(['http://localhost:8080', BASE_URL]);
 
 // Issues a signed token encoding the grid size so the server can later verify
 // that the submitted score is within the range possible for that game.
-app.post('/game/start', (req, res) => {
+app.post('/api/game/start', (req, res) => {
   const size = parseInt(req.body?.size, 10);
   if (!Number.isInteger(size) || size < 2 || size > 6) {
     return res.status(400).json({ error: 'Invalid size' });
@@ -66,7 +66,7 @@ app.use('/api', async (req, res) => {
     if (!validName) {
       return res.status(400).json({ error: 'Invalid name' });
     }
-    // Verify the signed token issued by /game/start. This proves a real game
+    // Verify the signed token issued by /api/game/start. This proves a real game
     // was started via this server and caps the score at what is possible for
     // the grid size — without requiring any changes to game logic.
     if (typeof gameToken !== 'string') {
