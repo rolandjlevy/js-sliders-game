@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
     if (ct) res.set('Content-Type', ct);
     res.send(data);
   } catch (err) {
-    console.error('Proxy error:', err.message);
-    res.status(502).json({ error: 'Proxy error' });
+    console.error('Proxy error:', err.message, '| URL:', upstreamUrl);
+    res.status(502).json({ error: 'Proxy error', detail: err.message });
   }
 };
