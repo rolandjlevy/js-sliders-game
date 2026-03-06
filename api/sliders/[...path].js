@@ -6,20 +6,11 @@ const {
 const API_BASE_URL = process.env.API_BASE_URL;
 
 module.exports = async (req, res) => {
-  const { path = [] } = req.query;
-  const subPath = Array.isArray(path) ? path.join('/') : path;
-  const queryString = new URL(req.url, 'https://placeholder').search;
-  const upstreamUrl = `${API_BASE_URL}/api/sliders/${subPath}${queryString}`;
-
-  // Temporary debug — remove after diagnosis
-  console.log(
-    'DEBUG path:',
-    JSON.stringify(path),
-    '| req.url:',
-    req.url,
-    '| upstreamUrl:',
-    upstreamUrl
-  );
+  // In Vercel, req.url is the full request path e.g. /api/sliders/view?page=1&...
+  // Strip /api/sliders to get the relative path and reconstruct the upstream URL.
+  const relPath = req.url.replace(/^\/api\/sliders/, '');
+  const subPath = relPath.split('?')[0].replace(/^\//, '');
+  const upstreamUrl = `${API_BASE_URL}/api/sliders${relPath}`;
 
   if (req.method === 'POST' && subPath === 'add') {
     const err = validateScoreSubmission(req.body);
