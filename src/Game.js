@@ -43,7 +43,7 @@ export class Game {
     shuffleDisplay.classList.remove('hide');
     const shuffleID = setInterval(() => {
       const rand = Math.round(Math.random() * (blocks.length - 1));
-      blocks[rand].div.click();
+      blocks[rand].div.dispatchEvent(new MouseEvent('mousedown'));
       const remaining = Number(
         shuffleLength - this.shuffleCount
       ).toLocaleString();

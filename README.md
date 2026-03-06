@@ -27,24 +27,6 @@
 - Uses DOMPurify to sanitize input. [DOMPurify](https://www.npmjs.com/package/dompurify) is a DOM-only sanitizer to protect against Cross-Site Scripting (XSS) attacks
 - Includes Help section and initializing sequence to randomize game
 
-### How to run this app in Github CodeSpaces
-
-- Run http-server with nodemon
-
-```bash
-npm i -g http-server
-```
-
-```bash
-npm i nodemon -g
-```
-
-```bash
-nodemon --exec http-server
-```
-
-- Click 'Open in Browser' or from the Terminal, click the link Forwarded Address link from PORTS
-
 ### Local dev server with API proxy
 
 The upstream Vercel API (`node-api-serverless.vercel.app`) only accepts requests from `https://js-sliders-game.vercel.app`. Any other origin — such as a Codespace URL — is blocked by the browser's CORS policy.
@@ -56,7 +38,7 @@ To work around this, a small Express server (`server.js`) acts as a local proxy:
 3. The Express server forwards them to the upstream Vercel API, spoofing the `Origin` header as `https://js-sliders-game.vercel.app` so the API accepts them.
 4. The response is returned to the browser — no CORS restriction, because the request never leaves the same origin as far as the browser is concerned.
 
-In production (deployed on Vercel) the same relative URL is handled by a rewrite rule in `vercel.json`, so no proxy is needed.
+In production (deployed on Vercel) the same relative URLs are handled by Vercel serverless functions in the `api/` folder (`api/game/start.js` and `api/sliders/[...path].js`), which perform the same proxying logic — injecting the correct `Origin` and `Authorization` headers before forwarding to the upstream API.
 
 Start the dev server with:
 

@@ -21,40 +21,36 @@ export class Block {
     }
   }
   addSwapEvent(div, blocks, score, game) {
-    ['click', 'mousedown'].forEach((event) => {
-      div.addEventListener(
-        event,
-        (e) => {
-          const id = e.target.id;
-          const bl = blocks.find((item) => item.blank);
-          const cr = blocks.find((item) => item.div.id == id);
-          if (this.validMove(cr, bl)) {
-            const blankCurrentNum = bl.currentNum;
-            cr.div.textContent = '';
-            cr.div.classList.add('blank');
-            cr.div.classList.remove('correct');
-            cr.blank = true;
-            bl.div.textContent = cr.currentNum;
-            bl.div.classList.remove('blank');
-            bl.blank = false;
-            bl.currentNum = cr.currentNum;
-            if (bl.currentNum == bl.div.id) {
-              bl.div.classList.add('correct');
-            }
-            cr.currentNum = blankCurrentNum;
-            const shuffleLength = game.shuffleLengths[`size_${this.size}`];
-            if (game.shuffleCount > shuffleLength) {
-              score.update(blocks);
-            }
+    div.addEventListener(
+      'mousedown',
+      (e) => {
+        const id = e.target.id;
+        const bl = blocks.find((item) => item.blank);
+        const cr = blocks.find((item) => item.div.id == id);
+        if (this.validMove(cr, bl)) {
+          const blankCurrentNum = bl.currentNum;
+          cr.div.textContent = '';
+          cr.div.classList.add('blank');
+          cr.div.classList.remove('correct');
+          cr.blank = true;
+          bl.div.textContent = cr.currentNum;
+          bl.div.classList.remove('blank');
+          bl.blank = false;
+          bl.currentNum = cr.currentNum;
+          if (bl.currentNum == bl.div.id) {
+            bl.div.classList.add('correct');
           }
-        },
-        false
-      );
-    });
+          cr.currentNum = blankCurrentNum;
+          const shuffleLength = game.shuffleLengths[`size_${this.size}`];
+          if (game.shuffleCount > shuffleLength) {
+            score.update(blocks);
+          }
+        }
+      },
+      false
+    );
   }
-  validRange(blankCurrentNum) {
-    // return range of available and valid blocks in relation to blankCurrentNum
-  }
+
   validMove(a, b) {
     return (
       (a.x + 1 == b.x && a.y == b.y) ||

@@ -40,26 +40,6 @@ const getScores = async () => {
   }
 };
 
-const getUnique = (data) =>
-  data.reduce((acc, itemA) => {
-    const found = acc.find((itemB) => {
-      const a = `${itemA.user_name}${itemA.score}`;
-      const b = `${itemB.user_name}${itemB.score}`;
-      return a === b;
-    });
-    if (!found) acc.push(itemA);
-    return acc;
-  }, []);
-
-const getUniqueMap = (data) => {
-  const uniqueMap = {};
-  data.forEach((item) => {
-    const key = `${item.user_name}${item.score}`;
-    uniqueMap[key] = item;
-  });
-  return Object.values(uniqueMap);
-};
-
 const validate = (score) => {
   return new Promise((resolve, reject) => {
     // No 'g' or 'm' flags: ^ and $ must match the entire string, not per-line.
@@ -125,61 +105,16 @@ const addScore = async (score) => {
   }
 };
 
-const clock = [
-  '&#128347;',
-  '&#128336;',
-  '&#128337;',
-  '&#128338;',
-  '&#128339;',
-  '&#128340;',
-  '&#128341;',
-  '&#128342;',
-  '&#128343;',
-  '&#128344;',
-  '&#128345;',
-  '&#128346;'
-];
-
-const clockEmojis = [
-  '🕛',
-  '🕐',
-  '🕑',
-  '🕒',
-  '🕓',
-  '🕔',
-  '🕕',
-  '🕖',
-  '🕗',
-  '🕘',
-  '🕙',
-  '🕚'
-];
-
-const spinClockAnimation = (elem) => {
-  var counter = 0;
-  setInterval(() => {
-    elem.innerHTML = clock[counter % clock.length];
-    counter++;
-  }, 100);
-};
-
-const animateClock = (elem) => {
-  let index = 0;
-  setInterval(() => {
-    elem.textContent = clockEmojis[index];
-    index = (index + 1) % clockEmojis.length;
-  }, 50);
-};
-
 window.addEventListener('DOMContentLoaded', (event) => {
   const renderAllScores = (data) => {
     $('#leader-board').innerText = '';
-    data.forEach((item, index) => {
+    let counter = 0;
+    data.forEach((item) => {
       const userName = item.user_name;
       const score = item.score;
       if (userName && Number(score) < MAX_SCORE) {
         const num = create('span', {
-          textContent: `${index + 1}. `,
+          textContent: `${counter + 1}. `,
           style: 'color: #aaa; font-size: 1rem'
         });
         const scoreContent = `${userName}: ${score}`;
@@ -188,6 +123,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         pTag.appendChild(num);
         pTag.appendChild(scoreElement);
         $('#leader-board').appendChild(pTag);
+        counter++;
       }
     });
   };
@@ -216,8 +152,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
       }
       $('#player-name').classList.add('invalid');
       $('.error-message').classList.add('show');
-    } finally {
-      return;
     }
   });
 });
