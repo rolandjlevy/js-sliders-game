@@ -1,18 +1,18 @@
-import { Block } from "./src/Block.js";
-import { Game } from "./src/Game.js";
-import { Score } from "./src/Score.js";
+import { Block } from './src/Block.js';
+import { Game } from './src/Game.js';
+import { Score } from './src/Score.js';
 
 const $ = (elem) => document.querySelector(elem);
 const $$ = (elem) => document.querySelectorAll(elem);
 
-const blockSize = getComputedStyle($("body")).getPropertyValue("--block-size");
-const borderSize = getComputedStyle($("body")).getPropertyValue(
-  "--border-size"
+const blockSize = getComputedStyle($('body')).getPropertyValue('--block-size');
+const borderSize = getComputedStyle($('body')).getPropertyValue(
+  '--border-size'
 );
 
 window.startGame = async () => {
-  if (!$(".shuffle-display").classList.contains("hide")) return;
-  const size = $("#game-size").value;
+  if (!$('.shuffle-display').classList.contains('hide')) return;
+  const size = $('#game-size').value || 3;
   // Fetch a signed token from the server encoding the grid size. Sent with the
   // score on win so the server can verify the score is within bounds.
   const { gameToken } = await fetch('/game/start', {
@@ -37,9 +37,9 @@ window.startGame = async () => {
 };
 
 window.toggleHelp = (state) => {
-  $(".help").classList[state]("show");
+  $('.help').classList[state]('show');
 };
 
 startGame();
 
-document.querySelector("#year").textContent = new Date().getFullYear();
+document.querySelector('#year').textContent = new Date().getFullYear();
