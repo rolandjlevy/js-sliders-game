@@ -11,6 +11,16 @@ module.exports = async (req, res) => {
   const queryString = new URL(req.url, 'https://placeholder').search;
   const upstreamUrl = `${API_BASE_URL}/api/sliders/${subPath}${queryString}`;
 
+  // Temporary debug — remove after diagnosis
+  console.log(
+    'DEBUG path:',
+    JSON.stringify(path),
+    '| req.url:',
+    req.url,
+    '| upstreamUrl:',
+    upstreamUrl
+  );
+
   if (req.method === 'POST' && subPath === 'add') {
     const err = validateScoreSubmission(req.body);
     if (err) return res.status(err.status).json(err.body);
