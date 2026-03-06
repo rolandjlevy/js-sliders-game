@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require('path');
-const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const {
+  createGameToken,
+  validateScoreSubmission,
+  proxyToUpstream
+} = require('./src/proxy-utils');
 
 const app = express();
 const PORT = 8080;
@@ -10,20 +14,8 @@ const BASE_URL = 'https://js-sliders-game.vercel.app';
 
 // Set GAME_SECRET in your environment for production. Without it a random
 // secret is generated at startup, making all tokens expire on server restart.
-const GAME_SECRET =
-  process.env.GAME_SECRET || require('crypto').randomBytes(32).toString('hex');
-const SCORE_FACTOR = 150;
-
-function createGameToken(size) {
-  return jwt.sign({ size }, GAME_SECRET, { expiresIn: '2h' });
-}
-
-function verifyGameToken(token) {
-  try {
-    return jwt.verify(token, GAME_SECRET); // throws if invalid or expired
-  } catch {
-    return null;
-  }
+if (!process.env.GAME_SECRET) {
+  process.env.GAME_SECRET = require('crypto').randomBytes(32).toString('hex');
 }
 
 // Parse JSON bodies for POST requests
@@ -60,56 +52,14 @@ app.use('/api', async (req, res) => {
 
   // Server-side input validation for score submissions.
   if (req.method === 'POST' && req.originalUrl.startsWith('/api/sliders/add')) {
-    const { user_name, score, gameToken } = req.body || {};
-    const validName =
-      typeof user_name === 'string' && /^[a-zA-Z0-9@ ]{3,20}$/.test(user_name);
-    if (!validName) {
-      return res.status(400).json({ error: 'Invalid name' });
-    }
-    // Verify the signed token issued by /api/game/start. This proves a real game
-    // was started via this server and caps the score at what is possible for
-    // the grid size — without requiring any changes to game logic.
-    if (typeof gameToken !== 'string') {
-      return res.status(403).json({ error: 'Game token required' });
-    }
-    const session = verifyGameToken(gameToken);
-    if (!session) {
-      return res.status(403).json({ error: 'Invalid or expired game token' });
-    }
-    const parsedScore = parseInt(score, 10);
-    const maxScore = SCORE_FACTOR * session.size;
-    const validScore =
-      Number.isInteger(parsedScore) &&
-      parsedScore >= 0 &&
-      parsedScore <= maxScore;
-    if (!validScore) {
-      return res.status(400).json({ error: 'Invalid score' });
-    }
+    const err = validateScoreSubmission(req.body);
+    if (err) return res.status(err.status).json(err.body);
   }
 
   const url = `${API_BASE_URL}${req.originalUrl}`;
 
   try {
-    let response;
-    if (req.method === 'POST') {
-      response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.API_KEY}`,
-          Origin: BASE_URL
-        },
-        body: JSON.stringify(req.body)
-      });
-    } else {
-      response = await fetch(url, {
-        method: req.method,
-        headers: {
-          Authorization: `Bearer ${process.env.API_KEY}`,
-          Origin: BASE_URL
-        }
-      });
-    }
+    const response = await proxyToUpstream(url, req.method, req.body);
     const data = await response.text();
     if (!response.ok) {
       console.error(
