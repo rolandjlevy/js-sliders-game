@@ -49,13 +49,18 @@ const getUniqueMap = (data) => {
 
 const validate = (score) => {
   return new Promise((resolve, reject) => {
-    const allowedLetters = /^[a-zA-Z0-9@ ]*$/gm;
-    const allowedNumbers = /^[0-9]*$/gm;
+    // No 'g' or 'm' flags: ^ and $ must match the entire string, not per-line.
+    // Using 'm' would allow multiline bypass (e.g. "valid\n<script>...").
+    const allowedLetters = /^[a-zA-Z0-9@ ]*$/;
+    const allowedNumbers = /^[0-9]+$/;
+    const currentMoves = parseInt(score.currentMoves, 10);
     const validScore =
-      String(score.currentMoves).match(allowedNumbers) || false;
+      !isNaN(currentMoves) &&
+      currentMoves >= 0 &&
+      currentMoves < MAX_SCORE &&
+      allowedNumbers.test(String(score.currentMoves));
     const playerNameValue = $('#player-name').value?.trim();
-    const matched = playerNameValue.match(allowedLetters);
-    const validPlayerName = matched ? matched.shift() : false;
+    const validPlayerName = allowedLetters.test(playerNameValue);
     if (!playerNameValue.length || !score.currentMoves) {
       $('#player-name').value = '';
       $('#player-name').focus();
@@ -77,9 +82,15 @@ const sanitizeInput = (value) => DOMPurify.sanitize(value);
 
 const addScore = async (score) => {
   try {
-    const userName = sanitizeInput($('#player-name').value);
-    const currentScore = sanitizeInput(score.currentMoves);
-    const formData = { user_name: userName, score: currentScore };
+    // DOMPurify is an HTML sanitiser for DOM output — not appropriate for
+    // sanitising values sent to an API. Use it only on the display name string;
+    // for the numeric score, enforce an integer with parseInt instead.
+    const userName = sanitizeInput($('#player-name').value.trim());
+    const currentScore = parseInt(score.currentMoves, 10);
+    if (isNaN(currentScore) || currentScore < 0 || currentScore >= MAX_SCORE) {
+      throw new Error('Invalid score value');
+    }
+    const formData = { user_name: userName, score: currentScore, gameToken: window.currentGameToken };
 
     const response = await fetch(addScoreUrl, {
       method: 'POST',
@@ -90,14 +101,14 @@ const addScore = async (score) => {
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to add score: ${response.statusText}`);
+      throw new Error('Failed to add score');
     }
     const data = await response.json();
-    const result = { message: 'Score added successfully', data };
-    return result;
+    return { message: 'Score added successfully', data };
   } catch (error) {
-    console.error('Error:', error);
-    return { message: 'Error: score not added', error };
+    // Log internally but do not expose raw error details to the caller.
+    console.error('Error adding score:', error.message);
+    return { message: 'Error: score not added' };
   }
 };
 
