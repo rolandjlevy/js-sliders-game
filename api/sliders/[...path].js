@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
     }
     res.status(response.status);
     const ct = response.headers.get('content-type');
-    if (ct) res.set('Content-Type', ct);
+    if (ct) res.setHeader('Content-Type', ct);
     res.send(data);
   } catch (err) {
     console.error('Proxy error:', err.message, '| URL:', upstreamUrl);
