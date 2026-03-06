@@ -2,11 +2,10 @@ const $ = (elem) => document.querySelector(elem);
 
 let users;
 let counter = 0;
-const leaderBoardLimit = 100;
+const leaderBoardLimit = 200;
 const name = 'Kadampa';
 const MAX_SCORE = 900;
-const getScoresUrl =
-  '/api/sliders/view?page=1&orderBy=score&sortBy=desc&limit=100';
+const getScoresUrl = `/api/sliders/view?page=1&orderBy=score&sortBy=desc&limit=${leaderBoardLimit}`;
 const addScoreUrl = '/api/sliders/add';
 
 const create = (tagName, props = {}) => {
@@ -74,6 +73,7 @@ const validate = (score) => {
 const sanitizeInput = (value) => DOMPurify.sanitize(value);
 
 const addScore = async (score) => {
+  showSpinner();
   try {
     // DOMPurify is an HTML sanitiser for DOM output — not appropriate for
     // sanitising values sent to an API. Use it only on the display name string;
@@ -83,7 +83,11 @@ const addScore = async (score) => {
     if (isNaN(currentScore) || currentScore < 0 || currentScore >= MAX_SCORE) {
       throw new Error('Invalid score value');
     }
-    const formData = { user_name: userName, score: currentScore, gameToken: window.currentGameToken };
+    const formData = {
+      user_name: userName,
+      score: currentScore,
+      gameToken: window.currentGameToken
+    };
 
     const response = await fetch(addScoreUrl, {
       method: 'POST',
@@ -102,6 +106,8 @@ const addScore = async (score) => {
     // Log internally but do not expose raw error details to the caller.
     console.error('Error adding score:', error.message);
     return { message: 'Error: score not added' };
+  } finally {
+    hideSpinner();
   }
 };
 
@@ -130,7 +136,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   (async () => {
     const scores = await getScores();
-    // animateClock($('.clock-display'));
     renderAllScores(scores.data);
   })();
 
@@ -140,6 +145,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
       await validate(game.s);
       await addScore(game.s);
       $('#add-score-form').style.display = 'none';
+      const updated = await getScores();
+      renderAllScores(updated.data);
       startGame();
     } catch (error) {
       console.error(error);
