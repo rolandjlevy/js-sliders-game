@@ -27,24 +27,6 @@
 - Uses DOMPurify to sanitize input. [DOMPurify](https://www.npmjs.com/package/dompurify) is a DOM-only sanitizer to protect against Cross-Site Scripting (XSS) attacks
 - Includes Help section and initializing sequence to randomize game
 
-### How to run this app in Github CodeSpaces
-
-- Run http-server with nodemon
-
-```bash
-npm i -g http-server
-```
-
-```bash
-npm i nodemon -g
-```
-
-```bash
-nodemon --exec http-server
-```
-
-- Click 'Open in Browser' or from the Terminal, click the link Forwarded Address link from PORTS
-
 ### Local dev server with API proxy
 
 The upstream Vercel API (`node-api-serverless.vercel.app`) only accepts requests from `https://js-sliders-game.vercel.app`. Any other origin — such as a Codespace URL — is blocked by the browser's CORS policy.
