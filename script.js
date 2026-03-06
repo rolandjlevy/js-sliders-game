@@ -40,6 +40,8 @@ window.toggleHelp = (state) => {
   $('.help').classList[state]('show');
 };
 
-startGame();
+document.addEventListener('DOMContentLoaded', () => {
+  startGame();
+});
 
 document.querySelector('#year').textContent = new Date().getFullYear();

@@ -26,6 +26,12 @@ function verifyGameToken(token) {
   }
 }
 
+// Parse JSON bodies for POST requests
+app.use(express.json());
+
+// Allowed origins for this local dev proxy.
+const ALLOWED_ORIGINS = new Set(['http://localhost:8080', BASE_URL]);
+
 // Issues a signed token encoding the grid size so the server can later verify
 // that the submitted score is within the range possible for that game.
 app.post('/game/start', (req, res) => {
@@ -35,12 +41,6 @@ app.post('/game/start', (req, res) => {
   }
   res.json({ gameToken: createGameToken(size) });
 });
-
-// Allowed origins for this local dev proxy.
-const ALLOWED_ORIGINS = new Set(['http://localhost:8080', BASE_URL]);
-
-// Parse JSON bodies for POST requests
-app.use(express.json());
 
 // Proxy all /api requests to the upstream Vercel API.
 // The upstream API only allows Origin: https://js-sliders-game.vercel.app,
@@ -88,17 +88,35 @@ app.use('/api', async (req, res) => {
   }
 
   const url = `${API_BASE_URL}${req.originalUrl}`;
+
   try {
-    const response = await fetch(url, {
-      method: req.method,
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.API_KEY}`,
-        Origin: BASE_URL
-      },
-      ...(req.method === 'POST' ? { body: JSON.stringify(req.body) } : {})
-    });
+    let response;
+    if (req.method === 'POST') {
+      response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.API_KEY}`,
+          Origin: BASE_URL
+        },
+        body: JSON.stringify(req.body)
+      });
+    } else {
+      response = await fetch(url, {
+        method: req.method,
+        headers: {
+          Authorization: `Bearer ${process.env.API_KEY}`,
+          Origin: BASE_URL
+        }
+      });
+    }
     const data = await response.text();
+    if (!response.ok) {
+      console.error(
+        `Upstream error ${response.status} for ${req.originalUrl}:`,
+        data
+      );
+    }
     res.status(response.status);
     const ct = response.headers.get('content-type');
     if (ct) res.set('Content-Type', ct);
