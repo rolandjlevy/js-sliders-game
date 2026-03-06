@@ -175,6 +175,13 @@ main > div.correct:active {
   margin: 20px auto;
 }
 
+.loading-text {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 0 0 16px;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -298,7 +305,7 @@ i.fas.fa-trophy {
   color: var(--green-dark) !important;
 }
 
-.top-100 {
+.top-200 {
   color: var(--grey-mid);
 }
 
@@ -366,7 +373,7 @@ footer > a:hover {
 /********/
 
 .help {
-  font-size: 1rem;
+  font-size: 0.75rem;
   text-align: left;
   background-color: var(--grey-deep);
   padding: 15px;
@@ -416,6 +423,10 @@ footer > a:hover {
   margin: 0;
   padding-left: 20px;
   pointer-events: none;
+}
+
+.help > ul > li {
+  line-height: 1.75;
 }
 
 .shuffle-display {
