@@ -2,7 +2,9 @@
 // For config options, see README: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 // https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
 {
-  "name": "Front-end Web Project",
+  "name": "Sliders Game",
+  "forwardPorts": [8080],
+  "postCreateCommand": "npm install",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -22,11 +24,7 @@
           "**/.git/subtree-cache/**": true,
           "**/node_modules/**": true
         }
-      },
-      "features": {
-        "ghcr.io/devcontainers-contrib/features/live-server:1": {}
-      },
-      "postCreateCommand": "echo 'Environment ready!'"
+      }
     }
   }
 }
