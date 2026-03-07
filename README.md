@@ -51,3 +51,41 @@ npm run dev
 ```
 
 Then open the Forwarded Address shown in the **PORTS** tab (port 8080).
+
+### Running with Vercel CLI
+
+As an alternative to the Express dev server, you can run the project locally using the Vercel CLI. This runs the same `api/` serverless functions that Vercel uses in production, giving you a closer-to-production environment.
+
+**1. Install dependencies (once)**
+
+```bash
+npm install
+```
+
+This includes the Vercel CLI as a dev dependency — no global install required.
+
+**2. Link this project to your Vercel project (once)**
+
+```bash
+vercel link
+```
+
+Follow the prompts to connect to the `js-sliders-game` project on your Vercel account.
+
+**3. Pull environment variables**
+
+```bash
+vercel env pull
+```
+
+This writes `GAME_SECRET`, `API_KEY`, and `API_BASE_URL` to a `.env.local` file in the project root (already listed in `.gitignore`, so it will never be committed).
+
+**4. Start the dev server**
+
+```bash
+npm run vercel-dev
+```
+
+Then open the Forwarded Address shown in the **PORTS** tab (port 3000), or visit [http://localhost:3000](http://localhost:3000) directly.
+
+> `vercel dev` serves static files from the project root and routes `/api/*` requests to the serverless functions in the `api/` folder — no Express server required. It runs on port 3000 by default, compared to port 8080 for `npm run dev`.

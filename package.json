@@ -4,15 +4,17 @@
   "description": "Sliders - a sliding puzzle game featuring random tile generation and a leaderboard.",
   "main": "script.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "vercel-dev": "vercel dev"
   },
   "type": "commonjs",
   "dependencies": {
+    "dotenv": "17.3.1",
     "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3",
-    "dotenv": "17.3.1"
+    "jsonwebtoken": "^9.0.3"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "vercel": "^50.28.0"
   }
 }
