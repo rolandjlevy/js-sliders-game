@@ -69,7 +69,6 @@ async function proxyToUpstream(upstreamUrl, method, body) {
 
 module.exports = {
   createGameToken,
-  verifyGameToken,
   validateScoreSubmission,
   proxyToUpstream
 };
