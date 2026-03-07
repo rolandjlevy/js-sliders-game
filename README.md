@@ -27,34 +27,11 @@
 - Uses DOMPurify to sanitize input. [DOMPurify](https://www.npmjs.com/package/dompurify) is a DOM-only sanitizer to protect against Cross-Site Scripting (XSS) attacks
 - Includes Help section and initializing sequence to randomize game
 
-### Local dev server with API proxy
+### Running locally with Vercel CLI
 
-The upstream Vercel API (`node-api-serverless.vercel.app`) only accepts requests from `https://js-sliders-game.vercel.app`. Any other origin — such as a Codespace URL — is blocked by the browser's CORS policy.
+The upstream Vercel API (`node-api-serverless.vercel.app`) only accepts requests from `https://js-sliders-game.vercel.app`. Running locally with `vercel dev` handles this transparently — the serverless functions in the `api/` folder proxy requests server-side, injecting the correct `Origin` and `Authorization` headers before forwarding to the upstream API.
 
-To work around this, a small Express server (`server.js`) acts as a local proxy:
-
-1. The game's JavaScript always calls relative URLs (e.g. `/api/sliders/view`).
-2. In development, those requests hit the local Express server on port 8080.
-3. The Express server forwards them to the upstream Vercel API, spoofing the `Origin` header as `https://js-sliders-game.vercel.app` so the API accepts them.
-4. The response is returned to the browser — no CORS restriction, because the request never leaves the same origin as far as the browser is concerned.
-
-In production (deployed on Vercel) the same relative URLs are handled by Vercel serverless functions in the `api/` folder (`api/game/start.js` and `api/sliders/[...path].js`), which perform the same proxying logic — injecting the correct `Origin` and `Authorization` headers before forwarding to the upstream API.
-
-Start the dev server with:
-
-```bash
-npm install
-```
-
-```bash
-npm run dev
-```
-
-Then open the Forwarded Address shown in the **PORTS** tab (port 8080).
-
-### Running with Vercel CLI
-
-As an alternative to the Express dev server, you can run the project locally using the Vercel CLI. This runs the same `api/` serverless functions that Vercel uses in production, giving you a closer-to-production environment.
+This gives you a close-to-production environment, with static files served from the project root and `/api/*` routes handled by the same serverless functions used in production.
 
 **1. Install dependencies (once)**
 
@@ -88,4 +65,4 @@ npm run vercel-dev
 
 Then open the Forwarded Address shown in the **PORTS** tab (port 3000), or visit [http://localhost:3000](http://localhost:3000) directly.
 
-> `vercel dev` serves static files from the project root and routes `/api/*` requests to the serverless functions in the `api/` folder — no Express server required. It runs on port 3000 by default, compared to port 8080 for `npm run dev`.
+> `vercel dev` serves static files from the project root and routes `/api/*` requests to the serverless functions in the `api/` folder. It runs on port 3000 by default.
